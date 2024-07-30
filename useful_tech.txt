@@ -1,7 +1,6 @@
 --program to implement infinite scrolling of background
-love.window.setFullscreen(true, "desktop")
-pic_iter_1 = love.graphics.newImage("bg.jpg")
-pic_iter_2 = love.graphics.newImage("bg.jpg")
+pic_iter_1 = love.graphics.newImage("image.imageformat")
+pic_iter_2 = love.graphics.newImage("image.imageformat")
 
 pic_x1 = 1366
 pic_x2 = 0
@@ -20,11 +19,5 @@ function love.update(dt)
 	pic_x2 = pic_x2 - dt*90
 	if pic_x2 <= -1366 then
 		pic_x2 = 1366
-	end
-end
-
-function love.keypressed(key)
-	if key == "escape" then
-		love.event.quit()
 	end
 end
