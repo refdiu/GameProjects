@@ -1,7 +1,7 @@
 --program to implement infinite scrolling of background
 love.window.setFullscreen(true, "desktop")
-pic_iter_1 = love.graphics.newImage("bg.jpg")
-pic_iter_2 = love.graphics.newImage("bg.jpg")
+pic_iter_1 = love.graphics.newImage("bg.jpeg")
+pic_iter_2 = love.graphics.newImage("bg.jpeg")
 
 pic_x1 = 1366
 pic_x2 = 0
