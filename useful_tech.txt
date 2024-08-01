@@ -21,3 +21,42 @@ function love.update(dt)
 		pic_x2 = 1366
 	end
 end
+to simulate gravity in an asset, we use:
+speed_variable = speed_variable + gravity_constant*dt (update variable)
+dist_variable = dist_variable + speed_variable
+ 
+we can assign our own built-methods in love2D. For example:
+love.keyboard.keysPressed = {}
+we can use it in the way as follows; suppose,
+
+function love.keypressed(key)
+	love.keyboard.keysPressed[key] = true
+
+end
+anytime the user presses any key because love.keypressed gets called for you, the table gets
+populated. This feature is provided by lua.
+now, love's keyboard functions have certain limitations, the main one of which is lack of
+customization.
+we know the function 'love.keyboard.isDown()', which checks for a continuous key input.
+but what if we need to check if the key was pressed once?
+for that, we have the function love.keypressed(key); but in the process to customize this,
+we ultimately have to override this function, which opens up a whole other can of worms.
+then what do we do?
+
+we can CREATE a function that enables us to give the ability to test whether a key was 
+pressed in the last frame, by the following:
+
+function love.keyboard.wasPressed(key)
+	--checks the table we created
+	return love.keyboard.isPressed
+end
+
+--make sure to also put the table in the update, because the table value would otherwise
+--always show true when and if a key is pressed
+but why are we doing this?
+so that we can query input from files other than main.lua
+basically,
+
+if love.keyboard.wasPressed('space') then
+	--jump math
+end
