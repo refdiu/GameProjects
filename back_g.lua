@@ -1,25 +1,32 @@
 --program to implement infinite scrolling of background
-love.window.setFullscreen(true, "desktop")
-pic_iter_1 = love.graphics.newImage("bg.jpeg")
-pic_iter_2 = love.graphics.newImage("bg.jpeg")
+Background = {pic_x1 = 1366, pic_x2 = 0, pic_y = 0, image = "bg.jpeg"}
 
-pic_x1 = 1366
-pic_x2 = 0
-pic_y = 0
-
-function love.draw()
-	love.graphics.draw(pic_iter_1, -pic_x1, pic_y)
-	love.graphics.draw(pic_iter_2, pic_x2, pic_y)
+function Bg:new()
+	o = o or {}
+	setmetatable(o, self)
+	self.__index = self
+	return o
 end
 
-function love.update(dt)
-	pic_x1 = pic_x1 + dt*90
-	if pic_x1 >= 1366 then
-		pic_x1 = -1366
+function Bg:render()
+	renimg = love.graphics.newImage(self.image)
+end
+
+
+
+function Bg:draw()
+	love.graphics.draw(renimg, -self.pic_x1, self.pic_y)
+	love.graphics.draw(renimg, self.pic_x2, self.pic_y)
+end
+
+function Bg:u(tpassed)
+	self.pic_x1 = self.pic_x1 + tpassed*90
+	if self.pic_x1 >= 1366 then
+		self.pic_x1 = -1366
 	end
-	pic_x2 = pic_x2 - dt*90
-	if pic_x2 <= -1366 then
-		pic_x2 = 1366
+	self.pic_x2 = self.pic_x2 - tpassed*90
+	if self.pic_x2 <= -1366 then
+		self.pic_x2 = 1366
 	end
 end
 
