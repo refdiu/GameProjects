@@ -11,6 +11,7 @@ platformlvl = {sti('assets/world/lvl1.lua'),
 sel = 1
 function love.load()
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
+	love.window.setTitle('Road to Code')
 	bg = Background
 	bg:render()
 end
