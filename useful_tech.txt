@@ -60,3 +60,6 @@ basically,
 if love.keyboard.wasPressed('space') then
 	--jump math
 end
+one way to load and run a file into love2D's environment is the following:
+local codefile = love.filesystem.load(filename)
+local result = pcall(codefile)
