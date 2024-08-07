@@ -1,17 +1,14 @@
-camS = 0
+camS = -0
 camsp = 50
+
+
 require('assets/world/back_g')
+player = love.graphics.newImage("assets/world/player.jpeg")
 bg = Background
 sti = require('stibg')
-stip = require('sti')
-charac = stip('assets/world/mc.lua')
-platformlvl = {sti('assets/world/lvl1.lua'), 
-	sti('assets/world/lvl2.lua'), 
-	sti('assets/world/lvl3.lua'), 
-	sti('assets/world/lvl4.lua'),
-	sti('assets/world/lvl5-0.lua'),
-	sti('assets/world/lvl5-1.lua')
-}
+platformlvl1 = sti('assets/world/lvl1.lua')
+
+
 sel = 1
 love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Road to Code')
@@ -29,18 +26,26 @@ function love.keypressed(key)
 		dofile("main.lua")
 	end
 end
+
+
+render_val = 0
 function love.draw()
+	ncamS = -math.floor(camS)
 	bg:drawim()
+	love.graphics.draw(player, 300, 330)
 	local pF = 0.27
-	love.graphics.print(-math.floor(camS), 0, 0)
-	charac:draw(320, 327)
-	if -math.floor(camS) >= -640 then
-		love.graphics.translate(-math.floor(camS), 0)
-	else	
-		love.graphics.translate(-640, 0)
+	love.graphics.print(ncamS, 0, 0)
+	if ncamS >= -640 and ncamS <= 0 then
+		love.graphics.translate(ncamS, 0)
+	elseif ncamS < -640 and ncamS >= -1280 then
+		render_val = 640
+		love.graphics.translate(ncamS, 0)
+	elseif ncamS < -1280 then
+		love.graphics.translate(-1280, 0)
 	end
-	platformlvl[sel]:draw(0, 400)
+	platformlvl1:draw(render_val, 400)
 end
+
 
 function love.update(dt)
 	bg:u(dt)
