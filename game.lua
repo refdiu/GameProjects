@@ -29,14 +29,16 @@ function love.keypressed(key)
 		dofile("main.lua")
 	end
 end
-
-
 function love.draw()
 	bg:drawim()
 	local pF = 0.27
 	love.graphics.print(-math.floor(camS), 0, 0)
 	charac:draw(320, 327)
-	love.graphics.translate(-math.floor(camS), 0)
+	if -math.floor(camS) >= -640 then
+		love.graphics.translate(-math.floor(camS), 0)
+	else	
+		love.graphics.translate(-640, 0)
+	end
 	platformlvl[sel]:draw(0, 400)
 end
 
