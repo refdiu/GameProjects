@@ -890,13 +890,11 @@ end
 -- @param sy Scale on Y
 function Map:draw(tx, ty, sx, sy)
 	local current_canvas = lg.getCanvas()
-	lg.setCanvas(self.canvas)
-	lg.clear()
+	--lg.setCanvas(self.canvas)
+	--lg.clear()
 
 	-- Scale map to 1.0 to draw onto canvas, this fixes tearing issues
 	-- Map is translated to correct position so the right section is drawn
-	lg.push()
-	lg.origin()
 	
 	--[[
 		This snippet comes from 'monolifed' on the Love2D forums,
@@ -909,7 +907,7 @@ function Map:draw(tx, ty, sx, sy)
 
 	]]
 
-	tx, ty = tx or 0, ty or 0
+	
 
 	for _, layer in ipairs(self.layers) do
 		if layer.visible and layer.opacity > 0 then
@@ -931,18 +929,14 @@ function Map:draw(tx, ty, sx, sy)
 	end
 	]]
 
-	lg.pop()
 
 	-- Draw canvas at 0,0; this fixes scissoring issues
 	-- Map is scaled to correct scale so the right section is shown
-	lg.push()
-	lg.origin()
 	lg.scale(sx or 1, sy or sx or 1)
 
 	lg.setCanvas(current_canvas)
 	lg.draw(self.canvas)
 
-	lg.pop()
 end
 
 --- Draw an individual Layer
