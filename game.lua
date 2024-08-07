@@ -1,8 +1,10 @@
 camS = 0
-camsp = 200
+camsp = 50
 require('assets/world/back_g')
 bg = Background
-sti = require('sti')
+sti = require('stibg')
+stip = require('sti')
+charac = stip('assets/world/mc.lua')
 platformlvl = {sti('assets/world/lvl1.lua'), 
 	sti('assets/world/lvl2.lua'), 
 	sti('assets/world/lvl3.lua'), 
@@ -31,16 +33,18 @@ end
 
 function love.draw()
 	bg:drawim()
+	local pF = 0.27
 	love.graphics.print(-math.floor(camS), 0, 0)
+	charac:draw(320, 327)
 	love.graphics.translate(-math.floor(camS), 0)
-	platformlvl[sel]:draw(0, 350)
+	platformlvl[sel]:draw(0, 400)
 end
 
 function love.update(dt)
+	bg:u(dt)
 	if love.keyboard.isDown("left") then
 		camS = camS - camsp*dt
 	elseif love.keyboard.isDown("right") then
 		camS = camS + camsp*dt
 	end
-	bg:u(dt)
 end

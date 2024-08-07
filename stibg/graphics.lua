@@ -43,11 +43,6 @@ function graphics.clear(...)
 	end
 end
 
-function graphics.push(...)
-	if graphics.isCreated then
-		return lg.push(...)
-	end
-end
 
 function graphics.origin(...)
 	if graphics.isCreated then
@@ -67,11 +62,6 @@ function graphics.translate(...)
 	end
 end
 
-function graphics.pop(...)
-	if graphics.isCreated then
-		return lg.pop(...)
-	end
-end
 
 function graphics.draw(...)
 	if graphics.isCreated then
