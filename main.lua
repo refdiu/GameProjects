@@ -22,7 +22,7 @@ function love.mousemoved(x, y)
 	mx = x
 	my = y
 end
-
+	
 function love.mousepressed(px,py, button)
 	if button == 1 then	
 		if px >= 290 and px <= 360 and py >= 200 and py <= 250 then
