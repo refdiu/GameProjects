@@ -1,26 +1,46 @@
+--dependencies
+require('assets/world/back_g')
+require('audio')
+require('utils')
+sti = require('stibg')
+
+
+--some required constants
 camS = -0
 camsp = 50
 gravity = 7
 Jump_v = -250
 pDY = 0
+sel = 1
+render_val = 0
 
-require('assets/world/back_g')
+--background inclusion
+bg = Background
+
+--de-bloats some conditional statements
+f = Features
+
+--the character asset
 player = love.graphics.newImage("assets/world/player.jpeg")
 p_height = love.graphics.getWidth(player)
-bg = Background
-sti = require('stibg')
-platformlvl1 = sti('assets/world/lvl1.lua')
-jump_sound = love.audio.newSource("jump.wav", 'static')
 
+--tilemap
+platformlvl1 = sti('assets/world/lvl1.lua')
 pY = love.graphics.getHeight(platformlvl1)
 
+--sounds
+sfx = Sfx
 
-sel = 1
+--some presets
 love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Road to Code')
 bg:render(1)
 
 
+
+
+
+--key config
 function love.keypressed(key)
 	if key == 'escape' then
 		love.event.quit()
@@ -33,7 +53,7 @@ function love.keypressed(key)
 	end
 	if key == 'up' then
 		pDY = Jump_v
-		love.audio.play(jump_sound)
+		sfx:play(4)
 	end
 	if key == 'q' then
 		dofile("lvl2plat.lua")
@@ -41,44 +61,53 @@ function love.keypressed(key)
 end
 
 
-render_val = 0
+
+
+
+--the real thing happens here
 function love.draw()
 	ncamS = -math.floor(camS)
-	if ncamS >= -350 and ncamS <= -299 or ncamS >= -730 and ncamS <= -670 then
-		check = true
-	else
-		check = false
-	end
+	condition = f:cond(ncamS)
 	bg:drawim()
+	
 	love.graphics.draw(player, 300, pY)
 	love.graphics.print(pY, 0, 0)
 	love.graphics.print(ncamS, 0, 10)
-	if ncamS >= -750 and ncamS <= 0 then
+	
+	if ncamS >= -780 and ncamS <= 0 then
 		love.graphics.translate(ncamS, 0)
-	elseif ncamS < -750 then
+	elseif ncamS < -780 then
+		love.timer.sleep(2)
 		dofile("lvl2plat.lua")
-		love.graphics.translate(-680, 0)
+		love.graphics.translate(-700, 0)
 	end
+	
 	platformlvl1:draw(0, 400)
-	if check then
+	
+	if condition then
 			if pY > 420 then
-				love.graphics.print("You suck.", 270, 220)
+				love.timer.sleep(2)
 				dofile("main.lua")
 			end
 	elseif pY > 330 then
 		pY = 330
 		pDY = 0
 	end
+
 end
 
 
+
+
+
+--updation
 function love.update(dt)
-	pDY = pDY + gravity
-	pY = pY + pDY*dt
 	bg:u(dt)
 	if love.keyboard.isDown("left") then
 		camS = camS - camsp*dt
 	elseif love.keyboard.isDown("right") then
 		camS = camS + camsp*dt
 	end
+	pDY = pDY + gravity
+	pY = pY + pDY*dt
 end

@@ -1,0 +1,10 @@
+Features = {}
+
+function Features:cond(ncamS)
+	if ncamS >= -350 and ncamS <= -299 or ncamS >= -730 and ncamS <= -670 then
+		check = true
+	else
+		check = false
+	end
+	return check
+end
