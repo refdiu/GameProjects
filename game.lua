@@ -29,7 +29,7 @@ function love.keypressed(key)
 	if key == 'r' then
 		dofile("main.lua")
 	end
-	if key == 'space' and pDY == 0 then
+	if key == 'up' and pDY == 0 then
 		pDY = Jump_v
 	end
 end
