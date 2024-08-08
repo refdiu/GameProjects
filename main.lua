@@ -26,7 +26,7 @@ end
 function love.mousepressed(px,py, button)
 	if button == 1 then	
 		if px >= 290 and px <= 360 and py >= 200 and py <= 250 then
-			dofile("game.lua")
+			dofile("lvl1plat.lua")
 		end
 		if px >= 290 and px <= 360 and py >= 300 and py <= 350 then
 			love.event.quit()

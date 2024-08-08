@@ -1,5 +1,5 @@
 --program to implement infinite scrolling of background
-Background = {pic_x1 = 1366, pic_x2 = 0, pic_y = 0, image = "assets/world/bg1.jpeg"}
+Background = {pic_x1 = 1366, pic_x2 = 0, pic_y = 0, image = {"assets/world/bg1.jpeg", "assets/world/bg_java.jpeg", "assets/world/bg_assembly.jpeg"}}
 
 function Background:new()
 	o = o or {}
@@ -8,8 +8,8 @@ function Background:new()
 	return o
 end
 
-function Background:render()
-	renimg = love.graphics.newImage(self.image)
+function Background:render(i)
+	renimg = love.graphics.newImage(self.image[i])
 end
 
 
