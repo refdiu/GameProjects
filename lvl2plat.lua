@@ -3,20 +3,19 @@ camsp = 50
 gravity = 7
 Jump_v = -250
 pDY = 0
-pY = 330
 
 require('assets/world/back_g')
 player = love.graphics.newImage("assets/world/player.jpeg")
 p_height = love.graphics.getWidth(player)
 bg = Background
 sti = require('stibg')
-platformlvl1 = sti('assets/world/lvl1.lua')
+platformlvl2 = sti('assets/world/lvl2.lua')
 
-
+pY = love.graphics.getHeight(platformlvl2)
 sel = 1
 love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Road to Code')
-bg:render()
+bg:render(2)
 
 
 function love.keypressed(key)
@@ -50,7 +49,7 @@ function love.draw()
 	elseif ncamS < -1280 then
 		love.graphics.translate(-1280, 0)
 	end
-	platformlvl1:draw(render_val, 400)
+	platformlvl2:draw(render_val, 350)
 end
 
 

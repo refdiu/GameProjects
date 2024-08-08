@@ -13,6 +13,8 @@ function love.draw()
 	love.graphics.print("Untitled Platformer Game", 120, 85, 0, 2.5, 2.5)
 	love.graphics.print("Start", 299, 200, 0, 1.7, 1.7)
 	love.graphics.print("Exit", 304, 300, 0, 1.7, 1.7)
+	love.graphics.print("CC0 (Public Domain)", 0, 460)
+	love.graphics.print("Made by Pitiful Games", 500, 460)
 	c:show(mx, my)
 end
 
@@ -24,43 +26,10 @@ end
 function love.mousepressed(px,py, button)
 	if button == 1 then	
 		if px >= 290 and px <= 360 and py >= 200 and py <= 250 then
-			game()
+			dofile("game.lua")
 		end
-	end
-end
-
-function game()
-	--program to implement infinite scrolling of background
-	require('assets/world/back_g')
-	sti = require('sti')
-	platformlvl = {sti('assets/world/lvl1.lua'), 
-		sti('assets/world/lvl2.lua'), 
-		sti('assets/world/lvl3.lua'), 
-		sti('assets/world/lvl4.lua'),
-		sti('assets/world/lvl5-0.lua'),
-		sti('assets/world/lvl5-1.lua')
-	}	
-	sel = 1
-	bg = Background
-	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-	love.window.setTitle('Road to Code')
-	bg:render()
-
-	function love.draw()
-		bg:drawim()	
-		platformlvl[sel]:draw(0, 400)
-	end
-
-	function love.update(dt)
-		bg:u(dt)
-	end
-
-	function love.keypressed(key)
-		if key == "escape" then
+		if px >= 290 and px <= 360 and py >= 300 and py <= 350 then
 			love.event.quit()
-		end
-		if key == "c" then
-			sel = math.random(1, 6)
 		end
 	end
 end
