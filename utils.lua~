@@ -10,7 +10,7 @@ end
 
 
 function Features:cond(SCROLL_FACTOR)
-	if SCROLL_FACTOR >= -550 and SCROLL_FACTOR <= -498 or SCROLL_FACTOR >= -730 and SCROLL_FACTOR <= -670 then
+	if SCROLL_FACTOR >= -550 and SCROLL_FACTOR <= -498 or SCROLL_FACTOR >= -900 and SCROLL_FACTOR <= -862 then
 		check = true
 	else
 		check = false
