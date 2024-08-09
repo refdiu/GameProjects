@@ -76,7 +76,7 @@ function love.draw()
 		love.graphics.translate(-1000, 0)
 	end
 	
-	platform:draw(0, 350)
+	platformlvl1:draw(0, 350)
 
 	
 	
