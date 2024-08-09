@@ -1,10 +1,20 @@
 Features = {}
+Jump = {}
+
+function Features:new()
+	o = o or {}
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
+
 
 function Features:cond(SCROLL_FACTOR)
-	if SCROLL_FACTOR >= -350 and SCROLL_FACTOR <= -299 or SCROLL_FACTOR >= -730 and SCROLL_FACTOR <= -670 then
+	if SCROLL_FACTOR >= -550 and SCROLL_FACTOR <= -498 or SCROLL_FACTOR >= -900 and SCROLL_FACTOR <= -862 then
 		check = true
 	else
 		check = false
 	end
 	return check
 end
+
