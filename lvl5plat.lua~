@@ -1,64 +1,70 @@
 --dependencies
-require('assets/world/back_g')
 require('audio')
 require('utils')
 sti = require('stibg')
-wf = require('windfield')
+
 
 --some required constants
 camS = -0
-camsp = 50
+camsp = 25
 gravity = 7
-Jump_v = -300
+Jump_v = -250
 pDY = 0
 render_val = 0
 i = 1
 
-
 --background inclusion
 bg = Background
-
 
 --de-bloats some conditional statements
 f = Features
 j = Jump
-world = wf.newWorld(0, 500)
-
 
 --the real assets
---player = {}
---player.sprite = love.graphics.newImage("assets/world/player.png")
-player = world:newBSGRectangleCollider(100, pY, 75, 70, 14)
-ground = world:newRectangleCollider(0, 340, 1600, 900)
-ground:setType('static')
---player.collider:setFixedRotation(true)
-p_height = love.graphics.getWidth(player)	
+player = love.graphics.newImage("assets/world/player.png")
+p_height = love.graphics.getWidth(player)
+	
+
+--particle system
+img = love.graphics.newImage('l50.png')
+psystem = love.graphics.newParticleSystem(img, 32)
+psystem:setParticleLifetime(1, 2)
+psystem:setEmissionRate(30)
+psystem:setSizeVariation(1)
+psystem:setLinearAcceleration(-20, -20, 20, 20)
+psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
+
 
 
 --tilemaps
-platform = sti('assets/world/lvl2.lua')
-pY = love.graphics.getHeight(platformlvl1)
+platform = {sti('assets/world/lvl5-0.lua'), sti('assets/world/lvl5-1.lua')}
+pY = 330
 
 
 --sounds
 sfx = Sfx
 
+
+--some presets
 love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-love.window.setTitle('Road to Code')
-bg:render(2)
+love.window.setTitle('Untitled Platformer Game')
 
 
+
+
+--key config
 function love.keypressed(key)
 	if key == 'escape' then
 		love.event.quit()
 	end
 	if key == 'c' then
-		sel = math.random(1, 6)
+		dofile("lvl2plat.lua")
 	end
 	if key == 'r' then
 		dofile("main.lua")
 	end
-	if key == 'up' and pDY == 0 then
+	if key == 'up' then
+		Jump_v = -150
 		pDY = Jump_v
 		sfx:play(4)
 	end
@@ -68,31 +74,25 @@ end
 --the real thing happens here
 function love.draw()
 	ncamS = -math.floor(camS)
-	fall_condition = f:cond_p2(ncamS)
-	collide_condition = f:checklvl2(ncamS, pY)
+
 	
-	bg:drawim()
-	world:draw()
-	--love.graphics.draw(player.sprite, 100, pY+5)
+	love.graphics.draw(player, 100, pY+5)
+	love.graphics.draw(psystem, 200, 200)
 	love.graphics.print(pY, 0, 0)
 	love.graphics.print(ncamS, 0, 10)
 	
-	if ncamS >= -1100 and ncamS <= 0 then
+	if ncamS >= -3000 and ncamS <= 0 then
 		love.graphics.translate(ncamS, 0)
 	end
 	
+	platform[1]:draw(0, 400)
 	
-	platform:draw(0, 350)
-	if fall_condition then
-			if pY > 420 then
-				love.timer.sleep(2)
-				dofile("main.lua")
-			end
-	elseif pY > 335 then
+	if pY > 335 then
 		pY = 335
 		pDY = 0
 	end
 end
+
 
 
 
@@ -104,11 +104,13 @@ function love.update(dt)
 		camS = camS + camsp*dt
 	end
 	
+	psystem:update(dt)
 	pDY = pDY + gravity
 	pY = pY + pDY*dt
-	world:update(dt)
 	i = i + 1
 	if i > 8 then
 		i = 1
 	end
 end
+
+

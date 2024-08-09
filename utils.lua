@@ -1,5 +1,4 @@
 Features = {}
-Jump = {}
 
 function Features:new()
 	o = o or {}
@@ -25,4 +24,18 @@ function Features:cond_p2(SCROLL_FACTOR)
 		check = false
 	end
 	return check
+end
+
+
+function Features:checklvl2(SCROLL_FACTOR, Yp)
+	if Yp >= -336 and Yp <= -335 then
+		for i = 1, 10 do
+			if SCROLL_FACTOR == self.values[i] then
+				g = self.values[i]
+			else
+				g = false
+			end
+		end
+		return g
+	end
 end

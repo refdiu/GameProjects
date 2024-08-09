@@ -55,12 +55,13 @@ function love.keypressed(key)
 	if key == 'r' then
 		dofile("main.lua")
 	end
-	if key == 'up' and ncamS <= -350 then
+	if key == 'up' and ncamS < -139 then
+		Jump_v = -150
 		pDY = Jump_v
 		sfx:play(4)
 	end
 	if key == 'q' then
-		dofile("lvl2plat.lua")
+		dofile("lvl5plat.lua")
 	end
 end
 
