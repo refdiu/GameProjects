@@ -28,7 +28,7 @@ tramp = love.graphics.newImage("assets/world/trampoline.png")
 pd = love.graphics.newImage("assets/world/pd_sprite.png")	
 
 --tilemaps
-platformlvl1 = sti('assets/world/lvl1.lua')
+platform = sti('assets/world/lvl1.lua')
 pY = love.graphics.getHeight(platformlvl1)
 
 
@@ -55,12 +55,13 @@ function love.keypressed(key)
 	if key == 'r' then
 		dofile("main.lua")
 	end
-	if key == 'up' and ncamS <= -350 then
+	if key == 'up' and ncamS < -139 then
+		Jump_v = -150
 		pDY = Jump_v
 		sfx:play(4)
 	end
 	if key == 'q' then
-		dofile("lvl2plat.lua")
+		dofile("lvl5plat.lua")
 	end
 end
 
@@ -75,6 +76,7 @@ function love.draw()
 	
 	bg:drawim()
 	love.graphics.draw(player, 100, pY+5)
+	love.graphics.print(player:getPosition, 0, 30)
 	love.graphics.print(pY, 0, 0)
 	love.graphics.print(ncamS, 0, 10)
 	

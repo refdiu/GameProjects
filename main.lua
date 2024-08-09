@@ -1,7 +1,7 @@
 require('assets/world/coo')
 function love.load()
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-	love.window.setTitle('Road to Code')
+	love.window.setTitle('Untitled Platformer Game')
 	love.graphics.setDefaultFilter('nearest', 'nearest')
 	c = coordinates
 	mx = 0

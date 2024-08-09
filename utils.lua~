@@ -1,5 +1,4 @@
-Features = {}
-Jump = {}
+Features = {values = {-510, -572, -638, -701, -813, -862, -909, -957, -1155, -1411}}
 
 function Features:new()
 	o = o or {}
@@ -9,7 +8,7 @@ function Features:new()
 end
 
 
-function Features:cond(SCROLL_FACTOR)
+function Features:cond_p1(SCROLL_FACTOR)
 	if SCROLL_FACTOR >= -550 and SCROLL_FACTOR <= -498 or SCROLL_FACTOR >= -900 and SCROLL_FACTOR <= -862 then
 		check = true
 	else
@@ -18,3 +17,25 @@ function Features:cond(SCROLL_FACTOR)
 	return check
 end
 
+function Features:cond_p2(SCROLL_FACTOR)
+	if SCROLL_FACTOR >= -139 and SCROLL_FACTOR <= -75 then
+		check = true
+	else
+		check = false
+	end
+	return check
+end
+
+
+function Features:checklvl2(SCROLL_FACTOR, Yp)
+	if Yp >= -336 and Yp <= -335 then
+		for i = 1, 10 do
+			if SCROLL_FACTOR == self.values[i] then
+				g = self.values[i]
+			else
+				g = false
+			end
+		end
+		return g
+	end
+end

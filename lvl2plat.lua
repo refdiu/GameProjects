@@ -3,6 +3,7 @@ require('assets/world/back_g')
 require('audio')
 require('utils')
 sti = require('stibg')
+wf = require('windfield')
 
 --some required constants
 camS = -0
@@ -21,10 +22,16 @@ bg = Background
 --de-bloats some conditional statements
 f = Features
 j = Jump
+world = wf.newWorld(0, 500)
 
 
 --the real assets
-player = love.graphics.newImage("assets/world/player.png")
+--player = {}
+--player.sprite = love.graphics.newImage("assets/world/player.png")
+player = world:newBSGRectangleCollider(100, pY, 75, 70, 14)
+ground = world:newRectangleCollider(0, 340, 800, 300)
+ground:setType('static')
+--player.collider:setFixedRotation(true)
 p_height = love.graphics.getWidth(player)	
 
 
@@ -61,28 +68,23 @@ end
 --the real thing happens here
 function love.draw()
 	ncamS = -math.floor(camS)
-	condition = f:cond_p2(ncamS)
+	fall_condition = f:cond_p2(ncamS)
+	collide_condition = f:checklvl2(ncamS, pY)
 	
 	bg:drawim()
-	love.graphics.draw(player, 100, pY+5)
+	world:draw()
+	--love.graphics.draw(player.sprite, 100, pY+5)
 	love.graphics.print(pY, 0, 0)
 	love.graphics.print(ncamS, 0, 10)
 	
 	if ncamS >= -1100 and ncamS <= 0 then
 		love.graphics.translate(ncamS, 0)
-	elseif ncamS < -1000 then
-		love.timer.sleep(2)
-		dofile("lvl2plat.lua")
-		love.graphics.translate(-1000, 0)
 	end
 	
+	
 	platform:draw(0, 350)
-
-	
-	
-	if condition then
+	if fall_condition then
 			if pY > 420 then
-				love.graphics.print('you suck', 150, 150)
 				love.timer.sleep(2)
 				dofile("main.lua")
 			end
@@ -104,6 +106,7 @@ function love.update(dt)
 	
 	pDY = pDY + gravity
 	pY = pY + pDY*dt
+	world:update(dt)
 	i = i + 1
 	if i > 8 then
 		i = 1
