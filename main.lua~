@@ -34,7 +34,7 @@ function love.mousepressed(px,py, button)
 		if px >= 465 and px <= 570 and py >= 350 and py <= 400 then
 			dofile("lvl1plat.lua")
 		end
-		if px >= 470 and px <= 560 and py >= 490 and py <= 550 then
+		if px >= 470 and px <= 360 and py >= 490 and py <= 550 then
 			love.event.quit()
 		end
 	end
