@@ -92,9 +92,7 @@ function love.draw()
 	elseif pY > 335 then
 		pY = 335
 		pDY = 0
-	end
-	
-	if ncamS >= -1656 and ncamS <= 1595 and pY > 290 then
+	elseif ncamS >= -1656 and ncamS <= 1595 and pY > 290 then
 		pY = 290
 		pDY = 0
 	end
