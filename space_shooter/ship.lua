@@ -20,6 +20,3 @@ function Ship:bullet_drawim(bullet_x, bullet_y)
 	love.graphics.draw(bullet_renimg, bullet_x, bullet_y, 0, 4, 4)
 end
 
-function Ship:bullet_trans(cx, deltat)
-	cx = cx + 30*deltat
-end
