@@ -1,0 +1,18 @@
+Rock = {r_image = "sproject.png"}
+
+function Rock:new()
+	o = o or {}
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
+
+function Rock:r_render()
+	r_renimg = love.graphics.newImage(self.r_image)
+end
+
+function Rock:r_drawim(rx)
+	love.graphics.draw(r_renimg, rx, 240, 0, 3, 3)
+end
+
+
