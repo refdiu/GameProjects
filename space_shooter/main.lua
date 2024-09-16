@@ -1,7 +1,7 @@
 function love.load()
-	require('back_g')
-	require('ship')
-	require('rock')
+	require('assets/back_g')
+	require('assets/ship')
+	require('assets/rock')
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Road to Code')
 	love.mouse.setVisible(false)
@@ -13,7 +13,7 @@ function love.load()
 	bg:bg_render()
 	s:s_render()	
 	r:r_render()	
-	shoodata = love.sound.newSoundData("explosion (1).wav")
+	shoodata = love.sound.newSoundData("assets/explosion (1).wav")
 	shoot = love.audio.newSource(shoodata)
 	r_x = 650
 	score_counter = 0
@@ -23,7 +23,7 @@ local ry = love.math.random(1, 9)
 
 function love.update(dt)
 	bg:bg_u(dt)
-	r_x = r_x - 250 * dt
+	r_x = r_x - 450 * dt
 	if r_x > s_x and r_x < s_x + 30 and r_y > s_y - 10 and r_y < s_y + 10 then
 		score_counter = 0
 		love.event.quit()
