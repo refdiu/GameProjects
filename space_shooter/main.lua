@@ -17,42 +17,41 @@ function love.load()
 	shoot = love.audio.newSource(shoodata)
 	r_x = 650
 	score_counter = 0
+	rand_y = {48, 96, 144, 192, 240, 288, 336, 384, 432}
 end
-
-
-
+local ry = love.math.random(1, 9)
 
 function love.update(dt)
 	bg:bg_u(dt)
-	r_x = r_x - 150 * dt
+	r_x = r_x - 250 * dt
 	if r_x > s_x and r_x < s_x + 30 and r_y > s_y - 10 and r_y < s_y + 10 then
 		score_counter = 0
 		love.event.quit()
 	end
 	for i, bullet in ipairs(bullets) do
-        bullet.x = bullet.x + 250 * dt
+        bullet.x = bullet.x + 250 * dt    
         if bullet.y < r_y + 30 and bullet.y > r_y - 10 then
-        	if r_x > bullet.x -10 and r_x < bullet.x + 10 then
+        	if r_x > bullet.x - 10 and r_x < bullet.x + 10 then
 				r_x = 650
 				score_counter = score_counter + 1
-				execute = true
-				return execute
+				shuffle(rand_y)
 			end
 		end
 	end
 	if r_x < 0 then
 		score_counter = score_counter - 1
 		r_x = 650
-		execute = true
-		return execute
+		shuffle(rand_y)
 	end
 end
+
 
 function love.draw()
 	bg:bg_drawim()
 	love.graphics.print(score_counter, 0, 0, 0, 3, 3)
 	s:s_drawim(s_x, s_y)
-	r_y = r:r_drawim(r_x, execute)
+	r_y = rand_y[ry]
+	r:r_drawim(r_x, r_y)
     for i, bullet in ipairs(bullets) do
         s:bullet_drawim(bullet.x, bullet.y)
     end
@@ -60,9 +59,13 @@ end
 
 
 
-
-
-
+function shuffle(tbl)
+  for i = #tbl, 2, -1 do
+    local j = math.random(i)
+    tbl[i], tbl[j] = tbl[j], tbl[i]
+  end
+  return tbl
+end
 
 
 
