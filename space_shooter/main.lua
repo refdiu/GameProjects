@@ -21,7 +21,7 @@ end
 function love.mousepressed(x, y, button, istouch)
 	if button == 1 then
 		if x >= 290 and x <= 350 and y >= 200 and y <= 240 then
-			dofile('assets/game.lua')
+			dofile("game.lua")
 		elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
 			love.event.quit()
 		end
