@@ -40,7 +40,7 @@ function love.update(dt)
 	r_x = r_x - 450 * dt
 	if r_x and s_x and r_y and s_y then
 		if r_x > s_x - 20 and r_x < s_x + 20 and r_y > s_y - 20 and r_y < s_y + 20 then
-			dofile("gameover.lua")
+			love.event.quit()
 		end
 	end
 	for i, bullet in ipairs(bullets) do
