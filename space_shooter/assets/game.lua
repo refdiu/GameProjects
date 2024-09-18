@@ -11,6 +11,7 @@ r = Rock
 s:s_render()	
 r:r_render()	
 shoodata = love.sound.newSoundData("assets/explosion (1).wav")
+main_font = love.graphics.newFont("assets/Evil Empire.otf")
 shoot = love.audio.newSource(shoodata)
 score_counter = 0
 rand_y = {48, 96, 144, 192, 240, 288, 336, 384, 432}
@@ -20,9 +21,9 @@ bg = Background
 bg:bg_render()
 local r_x = 650
 
-
 function love.draw()
 	bg:bg_drawim()
+	love.graphics.setFont(main_font)
 	love.graphics.print(score_counter, 0, 0, 0, 3, 3)
 	s:s_drawim(s_x, s_y)
 	r_y = rand_y[ry]
@@ -41,6 +42,7 @@ function love.update(dt)
 		if r_x > s_x and r_x < s_x + 30 and r_y > s_y - 10 and r_y < s_y + 10 then
 			score_counter = 0
 			love.event.quit()
+			return "Game Over!!"
 		end
 	end
 	for i, bullet in ipairs(bullets) do
