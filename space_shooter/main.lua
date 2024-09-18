@@ -14,13 +14,16 @@ function love.draw()
 	love.graphics.setFont(main_font)
 	love.graphics.print("Intergalactic", 165, 75, 0, 5, 5)
 	love.graphics.print("Play", 290, 200, 0, 3, 3)
+	love.graphics.print("Exit", 290, 300, 0, 3, 3)
 	c:show(mouse_x, mouse_y)
 end
 
-function love.mousepressed(mpx, mpy, button, istouch)
+function love.mousepressed(x, y, button, istouch)
 	if button == 1 then
-		if mpx >= 290 and mpx <= 350 and mpy >= 200 and mpy <= 240 then
+		if x >= 290 and x <= 350 and y >= 200 and y <= 240 then
 			dofile('assets/game.lua')
+		elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
+			love.event.quit()
 		end
 	end
 end

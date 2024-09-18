@@ -39,7 +39,7 @@ function love.update(dt)
 	bg:bg_u(dt)
 	r_x = r_x - 450 * dt
 	if r_x and s_x and r_y and s_y then
-		if r_x > s_x and r_x < s_x + 30 and r_y > s_y - 10 and r_y < s_y + 10 then
+		if r_x > s_x - 20 and r_x < s_x + 20 and r_y > s_y - 20 and r_y < s_y + 20 then
 			score_counter = 0
 			love.event.quit()
 			return "Game Over!!"
