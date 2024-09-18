@@ -7,6 +7,7 @@ function love.load()
 	love.window.setTitle('Intergalactic')
 	c = coordinates
 	mouse_x, mouse_y = 0
+	require('game')
 end
 
 function love.draw()
@@ -21,7 +22,7 @@ end
 function love.mousepressed(x, y, button, istouch)
 	if button == 1 then
 		if x >= 290 and x <= 350 and y >= 200 and y <= 240 then
-			require('game')
+			game_play()
 		elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
 			love.event.quit()
 		end
@@ -32,4 +33,5 @@ function love.mousemoved(mx, my)
 	mouse_x = mx
 	mouse_y = my
 end
+
 	
