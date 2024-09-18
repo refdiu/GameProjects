@@ -10,6 +10,7 @@ end
 
 function Background:bg_render()
 	renimg = love.graphics.newImage(self.image)
+	return Background
 end
 
 
@@ -17,6 +18,7 @@ end
 function Background:bg_drawim()
 	love.graphics.draw(renimg, -self.pic_x1, self.pic_y)
 	love.graphics.draw(renimg, self.pic_x2, self.pic_y)
+	return Background
 end
 
 function Background:bg_u(tpassed)
@@ -28,5 +30,5 @@ function Background:bg_u(tpassed)
 	if self.pic_x2 <= -640 then
 		self.pic_x2 = 640
 	end
+	return Background
 end
-
