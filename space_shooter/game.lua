@@ -1,92 +1,141 @@
 --prerequisites
-require('assets/ship')
-require('assets/rock')
-love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-love.window.setTitle('Intergalactic')
-love.mouse.setVisible(false)
-bullets = {}
-projectiles = {}
-s = Ship
-r = Rock
-s:s_render()	
-r:r_render()	
-shoodata = love.sound.newSoundData("assets/explosion (1).wav")
-main_font = love.graphics.newFont("assets/Evil Empire.otf")
-shoot = love.audio.newSource(shoodata)
-score_counter = 0
-rand_y = {48, 96, 144, 192, 240, 288, 336, 384, 432}
-ry = love.math.random(1, 9)
-bg = require("assets/back_g")
-bg = Background
-bg:bg_render()
-local r_x = 650
+function game_play()
+	require('assets/ship')
+	require('assets/rock')
+	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
+	love.window.setTitle('Intergalactic')
+	love.mouse.setVisible(false)
+	bullets = {}
+	projectiles = {}
+	s = Ship
+	r = Rock
+	s:s_render()	
+	r:r_render()	
+	shoodata = love.sound.newSoundData("assets/explosion (1).wav")
+	main_font = love.graphics.newFont("assets/Evil Empire.otf")
+	shoot = love.audio.newSource(shoodata)
+	score_counter = 0
+	rand_y = {48, 96, 144, 192, 240, 288, 336, 384, 432}
+	ry = love.math.random(1, 9)
+	bg = require("assets/back_g")
+	bg = Background
+	bg:bg_render()
+	local r_x = 650
+	
+	function love.draw()
+		bg:bg_drawim()
+		love.graphics.setFont(main_font)
+		love.graphics.print(score_counter, 0, 0, 0, 3, 3)
+		s:s_drawim(s_x, s_y)
+		r_y = rand_y[ry]
+		r:r_drawim(r_x, r_y)
+    	for i, bullet in ipairs(bullets) do
+    	    s:bullet_drawim(bullet.x, bullet.y)
+    	end
+	end
 
-function love.draw()
-	bg:bg_drawim()
-	love.graphics.setFont(main_font)
-	love.graphics.print(score_counter, 0, 0, 0, 3, 3)
-	s:s_drawim(s_x, s_y)
-	r_y = rand_y[ry]
-	r:r_drawim(r_x, r_y)
-    for i, bullet in ipairs(bullets) do
-        s:bullet_drawim(bullet.x, bullet.y)
-    end
+
+
+	function love.update(dt)
+		bg:bg_u(dt)
+		r_x = r_x - 450 * dt
+		if r_x and s_x and r_y and s_y then
+			if r_x > s_x - 20 and r_x < s_x + 20 and r_y > s_y - 20 and r_y < s_y + 20 then
+				gmvr()
+			end
+		end
+		for i, bullet in ipairs(bullets) do
+    	    bullet.x = bullet.x + 250 * dt    
+    	    if bullet.y < r_y + 30 and bullet.y > r_y - 10 then
+    	    	if r_x > bullet.x - 10 and r_x < bullet.x + 10 then
+					r_x = 650
+					score_counter = score_counter + 1
+					shuffle(rand_y)
+				end
+			end
+		end
+		if r_x < 0 then
+			score_counter = score_counter - 1
+			r_x = 650
+			shuffle(rand_y)
+		end
+	end
+
+
+	function shuffle(tbl)
+  		for i = #tbl, 2, -1 do
+    		local j = math.random(i)
+    		tbl[i], tbl[j] = tbl[j], tbl[i]
+  		end
+  		return tbl
+	end
+
+
+
+
+	function love.mousemoved(mx, my)
+		s_x = mx
+		s_y = my
+	end
+		
+	function love.keypressed(key)
+		if key == "escape" then
+			love.event.quit()
+		end
+	end 
+	
+	
+	function love.mousepressed(x, y, button, istouch)
+		if button == 1 then
+			shot = love.audio.play(shoot)
+	    	table.insert(bullets, {x = s_x + 50, y = s_y + 22})
+		end
+	end
 end
 
 
 
-function love.update(dt)
-	bg:bg_u(dt)
-	r_x = r_x - 450 * dt
-	if r_x and s_x and r_y and s_y then
-		if r_x > s_x - 20 and r_x < s_x + 20 and r_y > s_y - 20 and r_y < s_y + 20 then
-			love.event.quit()
-		end
+
+
+
+
+function gmvr()
+	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+	main_font:setFilter("nearest", "nearest")
+	love.window.setTitle('Intergalactic')
+	mouse_x, mouse_y = 0
+	love.mouse.setVisible(true)
+	m_font = love.graphics.newFont('assets/Evil Empire.otf', 12)
+	
+	function love.draw()
+		love.graphics.setFont(m_font)
+		love.graphics.print("Game Over!!!", 185, 75, 0, 5, 5)
+		love.graphics.print("Retry", 280, 200, 0, 3, 3)
+		love.graphics.print("Exit", 290, 300, 0, 3, 3)
 	end
-	for i, bullet in ipairs(bullets) do
-        bullet.x = bullet.x + 250 * dt    
-        if bullet.y < r_y + 30 and bullet.y > r_y - 10 then
-        	if r_x > bullet.x - 10 and r_x < bullet.x + 10 then
-				r_x = 650
-				score_counter = score_counter + 1
-				shuffle(rand_y)
+
+	function love.mousepressed(x, y, button, istouch)
+		if button == 1 then
+			if x >= 230 and x <= 400 and y >= 200 and y <= 240 then
+				game_play()
+			elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
+				love.event.quit()
 			end
 		end
 	end
-	if r_x < 0 then
-		score_counter = score_counter - 1
-		r_x = 650
-		shuffle(rand_y)
+
+	function love.mousemoved(mx, my)
+		mouse_x = mx
+		mouse_y = my
 	end
 end
 
 
-function shuffle(tbl)
-  for i = #tbl, 2, -1 do
-    local j = math.random(i)
-    tbl[i], tbl[j] = tbl[j], tbl[i]
-  end
-  return tbl
-end
 
 
 
 
-function love.mousemoved(mx, my)
-	s_x = mx
-	s_y = my
-end
-	
-function love.keypressed(key)
-	if key == "escape" then
-		love.event.quit()
-	end
-end 
 
 
-function love.mousepressed(x, y, button, istouch)
-	if button == 1 then
-		shot = love.audio.play(shoot)
-    	table.insert(bullets, {x = s_x + 50, y = s_y + 22})
-	end
-end
+
+
