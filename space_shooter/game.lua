@@ -10,10 +10,12 @@ function game_play()
 	s = Ship
 	r = Rock
 	s:s_render()	
-	r:r_render()	
-	shoodata = love.sound.newSoundData("assets/explosion (1).wav")
+	r:r_render()
 	main_font = love.graphics.newFont("assets/Evil Empire.otf")
+	shoodata = love.sound.newSoundData("assets/explosion (1).wav")
+	expldata = love.sound.newSoundData("assets/collision.wav")
 	shoot = love.audio.newSource(shoodata)
+	collide = love.audio.newSource(expldata)
 	score_counter = 0
 	rand_y = {48, 96, 144, 192, 240, 288, 336, 384, 432}
 	ry = love.math.random(1, 9)
@@ -49,6 +51,7 @@ function game_play()
     	    if bullet.y < r_y + 30 and bullet.y > r_y - 10 then
     	    	if r_x > bullet.x - 10 and r_x < bullet.x + 10 then
 					r_x = 650
+					collided = love.audio.play(collide)
 					score_counter = score_counter + 1
 					shuffle(rand_y)
 				end
@@ -88,7 +91,7 @@ function game_play()
 	function love.mousepressed(x, y, button, istouch)
 		if button == 1 then
 			shot = love.audio.play(shoot)
-	    	table.insert(bullets, {x = s_x + 50, y = s_y + 22})
+	    		table.insert(bullets, {x = s_x + 50, y = s_y + 22})
 		end
 	end
 end
