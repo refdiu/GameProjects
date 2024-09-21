@@ -2,6 +2,7 @@
 function game_play()
 	require('assets/ship')
 	require('assets/rock')
+	require('assets/flair')
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Intergalactic')
 	love.mouse.setVisible(false)
@@ -9,6 +10,7 @@ function game_play()
 	projectiles = {}
 	s = Ship
 	r = Rock
+	k = Kaboom
 	s:s_render()	
 	r:r_render()
 	main_font = love.graphics.newFont("assets/Evil Empire.otf")
@@ -23,9 +25,11 @@ function game_play()
 	bg = Background
 	bg:bg_render()
 	local r_x = 650
+	local a_x = nil
+	local a_y = nil
 	
 	function love.draw()
-		bg:bg_drawim()
+		--	bg:bg_drawim()
 		love.graphics.setFont(main_font)
 		love.graphics.print(score_counter, 0, 0, 0, 3, 3)
 		s:s_drawim(s_x, s_y)
@@ -34,6 +38,7 @@ function game_play()
     	for i, bullet in ipairs(bullets) do
     	    s:bullet_drawim(bullet.x, bullet.y)
     	end
+    	k:anim(a_x, a_y)
 	end
 
 
@@ -50,6 +55,9 @@ function game_play()
     	    bullet.x = bullet.x + 250 * dt    
     	    if bullet.y < r_y + 30 and bullet.y > r_y - 10 then
     	    	if r_x > bullet.x - 10 and r_x < bullet.x + 10 then
+					a_x = r_x
+					a_y = r_y
+					k:k_update(dt/30)
 					r_x = 650
 					collided = love.audio.play(collide)
 					score_counter = score_counter + 1
