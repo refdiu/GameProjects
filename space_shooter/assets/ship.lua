@@ -1,4 +1,5 @@
-Ship = {s_image = "assets/sship.png", bullet_image = "assets/bullet.png"}
+Ship = {s_image = love.graphics.newImage("assets/sship.png"), bullet_image = "assets/bullet.png"}
+ship_arr = {love.graphics.newQuad(48, 0, 16, 16, Ship.s_image), love.graphics.newQuad(64, 0, 16, 16, Ship.s_image), love.graphics.newQuad(48, 16, 16, 16, Ship.s_image), love.graphics.newQuad(64, 16, 16, 16, Ship.s_image), love.graphics.newQuad(48, 32, 16, 16, Ship.s_image), love.graphics.newQuad(64, 32, 16, 16, Ship.s_image)}
 
 function Ship:new()
 	o = o or {}
@@ -8,12 +9,12 @@ function Ship:new()
 end
 
 function Ship:s_render()
-	s_renimg = love.graphics.newImage(self.s_image)
+	s_renimg = self.s_image
 	bullet_renimg = love.graphics.newImage(self.bullet_image)
 end
 
-function Ship:s_drawim(ship_x, ship_y)
-	love.graphics.draw(s_renimg, ship_x, ship_y, 0, 3, 3)
+function Ship:s_drawim(ship_x, ship_y, s_h, s_v, ship_no)
+	love.graphics.draw(self.s_image, ship_arr[ship_no], ship_x, ship_y, 0, s_h, s_v)
 end
 
 function Ship:bullet_drawim(bullet_x, bullet_y)

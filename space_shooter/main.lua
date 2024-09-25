@@ -5,9 +5,9 @@ function love.load()
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
 	main_font:setFilter("nearest")
 	love.window.setTitle('Intergalactic')
-	c = coordinates
-	mouse_x, mouse_y = 0
-	require('game')
+	c = Coordinates
+	mouse_x = 0
+	mouse_y = 0
 end
 
 function love.draw()
@@ -22,7 +22,7 @@ end
 function love.mousepressed(x, y, button, istouch)
 	if button == 1 then
 		if x >= 290 and x <= 350 and y >= 200 and y <= 240 then
-			game_play()
+			dofile("assets/sc_select.lua")
 		elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
 			love.event.quit()
 		end

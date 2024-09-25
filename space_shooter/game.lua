@@ -2,7 +2,6 @@
 function game_play()
 	require('assets/ship')
 	require('assets/rock')
-	require('assets/flair')
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Intergalactic')
 	love.mouse.setVisible(false)
@@ -10,7 +9,6 @@ function game_play()
 	projectiles = {}
 	s = Ship
 	r = Rock
-	k = Kaboom
 	s:s_render()	
 	r:r_render()
 	main_font = love.graphics.newFont("assets/Evil Empire.otf")
@@ -29,7 +27,7 @@ function game_play()
 	local a_y = nil
 	
 	function love.draw()
-		--	bg:bg_drawim()
+		bg:bg_drawim()
 		love.graphics.setFont(main_font)
 		love.graphics.print(score_counter, 0, 0, 0, 3, 3)
 		s:s_drawim(s_x, s_y)
@@ -38,7 +36,6 @@ function game_play()
     	for i, bullet in ipairs(bullets) do
     	    s:bullet_drawim(bullet.x, bullet.y)
     	end
-    	k:anim(a_x, a_y)
 	end
 
 
@@ -48,7 +45,7 @@ function game_play()
 		r_x = r_x - 450 * dt
 		if r_x and s_x and r_y and s_y then
 			if r_x > s_x - 20 and r_x < s_x + 20 and r_y > s_y - 20 and r_y < s_y + 20 then
-				gmvr()
+				love.event.quit()
 			end
 		end
 		for i, bullet in ipairs(bullets) do
@@ -57,7 +54,6 @@ function game_play()
     	    	if r_x > bullet.x - 10 and r_x < bullet.x + 10 then
 					a_x = r_x
 					a_y = r_y
-					k:k_update(dt/30)
 					r_x = 650
 					collided = love.audio.play(collide)
 					score_counter = score_counter + 1
@@ -103,44 +99,6 @@ function game_play()
 		end
 	end
 end
-
-
-
-
-
-
-
-function gmvr()
-	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
-	main_font:setFilter("nearest", "nearest")
-	love.window.setTitle('Intergalactic')
-	mouse_x, mouse_y = 0
-	love.mouse.setVisible(true)
-	m_font = love.graphics.newFont('assets/Evil Empire.otf', 12)
-	
-	function love.draw()
-		love.graphics.setFont(m_font)
-		love.graphics.print("Game Over!!!", 185, 75, 0, 5, 5)
-		love.graphics.print("Retry", 280, 200, 0, 3, 3)
-		love.graphics.print("Exit", 290, 300, 0, 3, 3)
-	end
-
-	function love.mousepressed(x, y, button, istouch)
-		if button == 1 then
-			if x >= 230 and x <= 400 and y >= 200 and y <= 240 then
-				game_play()
-			elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
-				love.event.quit()
-			end
-		end
-	end
-
-	function love.mousemoved(mx, my)
-		mouse_x = mx
-		mouse_y = my
-	end
-end
-
 
 
 
