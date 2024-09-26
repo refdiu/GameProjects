@@ -1,10 +1,10 @@
 --prerequisites
-function game_play()
+function game_play(ship_option)
 	require('assets/ship')
 	require('assets/rock')
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Intergalactic')
-	love.mouse.setVisible(false)
+	local sv = love.mouse.setVisible(false)
 	bullets = {}
 	projectiles = {}
 	s = Ship
@@ -12,9 +12,9 @@ function game_play()
 	s:s_render()	
 	r:r_render()
 	main_font = love.graphics.newFont("assets/Evil Empire.otf")
-	shoodata = love.sound.newSoundData("assets/explosion (1).wav")
+	shoodata = {love.sound.newSoundData("assets/s1.wav"), love.sound.newSoundData("assets/s2.wav"),     love.sound.newSoundData("assets/s3.wav"), love.sound.newSoundData("assets/s4.wav"), love.sound.newSoundData("assets/s5.wav"), love.sound.newSoundData("assets/s6.wav")}
 	expldata = love.sound.newSoundData("assets/collision.wav")
-	shoot = love.audio.newSource(shoodata)
+	shoot = love.audio.newSource(shoodata[ship_option])
 	collide = love.audio.newSource(expldata)
 	score_counter = 0
 	rand_y = {48, 96, 144, 192, 240, 288, 336, 384, 432}
@@ -30,7 +30,7 @@ function game_play()
 		bg:bg_drawim()
 		love.graphics.setFont(main_font)
 		love.graphics.print(score_counter, 0, 0, 0, 3, 3)
-		s:s_drawim(s_x, s_y)
+		s:s_drawim(s_x, s_y, 3, ship_option)
 		r_y = rand_y[ry]
 		r:r_drawim(r_x, r_y)
     	for i, bullet in ipairs(bullets) do
@@ -88,6 +88,8 @@ function game_play()
 	function love.keypressed(key)
 		if key == "escape" then
 			love.event.quit()
+		elseif key == "s" then
+			dofile("assets/sc_select.lua")
 		end
 	end 
 	

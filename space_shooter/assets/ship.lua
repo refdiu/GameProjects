@@ -11,10 +11,11 @@ end
 function Ship:s_render()
 	s_renimg = self.s_image
 	bullet_renimg = love.graphics.newImage(self.bullet_image)
+	s_renimg:setFilter("nearest")
 end
 
-function Ship:s_drawim(ship_x, ship_y, s_h, s_v, ship_no)
-	love.graphics.draw(self.s_image, ship_arr[ship_no], ship_x, ship_y, 0, s_h, s_v)
+function Ship:s_drawim(ship_x, ship_y, s_size, ship_no)
+	love.graphics.draw(self.s_image, ship_arr[ship_no], ship_x, ship_y, 0, s_size, s_size)
 end
 
 function Ship:bullet_drawim(bullet_x, bullet_y)
