@@ -2,6 +2,7 @@
 function game_play(ship_option)
 	require('assets/ship')
 	require('assets/rock')
+	require('assets/select')
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Intergalactic')
 	local sv = love.mouse.setVisible(false)
@@ -89,7 +90,7 @@ function game_play(ship_option)
 		if key == "escape" then
 			love.event.quit()
 		elseif key == "s" then
-			dofile("assets/sc_select.lua")
+			ship_select()
 		end
 	end 
 	
