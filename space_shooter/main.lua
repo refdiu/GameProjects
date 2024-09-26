@@ -1,7 +1,8 @@
 function love.load()
-	c = require('assets/utils')
-	main_font = love.graphics.newFont('assets/Evil Empire.otf', 12)
-	front_img = love.graphics.newImage('assets/menui.png')
+	c = require("assets/utils")
+	require("assets/select")
+	main_font = love.graphics.newFont("assets/Evil Empire.otf", 12)
+	front_img = love.graphics.newImage("assets/menui.png")
 	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
 	main_font:setFilter("nearest")
 	love.window.setTitle('Intergalactic')
@@ -22,7 +23,7 @@ end
 function love.mousepressed(x, y, button, istouch)
 	if button == 1 then
 		if x >= 290 and x <= 350 and y >= 200 and y <= 240 then
-			dofile("assets/sc_select.lua")
+			ship_select()
 		elseif x >= 290 and x <= 350 and y >= 300 and y <= 340 then
 			love.event.quit()
 		end
