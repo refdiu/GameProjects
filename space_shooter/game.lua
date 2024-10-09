@@ -23,7 +23,7 @@ function game_play(ship_option)
 	bg = require("assets/back_g")
 	bg = Background
 	bg:bg_render()
-	local r_x = 650
+	r_x = 650
 	local a_x = nil
 	local a_y = nil
 	
@@ -38,7 +38,6 @@ function game_play(ship_option)
     	    s:bullet_drawim(bullet.x, bullet.y)
     	end
 	end
-
 
 
 	function love.update(dt)
@@ -80,7 +79,6 @@ function game_play(ship_option)
 
 
 
-
 	function love.mousemoved(mx, my)
 		s_x = mx
 		s_y = my
@@ -98,14 +96,50 @@ function game_play(ship_option)
 	function love.mousepressed(x, y, button, istouch)
 		if button == 1 then
 			shot = love.audio.play(shoot)
-	    		table.insert(bullets, {x = s_x + 50, y = s_y + 22})
+	    	table.insert(bullets, {x = s_x + 50, y = s_y + 22})
 		end
 	end
 end
 
-
-
-
+--[[function gameover()
+	function love.load()
+		--c = require("assets/utils")
+		require("assets/select")
+		--[[main_font = love.graphics.newFont("assets/Evil Empire.otf", 12)
+		front_img = love.graphics.newImage("assets/menui.png")
+		love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+		love.window.setTitle('Intergalactic')
+		c = Coordinates
+		mouse_x = 0
+		mouse_y = 0
+		r_x = 650
+	end
+	main_font:setFilter("nearest")
+	love.mouse.setVisible(true)
+	
+	function love.draw()
+		love.graphics.setFont(main_font)
+		love.graphics.print("Game Over!", 200, 75, 0, 5, 5)
+		love.graphics.print("Play Again", 245, 200, 0, 3, 3)
+		love.graphics.print("Exit", 290, 300, 0, 3, 3)
+		--c:show(mouse_x, mouse_y)
+	end
+	
+	function love.mousepressed(X, Y, Button, Istouch)
+		if Button == 1 then
+			if X >= 290 and X <= 350 and Y >= 200 and Y <= 240 then
+				ship_select()
+			elseif X >= 290 and X <= 350 and Y >= 300 and Y <= 340 then
+				love.event.quit()
+			end
+		end
+	end
+	
+	function love.mousemoved(mX, mY)
+		mouse_x = mX
+		mouse_y = mY
+	end
+end]]
 
 
 
