@@ -9,6 +9,11 @@ function love.load()
 	c = Coordinates
 	mouse_x = 0
 	mouse_y = 0
+	mtext = "Music Off"
+	bgmdat = love.sound.newSoundData("assets/Menumusic.mp3")
+	bgm = love.audio.newSource(bgmdat, 'stream')
+	bgm:setLooping(true)
+	bgm:play()
 end
 
 function love.draw()
@@ -17,6 +22,7 @@ function love.draw()
 	love.graphics.print("Intergalactic", 165, 75, 0, 5, 5)
 	love.graphics.print("Play", 290, 200, 0, 3, 3)
 	love.graphics.print("Exit", 290, 300, 0, 3, 3)
+	love.graphics.print("Project by Pitiful Games", 520, 465)
 	c:show(mouse_x, mouse_y)
 end
 
@@ -30,9 +36,11 @@ function love.mousepressed(x, y, button, istouch)
 	end
 end
 
+
 function love.mousemoved(mx, my)
 	mouse_x = mx
 	mouse_y = my
 end
 
+--Made by Pitiful Games
 	
