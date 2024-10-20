@@ -3,7 +3,7 @@ function game_play(ship_option)
 	require('assets/ship')
 	require('assets/rock')
 	require('assets/select')
-	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
+	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
 	love.window.setTitle('Intergalactic')
 	local sv = love.mouse.setVisible(false)
 	bullets = {}
@@ -27,6 +27,9 @@ function game_play(ship_option)
 	local a_x = nil
 	local a_y = nil
 	
+	
+		
+	
 	function love.draw()
 		bg:bg_drawim()
 		love.graphics.setFont(main_font)
@@ -37,6 +40,7 @@ function game_play(ship_option)
     	for i, bullet in ipairs(bullets) do
     	    s:bullet_drawim(bullet.x, bullet.y)
     	end
+    	love.graphics.print("Project by Pitiful Games", 520, 465)
 	end
 
 
@@ -90,6 +94,14 @@ function game_play(ship_option)
 		elseif key == "s" then
 			ship_select()
 		end
+		if key == 'm' and mtext == "Music On" then
+			mtext = "Music Off"
+			love.audio.stop(bgm)
+		elseif key == 'm' and mtext == "Music Off" then
+			mtext = "Music On"
+			bgm:setLooping(true)
+			bgm:play()
+		end
 	end 
 	
 	
@@ -142,6 +154,6 @@ end
 end]]
 
 
-
+--Made by Pitiful Games
 
 
