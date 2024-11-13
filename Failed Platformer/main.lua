@@ -1,6 +1,6 @@
 require('assets/world/coo')
 function love.load()
-	love.window.setMode(1024, 768, {fullscreen = false, vsync = -1, resizable = false, centered = true})
+	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Untitled Platformer Game')
 	love.graphics.setDefaultFilter('nearest', 'nearest')
 	c = coordinates
@@ -22,14 +22,8 @@ function love.mousemoved(x, y)
 	mx = x
 	my = y
 end
-	
-function love.keypressed(key)
-	if key == 'p' then
-		dofile("lvl2plat.lua")
-	end
-end
 
-function love.mousepressed(px,py, button)
+function love.mousepressed(px, py, button)
 	if button == 1 then	
 		if px >= 465 and px <= 570 and py >= 350 and py <= 400 then
 			dofile("lvl1plat.lua")
