@@ -31,11 +31,11 @@ l1t = love.graphics.newQuad(0, 160, 16, 16, wbg)
 --sfall = love.graphics.newQuad(0, 144, 16, 16, wbg)
 
 --particle system
-psystem = love.graphics.newParticleSystem(sfall, 300)
+psystem = love.graphics.newParticleSystem(sfall, 1000)
 psystem:setParticleLifetime(1, 10) -- Particles live at least 2s and at most 5s.
-psystem:setEmissionRate(20)
+psystem:setEmissionRate(50)
 psystem:setSizeVariation(0.13)
-psystem:setLinearAcceleration(-500, -50, 50, 500) -- Random movement in all directions.
+psystem:setLinearAcceleration(-400, -100, 100, 500) -- Random movement in all directions.
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0) -- Fade to transparency
 
 
