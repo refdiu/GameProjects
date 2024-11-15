@@ -7,6 +7,7 @@ love.window.setTitle('Oh my Gotto boy')
 require('assets/world/back_g')
 require('assets/world/coo')
 wbg = love.graphics.newImage("assets/world/world_tileset.png")
+sfall = love.graphics.newImage("assets/world/sf.png")
 
 --some required constants
 i = 1
@@ -26,17 +27,24 @@ tramp = love.graphics.newImage("assets/world/trampoline.png")
 pd = love.graphics.newImage("assets/world/pd_sprite.png")	
 
 --tilemaps
-l1t = love.graphics.newQuad(96, 16, 16, 16, wbg)
+l1t = love.graphics.newQuad(0, 160, 16, 16, wbg)
+--sfall = love.graphics.newQuad(0, 144, 16, 16, wbg)
 
-for y = 1, 20 do
-	table.insert(tiles, {}
-	for x = 1, 20 do
-		table.insert(tiles[y], {id < 5 and 1 or 2})
+--particle system
+psystem = love.graphics.newParticleSystem(sfall, 300)
+psystem:setParticleLifetime(1, 10) -- Particles live at least 2s and at most 5s.
+psystem:setEmissionRate(20)
+psystem:setSizeVariation(0.13)
+psystem:setLinearAcceleration(-500, -50, 50, 500) -- Random movement in all directions.
+psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0) -- Fade to transparency
+
+
+for y = 1, 6 do
+	table.insert(tiles, {})
+	for x = 1, 40 do
+		table.insert(tiles[y], l1t)
 	end
 end
-
-
-
 
 
 --key config
@@ -50,16 +58,15 @@ function love.keypressed(key)
 end
 
 
-
-
-
 --the real thing happens here
 function love.draw()
 	bg:drawim()
-	for y = 1, 20 do
-		for x = 1, 20 do
-			local till = tiles[y][x]
-			love.graphics.draw(wbg, tiles
+	for y = 1, 6 do
+		for x = 1, 40 do
+			love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 384 + 16*(y-1))
+		end
+	end
+	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
 end
 
 
@@ -69,8 +76,8 @@ function love.mousemoved(x, y)
 end
 
 
---[[updation
+--updation
 function love.update(dt)
-	
-end]]
+	psystem:update(dt)
+end
 
