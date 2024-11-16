@@ -9,6 +9,10 @@ require('assets/world/coo')
 wbg = love.graphics.newImage("assets/world/world_tileset.png")
 sfall = love.graphics.newImage("assets/world/sf.png")
 
+--the "camera"
+cam_coord = 0
+cam_speed = 30
+
 --some required constants
 i = 1
 tiles = {}
@@ -61,12 +65,14 @@ end
 --the real thing happens here
 function love.draw()
 	bg:drawim()
+	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
+	love.graphics.draw(player, 100, 312, 0, 1.2, 1.2)
+	love.graphics.translate(-math.floor(cam_coord), 0)
 	for y = 1, 6 do
 		for x = 1, 40 do
 			love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 384 + 16*(y-1))
 		end
 	end
-	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
 end
 
 
@@ -79,5 +85,10 @@ end
 --updation
 function love.update(dt)
 	psystem:update(dt)
+	if love.keyboard.isDown("left") then
+		cam_coord = cam_coord - cam_speed*dt
+	elseif love.keyboard.isDown("right") then
+		cam_coord = cam_coord + cam_speed*dt
+	end
 end
 
