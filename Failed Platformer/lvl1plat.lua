@@ -23,7 +23,7 @@ i = 1
 tiles = {}
 gentiles = {}
 for i = 1, 6 do
-	table.insert(gentiles, math.random(1, 40))
+	table.insert(gentiles, math.random(15, 27))
 end
 
 --background inclusion
@@ -52,10 +52,10 @@ psystem:setLinearAcceleration(-400, -100, 100, 500) -- Random movement in all di
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0) -- Fade to transparency
 
 
-for x = 1, 6 do
+for x = 1, 40 do
 	table.insert(tiles, {})
-	for y = 1, 40 do
-		table.insert(tiles[y], l1t)
+	for y = 1, 6 do
+		table.insert(tiles[x], l1t)
 	end
 end
 
@@ -77,14 +77,14 @@ function love.draw()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
 	love.graphics.draw(player, 100, cam_ord, 0, 1.2, 1.2)
 	love.graphics.translate(-math.floor(cam_abs), 0)
-	for y = 1, 6 do
-		for x = 1, 40 do
-			if y < 3 and x == gentiles[y] then
-				love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 464 + 16*(y-1))
-			elseif y >= 3 and x == gentiles[y] then
-				goto continue
-			else
-				love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 384 + 16*(y-1))
+	for x = 1, 40 do
+		for y = 1, 6 do
+			for i = 1, 6 do
+				if x == gentiles[i] then
+					goto continue
+				else
+					love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 384 + 16*(y-1))
+				end
 			end
 			::continue::
 		end
