@@ -1,5 +1,5 @@
 	--some presets
-love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
+love.window.setMode(1366, 768, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Oh my Gotto boy')
 
 
@@ -11,20 +11,17 @@ sfall = love.graphics.newImage("assets/world/sf.png")
 
 --the "camera"
 local cam_abs = 0
-local cam_ord = 312
+local cam_ord = 340
 local cam_xspeed = 120
 local cam_dyspeed = 0
-jump_v = -200
+jump_v = -70
 g = 4
 
 
 --some required constants
 i = 1
 tiles = {}
-gentiles = {}
-for i = 1, 6 do
-	table.insert(gentiles, math.random(15, 27))
-end
+gentiles = {33, 15, 23}
 
 --background inclusion
 bg = Background
@@ -75,19 +72,17 @@ end
 function love.draw()
 	bg:drawim()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
-	love.graphics.draw(player, 100, cam_ord, 0, 1.2, 1.2)
+	love.graphics.draw(player, 100, cam_ord, 0, 0.7, 0.7)
 	love.graphics.translate(-math.floor(cam_abs), 0)
 	for x = 1, 40 do
-		for y = 1, 6 do
-			for i = 1, 6 do
-				if x == gentiles[i] then
-					goto continue
-				else
-					love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 384 + 16*(y-1))
-				end
+		if x == gentiles[1] or x == gentiles[2] or x == gentiles[3] then
+			goto continue
+		else
+			for y = 1, 6 do
+				love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 384 + 16*(y-1))
 			end
-			::continue::
 		end
+		::continue::
 	end
 end
 
@@ -109,8 +104,8 @@ function love.update(dt)
 	psystem:update(dt)
 	cam_dyspeed = cam_dyspeed + g
 	cam_ord = cam_ord + cam_dyspeed*dt
-	if cam_ord > 312 then
-		cam_ord = 312
+	if cam_ord > 340 then
+		cam_ord = 340
 		cam_dyspeed = 0
 	end
 	if love.keyboard.isDown("left") then
