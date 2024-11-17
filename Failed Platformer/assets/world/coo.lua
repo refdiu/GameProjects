@@ -8,5 +8,5 @@ function coordinates:new()
 end
 
 function coordinates:show(x, y)
-	love.graphics.print(" x coordinate: "..x.."\n y coordinate: "..y, 0, 30)
+	love.graphics.print(" x coordinate: "..x.."\n y coordinate: "..y)
 end

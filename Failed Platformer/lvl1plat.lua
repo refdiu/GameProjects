@@ -10,8 +10,13 @@ wbg = love.graphics.newImage("assets/world/world_tileset.png")
 sfall = love.graphics.newImage("assets/world/sf.png")
 
 --the "camera"
-cam_coord = 0
-cam_speed = 30
+local cam_abs = 0
+local cam_ord = 312
+local cam_xspeed = 120
+local cam_dyspeed = 0
+jump_v = -200
+g = 4
+
 
 --some required constants
 i = 1
@@ -66,8 +71,8 @@ end
 function love.draw()
 	bg:drawim()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
-	love.graphics.draw(player, 100, 312, 0, 1.2, 1.2)
-	love.graphics.translate(-math.floor(cam_coord), 0)
+	love.graphics.draw(player, 100, cam_ord, 0, 1.2, 1.2)
+	love.graphics.translate(-math.floor(cam_abs), 0)
 	for y = 1, 6 do
 		for x = 1, 40 do
 			love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 384 + 16*(y-1))
@@ -75,6 +80,12 @@ function love.draw()
 	end
 end
 
+
+function love.keypressed(key)
+	if key == "up" and cam_dyspeed == 0 then
+		cam_dyspeed = jump_v
+	end
+end
 
 function love.mousemoved(x, y)
 	mx = x
@@ -85,10 +96,16 @@ end
 --updation
 function love.update(dt)
 	psystem:update(dt)
+	cam_dyspeed = cam_dyspeed + g
+	cam_ord = cam_ord + cam_dyspeed*dt
+	if cam_ord > 312 then
+		cam_ord = 312
+		cam_dyspeed = 0
+	end
 	if love.keyboard.isDown("left") then
-		cam_coord = cam_coord - cam_speed*dt
+		cam_abs = cam_abs - cam_xspeed*dt
 	elseif love.keyboard.isDown("right") then
-		cam_coord = cam_coord + cam_speed*dt
+		cam_abs = cam_abs + cam_xspeed*dt
 	end
 end
 
