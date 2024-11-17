@@ -1,4 +1,4 @@
---some presets
+	--some presets
 love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Oh my Gotto boy')
 
@@ -21,6 +21,10 @@ g = 4
 --some required constants
 i = 1
 tiles = {}
+gentiles = {}
+for i = 1, 6 do
+	table.insert(gentiles, math.random(1, 40))
+end
 
 --background inclusion
 bg = Background
@@ -48,9 +52,9 @@ psystem:setLinearAcceleration(-400, -100, 100, 500) -- Random movement in all di
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0) -- Fade to transparency
 
 
-for y = 1, 6 do
+for x = 1, 6 do
 	table.insert(tiles, {})
-	for x = 1, 40 do
+	for y = 1, 40 do
 		table.insert(tiles[y], l1t)
 	end
 end
@@ -75,7 +79,14 @@ function love.draw()
 	love.graphics.translate(-math.floor(cam_abs), 0)
 	for y = 1, 6 do
 		for x = 1, 40 do
-			love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 384 + 16*(y-1))
+			if y < 3 and x == gentiles[y] then
+				love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 464 + 16*(y-1))
+			elseif y >= 3 and x == gentiles[y] then
+				goto continue
+			else
+				love.graphics.draw(wbg, tiles[y][x], 16*(x-1), 384 + 16*(y-1))
+			end
+			::continue::
 		end
 	end
 end
