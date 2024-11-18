@@ -10,11 +10,11 @@ function love.load()
 end
 
 function love.draw()
-	love.graphics.print("Untitled Platformer Game", 210, 100, 0, 4, 4)
-	love.graphics.print("Start", 472, 350, 0, 3, 3)
-	love.graphics.print("Exit", 482, 500, 0, 3, 3)
-	love.graphics.print("CC0 (Public Domain)", 0, 720)
-	love.graphics.print("Made by Pitiful Games", 880, 720)
+	love.graphics.print("Untitled Platformer Game", 384, 100, 0, 4, 4)
+	love.graphics.print("Start", 652, 350, 0, 3, 3)
+	love.graphics.print("Exit", 662, 500, 0, 3, 3)
+	love.graphics.print("CC0 (Public Domain)", 10, 720)
+	love.graphics.print("Made by Pitiful Games", 1222, 720)
 	c:show(mx, my)
 end
 
@@ -25,10 +25,10 @@ end
 
 function love.mousepressed(px, py, button)
 	if button == 1 then	
-		if px >= 465 and px <= 570 and py >= 350 and py <= 400 then
+		if px >= 640 and px <= 735 and py >= 350 and py <= 400 then
 			dofile("lvl1plat.lua")
 		end
-		if px >= 470 and px <= 560 and py >= 490 and py <= 550 then
+		if px >= 660 and px <= 755 and py >= 490 and py <= 550 then
 			love.event.quit()
 		end
 	end

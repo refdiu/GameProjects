@@ -11,10 +11,10 @@ sfall = love.graphics.newImage("assets/world/sf.png")
 
 --the "camera"
 local cam_abs = 0
-local cam_ord = 340
+local cam_ord = 456
 local cam_xspeed = 120
 local cam_dyspeed = 0
-jump_v = -70
+jump_v = -200
 g = 4
 
 
@@ -37,22 +37,22 @@ tramp = love.graphics.newImage("assets/world/trampoline.png")
 pd = love.graphics.newImage("assets/world/pd_sprite.png")	
 
 --tilemaps
-l1t = love.graphics.newQuad(0, 160, 16, 16, wbg)
+l1t = {love.graphics.newQuad(80, 144, 16, 16, wbg)--[[topper]], love.graphics.newQuad(0, 144, 16, 16, wbg)--[[white part]], love.graphics.newQuad(0, 160, 16, 16, wbg)--[[white decor]], love.graphics.newQuad(0, 176, 16, 16, wbg)--[[lb part]], love.graphics.newQuad(0, 192, 16, 16, wbg)--[[lb decor]], love.graphics.newQuad(0, 208, 16, 16, wbg)--[[db part]], love.graphics.newQuad(0, 224, 16, 16, wbg)--[[db decor]]}
 --sfall = love.graphics.newQuad(0, 144, 16, 16, wbg)
 
 --particle system
-psystem = love.graphics.newParticleSystem(sfall, 1000)
+psystem = love.graphics.newParticleSystem(sfall, 10000)
 psystem:setParticleLifetime(1, 10) -- Particles live at least 2s and at most 5s.
 psystem:setEmissionRate(50)
-psystem:setSizeVariation(0.13)
+psystem:setSizeVariation(0.89)
 psystem:setLinearAcceleration(-400, -100, 100, 500) -- Random movement in all directions.
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0) -- Fade to transparency
 
 
-for x = 1, 40 do
+for x = 1, 4000 do
 	table.insert(tiles, {})
-	for y = 1, 6 do
-		table.insert(tiles[x], l1t)
+	for y = 1, 7 do
+		table.insert(tiles[x], l1t[y])
 	end
 end
 
@@ -72,18 +72,14 @@ end
 function love.draw()
 	bg:drawim()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
-	love.graphics.draw(player, 100, cam_ord, 0, 0.7, 0.7)
+	love.graphics.draw(player, 100, cam_ord, 0, 3, 3)
 	love.graphics.translate(-math.floor(cam_abs), 0)
-	for x = 1, 40 do
-		if x == gentiles[1] or x == gentiles[2] or x == gentiles[3] then
-			goto continue
-		else
-			for y = 1, 6 do
-				love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 384 + 16*(y-1))
-			end
+	for x = 1, 4000 do
+		for y = 1, 7 do
+			love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 624 + 16*(y-1))
 		end
-		::continue::
 	end
+	love.graphics.print("Hello World", cam_abs+600, 100, 0, 5, 5)
 end
 
 
@@ -104,8 +100,8 @@ function love.update(dt)
 	psystem:update(dt)
 	cam_dyspeed = cam_dyspeed + g
 	cam_ord = cam_ord + cam_dyspeed*dt
-	if cam_ord > 340 then
-		cam_ord = 340
+	if cam_ord > 456 then
+		cam_ord = 456
 		cam_dyspeed = 0
 	end
 	if love.keyboard.isDown("left") then
