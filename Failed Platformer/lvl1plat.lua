@@ -1,7 +1,8 @@
-	--some presets
+--some presets
 love.window.setMode(1366, 768, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Oh my Gotto boy')
-
+title_font = love.graphics.newFont("assets/world/Icecold.ttf", 12)
+--title_font:setFilter("nearest")
 
 --dependencies
 require('assets/world/back_g')
@@ -11,8 +12,8 @@ sfall = love.graphics.newImage("assets/world/sf.png")
 
 --the "camera"
 local cam_abs = 0
-local cam_ord = 456
-local cam_xspeed = 120
+local cam_ord = 500
+local cam_xspeed = 100
 local cam_dyspeed = 0
 jump_v = -200
 g = 4
@@ -70,16 +71,20 @@ end
 
 --the real thing happens here
 function love.draw()
+	love.graphics.setFont(title_font)
 	bg:drawim()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
-	love.graphics.draw(player, 100, cam_ord, 0, 3, 3)
+	love.graphics.draw(player, 100, cam_ord, 0, 2, 2)
 	love.graphics.translate(-math.floor(cam_abs), 0)
+	if cam_abs < 0 then
+		cam_abs = 0
+	end
 	for x = 1, 4000 do
 		for y = 1, 7 do
-			love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 624 + 16*(y-1))
+			love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 600 + 16*(y-1), 0, 3, 3)
 		end
 	end
-	love.graphics.print("Hello World", cam_abs+600, 100, 0, 5, 5)
+	love.graphics.print("Nascent Cold", 464, 100, 0, 5, 5)
 end
 
 
@@ -100,8 +105,8 @@ function love.update(dt)
 	psystem:update(dt)
 	cam_dyspeed = cam_dyspeed + g
 	cam_ord = cam_ord + cam_dyspeed*dt
-	if cam_ord > 456 then
-		cam_ord = 456
+	if cam_ord > 500 then
+		cam_ord = 500
 		cam_dyspeed = 0
 	end
 	if love.keyboard.isDown("left") then
