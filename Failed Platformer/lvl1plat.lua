@@ -22,7 +22,6 @@ g = 4
 --some required constants
 i = 1
 tiles = {}
-gentiles = {33, 15, 23}
 
 --background inclusion
 bg = Background
@@ -32,14 +31,13 @@ bg:render(1)
 f = Features
 
 --the real assets
-player = love.graphics.newImage("assets/world/player.png")
+player = love.graphics.newImage("assets/world/adventurer-crnr-clmb-01.png")
 p_height = love.graphics.getWidth(player)
 tramp = love.graphics.newImage("assets/world/trampoline.png")
 pd = love.graphics.newImage("assets/world/pd_sprite.png")	
 
 --tilemaps
 l1t = {love.graphics.newQuad(80, 144, 16, 16, wbg)--[[topper]], love.graphics.newQuad(0, 144, 16, 16, wbg)--[[white part]], love.graphics.newQuad(0, 160, 16, 16, wbg)--[[white decor]], love.graphics.newQuad(0, 176, 16, 16, wbg)--[[lb part]], love.graphics.newQuad(0, 192, 16, 16, wbg)--[[lb decor]], love.graphics.newQuad(0, 208, 16, 16, wbg)--[[db part]], love.graphics.newQuad(0, 224, 16, 16, wbg)--[[db decor]]}
---sfall = love.graphics.newQuad(0, 144, 16, 16, wbg)
 
 --particle system
 psystem = love.graphics.newParticleSystem(sfall, 10000)
@@ -74,7 +72,7 @@ function love.draw()
 	love.graphics.setFont(title_font)
 	bg:drawim()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
-	love.graphics.draw(player, 100, cam_ord, 0, 2, 2)
+	love.graphics.draw(player, 100, cam_ord, 0, 3.5, 3.5)
 	love.graphics.translate(-math.floor(cam_abs), 0)
 	if cam_abs < 0 then
 		cam_abs = 0
