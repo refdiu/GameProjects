@@ -1,6 +1,6 @@
 --some presets
 love.window.setMode(1366, 768, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-love.window.setTitle('Oh my Gotto boy')
+love.window.setTitle('Nascent Cold')
 title_font = love.graphics.newFont("assets/world/Icecold.ttf", 12)
 --title_font:setFilter("nearest")
 

@@ -1,7 +1,7 @@
 require('assets/world/coo')
 function love.load()
 	love.window.setMode(1366, 768, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-	love.window.setTitle('Untitled Platformer Game')
+	love.window.setTitle('Nascent Cold')
 	love.graphics.setDefaultFilter('nearest', 'nearest')
 	c = coordinates
 	mx = 0
@@ -10,7 +10,7 @@ function love.load()
 end
 
 function love.draw()
-	love.graphics.print("Untitled Platformer Game", 384, 100, 0, 4, 4)
+	love.graphics.print("Nascent Cold", 460, 100, 0, 6, 6)
 	love.graphics.print("Start", 652, 350, 0, 3, 3)
 	love.graphics.print("Exit", 662, 500, 0, 3, 3)
 	love.graphics.print("CC0 (Public Domain)", 10, 720)
