@@ -13,7 +13,7 @@ sfall = love.graphics.newImage("assets/world/sf.png")
 --the "camera"
 local cam_abs = 0
 local cam_ord = 435
-local cam_xspeed = 100
+local cam_xspeed = 1000
 local cam_dyspeed = 0
 jump_v = -230
 g = 3
@@ -80,7 +80,10 @@ function love.draw()
 	for x = 1, 4000 do
 		for y = 1, 6 do
 			if x == 20 or x == 500 or x == 800 then
-				love.graphics.draw(wbg, tiles[x][y], 16*(x-1)*3, 500 + 16*(y-1)*3)
+				for k = 1, 2 do
+					love.graphics.draw(wbg, tiles[x][k], 16*(x-1)*3, 504 + 16*(k-1)*3)
+				end
+				love.graphics.draw(wbg, tiles[x][y], 16*(x-1)*3, 600 + 16*(y-1)*3)
 			else
 				love.graphics.draw(wbg, tiles[x][y], 16*(x-1)*3, 600 + 16*(y-1)*3)
 			end
