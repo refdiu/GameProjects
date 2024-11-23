@@ -12,11 +12,11 @@ sfall = love.graphics.newImage("assets/world/sf.png")
 
 --the "camera"
 local cam_abs = 0
-local cam_ord = 500
+local cam_ord = 435
 local cam_xspeed = 100
 local cam_dyspeed = 0
-jump_v = -200
-g = 4
+jump_v = -230
+g = 3
 
 
 --some required constants
@@ -37,7 +37,7 @@ tramp = love.graphics.newImage("assets/world/trampoline.png")
 pd = love.graphics.newImage("assets/world/pd_sprite.png")	
 
 --tilemaps
-l1t = {love.graphics.newQuad(80, 144, 16, 16, wbg)--[[topper]], love.graphics.newQuad(0, 144, 16, 16, wbg)--[[white part]], love.graphics.newQuad(0, 160, 16, 16, wbg)--[[white decor]], love.graphics.newQuad(0, 176, 16, 16, wbg)--[[lb part]], love.graphics.newQuad(0, 192, 16, 16, wbg)--[[lb decor]], love.graphics.newQuad(0, 208, 16, 16, wbg)--[[db part]], love.graphics.newQuad(0, 224, 16, 16, wbg)--[[db decor]]}
+l1t = {--[[love.graphics.newQuad(80*3, 144*3, 16*3, 16*3, wbg)topper,]]love.graphics.newQuad(0, 144*3, 16*3, 16*3, wbg)--[[white part]], love.graphics.newQuad(0, 160*3, 16*3, 16*3, wbg)--[[white decor]], love.graphics.newQuad(0, 176*3, 16*3, 16*3, wbg)--[[lb part]], love.graphics.newQuad(0, 192*3, 16*3, 16*3, wbg)--[[lb decor]], love.graphics.newQuad(0, 208*3, 16*3, 16*3, wbg)--[[db part]], love.graphics.newQuad(0, 224*3, 16*3, 16*3, wbg)--[[db decor]]}
 
 --particle system
 psystem = love.graphics.newParticleSystem(sfall, 10000)
@@ -50,7 +50,7 @@ psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0) -- Fade to transparency
 
 for x = 1, 4000 do
 	table.insert(tiles, {})
-	for y = 1, 7 do
+	for y = 1, 6 do
 		table.insert(tiles[x], l1t[y])
 	end
 end
@@ -72,14 +72,18 @@ function love.draw()
 	love.graphics.setFont(title_font)
 	bg:drawim()
 	love.graphics.draw(psystem, love.graphics.getWidth() + 40, 0)
-	love.graphics.draw(player, 100, cam_ord, 0, 3.5, 3.5)
+	love.graphics.draw(player, 100, cam_ord, 0, 5, 5)
 	love.graphics.translate(-math.floor(cam_abs), 0)
 	if cam_abs < 0 then
 		cam_abs = 0
 	end
 	for x = 1, 4000 do
-		for y = 1, 7 do
-			love.graphics.draw(wbg, tiles[x][y], 16*(x-1), 600 + 16*(y-1), 0, 3, 3)
+		for y = 1, 6 do
+			if x == 20 or x == 500 or x == 800 then
+				love.graphics.draw(wbg, tiles[x][y], 16*(x-1)*3, 500 + 16*(y-1)*3)
+			else
+				love.graphics.draw(wbg, tiles[x][y], 16*(x-1)*3, 600 + 16*(y-1)*3)
+			end
 		end
 	end
 	love.graphics.print("Nascent Cold", 464, 100, 0, 5, 5)
@@ -103,8 +107,8 @@ function love.update(dt)
 	psystem:update(dt)
 	cam_dyspeed = cam_dyspeed + g
 	cam_ord = cam_ord + cam_dyspeed*dt
-	if cam_ord > 500 then
-		cam_ord = 500
+	if cam_ord > 435 then
+		cam_ord = 435
 		cam_dyspeed = 0
 	end
 	if love.keyboard.isDown("left") then
