@@ -90,7 +90,7 @@ function love.draw()
 		end
 	end
 	love.graphics.print("Nascent Cold", 464, 100, 0, 5, 5)
-	love.graphics.print("As a man, you have to wield the strength to........ae bhaag sala")
+	--love.graphics.print("As a man, you have to wield the strength to........ae bhaag sala")
 end
 
 
