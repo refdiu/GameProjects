@@ -3,6 +3,7 @@ function love.load()
 	love.window.setMode(1366, 768, {fullscreen = false, vsync = -1, resizable = false, centered = true})
 	love.window.setTitle('Nascent Cold')
 	love.graphics.setDefaultFilter('nearest', 'nearest')
+	menu_bg = love.graphics.newImage("assets/world/menu_bg.png")
 	c = coordinates
 	mx = 0
 	my = 0
@@ -10,6 +11,7 @@ function love.load()
 end
 
 function love.draw()
+	love.graphics.draw(menu_bg)
 	love.graphics.print("Nascent Cold", 460, 100, 0, 6, 6)
 	love.graphics.print("Start", 652, 350, 0, 3, 3)
 	love.graphics.print("Exit", 662, 500, 0, 3, 3)
