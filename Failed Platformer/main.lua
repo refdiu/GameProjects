@@ -35,3 +35,9 @@ function love.mousepressed(px, py, button)
 		end
 	end
 end
+
+function love.keypressed(key)
+	if key == 'space' then
+		dofile("lvl1plat.lua")
+	end
+end

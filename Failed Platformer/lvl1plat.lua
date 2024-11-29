@@ -60,9 +60,10 @@ end
 function love.keypressed(key)
 	if key == 'escape' then
 		love.event.quit()
-	end
-	if key == 'r' then
+	elseif key == 'r' then
 		dofile("main.lua")
+	elseif key == "up" and cam_dyspeed == 0 then
+		cam_dyspeed = jump_v
 	end
 end
 
@@ -93,12 +94,6 @@ function love.draw()
 	--love.graphics.print("As a man, you have to wield the strength to........ae bhaag sala")
 end
 
-
-function love.keypressed(key)
-	if key == "up" and cam_dyspeed == 0 then
-		cam_dyspeed = jump_v
-	end
-end
 
 function love.mousemoved(x, y)
 	mx = x
