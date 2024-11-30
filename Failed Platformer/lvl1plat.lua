@@ -37,7 +37,7 @@ tramp = love.graphics.newImage("assets/world/trampoline.png")
 pd = love.graphics.newImage("assets/world/pd_sprite.png")	
 
 --tilemaps
-l1t = {--[[love.graphics.newQuad(80*3, 144*3, 16*3, 16*3, wbg)topper,]]love.graphics.newQuad(0, 144*3, 16*3, 16*3, wbg)--[[white part]], love.graphics.newQuad(0, 160*3, 16*3, 16*3, wbg)--[[white decor]], love.graphics.newQuad(0, 176*3, 16*3, 16*3, wbg)--[[lb part]], love.graphics.newQuad(0, 192*3, 16*3, 16*3, wbg)--[[lb decor]], love.graphics.newQuad(0, 208*3, 16*3, 16*3, wbg)--[[db part]], love.graphics.newQuad(0, 224*3, 16*3, 16*3, wbg)--[[db decor]]}
+l1t = {love.graphics.newQuad(0, 144*3, 16*3, 16*3, wbg)--[[white part]], love.graphics.newQuad(0, 160*3, 16*3, 16*3, wbg)--[[white decor]], love.graphics.newQuad(0, 176*3, 16*3, 16*3, wbg)--[[lb part]], love.graphics.newQuad(0, 192*3, 16*3, 16*3, wbg)--[[lb decor]], love.graphics.newQuad(0, 208*3, 16*3, 16*3, wbg)--[[db part]], love.graphics.newQuad(0, 224*3, 16*3, 16*3, wbg)--[[db decor]]}
 
 --particle system
 psystem = love.graphics.newParticleSystem(sfall, 10000)
@@ -91,7 +91,6 @@ function love.draw()
 		end
 	end
 	love.graphics.print("Nascent Cold", 464, 100, 0, 5, 5)
-	--love.graphics.print("As a man, you have to wield the strength to........ae bhaag sala")
 end
 
 
