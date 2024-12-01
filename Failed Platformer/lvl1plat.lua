@@ -103,6 +103,7 @@ end
 --updation
 function love.update(dt)
 	psystem:update(dt)
+	bg:update(dt)
 	cam_dyspeed = cam_dyspeed + g
 	cam_ord = cam_ord + cam_dyspeed*dt
 	if cam_ord > 435 then
