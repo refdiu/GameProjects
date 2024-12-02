@@ -90,7 +90,7 @@ function love.draw()
 			end
 		end
 	end
-	love.graphics.print("Nascent Cold", 464, 100, 0, 5, 5)
+	love.graphics.print("Nascent Cold", 460, 100, 0, 6, 6)
 end
 
 
@@ -103,7 +103,7 @@ end
 --updation
 function love.update(dt)
 	psystem:update(dt)
-	bg:update(dt)
+	bg:u(dt)
 	cam_dyspeed = cam_dyspeed + g
 	cam_ord = cam_ord + cam_dyspeed*dt
 	if cam_ord > 435 then
