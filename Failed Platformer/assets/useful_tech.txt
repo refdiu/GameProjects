@@ -65,3 +65,4 @@ local codefile = love.filesystem.load(filename)
 local result = pcall(codefile)
 Note: never, EVER, render an asset on a canvas ever again.
 drawing an asset on a canvas binds it to the canvas; i can only perform operations on the CANVAS and not the asset
+Another note: shuffle the table.
