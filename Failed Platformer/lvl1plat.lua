@@ -91,6 +91,7 @@ function love.draw()
 		end
 	end
 	love.graphics.print("Nascent Cold", 460, 100, 0, 6, 6)
+	love.graphics.print("It's so cold.........", 10000, 100, 0, 6, 6)
 end
 
 
