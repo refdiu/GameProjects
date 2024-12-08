@@ -92,6 +92,7 @@ function love.draw()
 	end
 	love.graphics.print("Nascent Cold", 460, 100, 0, 6, 6)
 	love.graphics.print("I miss you.", 10000, 100, 0, 6, 6)
+	love.graphics.print("Take 1.", 5000, 100, 0, 6, 6)
 end
 
 
