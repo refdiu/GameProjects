@@ -119,3 +119,4 @@ function love.update(dt)
 	end
 end
 
+--have to add text to sell the walking simulator theme
