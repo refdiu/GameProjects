@@ -8,7 +8,7 @@ function love.load()
 	mx = 0
 	my = 0
 	game_state = nil
-	save_state = 0
+	--save_state = 0
 end
 
 function love.draw()
@@ -43,3 +43,4 @@ function love.keypressed(key)
 	end
 end
 --have  to improve UI elements
+--have also to work on save elements
