@@ -13,9 +13,9 @@ sfall = love.graphics.newImage("assets/world/sf.png")
 --the "camera"
 local cam_abs = 0
 local cam_ord = 435
-local cam_xspeed = 1000
+local cam_xspeed = 800
 local cam_dyspeed = 0
-jump_v = -230
+jump_v = -220
 g = 3
 
 
