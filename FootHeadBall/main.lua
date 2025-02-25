@@ -1,6 +1,6 @@
 local v = 360
-local u = 1.5
 
+local u = 1.5
 function love.load()  
   player_1 = require('p1')
   player_1 = P1
@@ -19,6 +19,7 @@ function love.keypressed(key)
   end
 end
 
+
 function love.update(dt)
   v = v + u
   if u == 0 then
@@ -28,6 +29,10 @@ function love.update(dt)
     u = -(u - dt)
   else
     u = u + dt
+  end
+  
+  if u < 0 then
+    u = 0
   end
   
   if v > 360 then
