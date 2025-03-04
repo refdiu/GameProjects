@@ -4,16 +4,20 @@ function love.load()
   snake_y = 100
   snake_orient = 0
   tv = {["up"] = true, ["down"] = true, ["left"] = false, ["right"] = true}
+  rand_x = math.random(0, 959)
+  rand_y = math.random(0, 359)
 end
 
-snake_yellow = love.graphics.newImage("assets/fhead.png")
+snake_yellow = love.graphics.newImage("assets/sfhead.png")
 snake_green = love.graphics.newImage("assets/sbhead.png")
 body = love.graphics.newImage("assets/sbody.png")
+pellet = love.graphics.newImage("assets/pellet.png")
 
 function love.draw()
 	love.graphics.draw(snake_yellow, snake_x, snake_y, snake_orient)
   love.graphics.print(snake_x)
   love.graphics.print("\n"..snake_y)
+  love.graphics.draw(pellet, rand_x, rand_y)
 end
 
 function love.keypressed(key)
@@ -43,14 +47,7 @@ function love.update(dt)
     snake_x = snake_x - 5
   end
   
-  if snake_x > 950 then
-    snake_x = 950
-  elseif snake_x <10 then
-    snake_x = 10
-  end
-  if snake_y > 350 then
-    snake_y = 350
-  elseif snake_y < 10 then
-    snake_y = 10
+  if snake_x <= 0 or snake_x >= 960 or snake_y <= 0 or snake_y >= 360 then
+    love.event.quit()
   end
 end
