@@ -1,16 +1,22 @@
-v = 360
+v1 = 360
+v2 = 360
 function love.load()  
-  player_1 = require('p1')
+  require('p1')
   player_1 = P1
+  player_2 = P1
+  ground = P1
   	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
   u = 1.5
-  s = -20
-  playercanjump = false
+  s1 = -20
+  s2 = 660
+  player1canjump = false
 end
 
 function love.draw()
-  player_1:draw(s, v)
-  love.graphics.print({{0, 0, 0, 255}, v}, 0, 0)
+  ground:drawground()
+  player_1:drawplayer(s1, v1, 0, 1, 1)
+  player_2:drawplayer(s2, v2, 0, -1, 1)
+  love.graphics.print({{0, 0, 0, 255}, v1}, 0, 0)
 end
 
 
@@ -19,39 +25,40 @@ function love.keypressed(key)
     love.event.quit()
   end
   
-  if playercanjump == false and key == "up" then
-    playercanjump = true
+  if player1canjump == false and key == "up" then
+    player1canjump = true
   end
 end
 
 
 function love.update(dt)
   if playercanjump then
-    v = v + u
+    v1 = v1 + u
     if u > 1.5 then
       u = 1.5
       u = -(u - (1.5)*dt)
     else
       u = u + (1.5)*dt
     end
-    if v < 360 and v > 358.8 then
-      playercanjump = false
+    if v1 < 360 and v1 > 358.8 then
+      player1canjump = false
     end
   end
   
-  if v > 360 then
-    v = 360
+  if v1 > 360 or v2 > 360 then
+    v1 = 360
+    v2 = 360
   end
   
   if love.keyboard.isDown("left") then
-    s = s - 90*dt
+    s1 = s1 - 90*dt
   elseif love.keyboard.isDown("right") then
-    s = s + 90*dt
+    s1 = s1 + 90*dt
   end
   
-  if s < -20 then
-    s = -20
-  elseif s > 600 then
-    s = 600
+  if s1 < -20 then
+    s1 = -20
+  elseif s1 > 600 then
+    s1 = 600
   end
 end

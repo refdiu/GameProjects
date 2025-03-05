@@ -7,9 +7,12 @@ function P1:new()
 	return o
 end
 
-function P1:draw(x, y)
+function P1:drawplayer(x, y, r, sx, sy)
   pic_p1 = love.graphics.newImage(self.pic)
+  love.graphics.draw(pic_p1, x, y, r, sx, sy)
+end
+
+function P1:drawground()
   stadium = love.graphics.newImage(self.ground)
   love.graphics.draw(stadium)
-  love.graphics.draw(pic_p1, x, y)
 end
