@@ -49,8 +49,8 @@ function love.update(dt)
   
   if snake_x >= rand_x-8 and snake_x <= rand_x+10 and snake_y >= rand_y-8 and snake_y <= rand_y+10 then
     counter = counter + 1
-    rand_x = math.random(0, 959)
-    rand_y = math.random(0, 359)
+    rand_x = math.random(0, 958)
+    rand_y = math.random(0, 358)
   end
   
   if snake_x <= 0 or snake_x >= 960 or snake_y <= 0 or snake_y >= 360 then
