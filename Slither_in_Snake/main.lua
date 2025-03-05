@@ -6,6 +6,7 @@ function love.load()
   tv = {["up"] = true, ["down"] = true, ["left"] = false, ["right"] = true}
   rand_x = math.random(0, 959)
   rand_y = math.random(0, 359)
+  counter = 0
 end
 
 snake_yellow = love.graphics.newImage("assets/sfhead.png")
@@ -15,8 +16,7 @@ pellet = love.graphics.newImage("assets/pellet.png")
 
 function love.draw()
 	love.graphics.draw(snake_yellow, snake_x, snake_y, snake_orient)
-  love.graphics.print(snake_x)
-  love.graphics.print("\n"..snake_y)
+  love.graphics.print(counter)
   love.graphics.draw(pellet, rand_x, rand_y)
 end
 
@@ -45,6 +45,12 @@ function love.update(dt)
     snake_x = snake_x + 5
   elseif snake_orient == -3.14 then
     snake_x = snake_x - 5
+  end
+  
+  if snake_x >= rand_x-8 and snake_x <= rand_x+10 and snake_y >= rand_y-8 and snake_y <= rand_y+10 then
+    counter = counter + 1
+    rand_x = math.random(0, 959)
+    rand_y = math.random(0, 359)
   end
   
   if snake_x <= 0 or snake_x >= 960 or snake_y <= 0 or snake_y >= 360 then
