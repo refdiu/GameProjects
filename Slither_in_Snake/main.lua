@@ -2,9 +2,7 @@ function love.load()
   love.window.setMode(960, 360, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
   snake_x = 100
   snake_y = 100
-  snake_v = -1
-  snake_h = 1
-  angle = 1.57
+  snake_orient = 0
   tv = {["up"] = true, ["down"] = true, ["left"] = false, ["right"] = true}
   rand_x = math.random(0, 959)
   rand_y = math.random(0, 359)
@@ -17,27 +15,20 @@ body = love.graphics.newImage("assets/sbody.png")
 pellet = love.graphics.newImage("assets/pellet.png")
 
 function love.draw()
-	love.graphics.draw(snake_yellow, snake_x, snake_y, 0, snake_h, snake_h)
-  --love.graphics.draw(snake_green, snake_x, snake_y, 0, -snake_h, snake_v)
+	love.graphics.draw(pellet, rand_x, rand_y)
+  love.graphics.draw(snake_yellow, snake_x, snake_y, snake_orient, 1, 1, snake_yellow:getWidth()/2, snake_yellow:getHeight()/2)
+  --love.graphics.draw(snake_green, snake_x+20, snake_y, -snake_orient, 1, 1, snake_green:getWidth()/2, snake_green:getHeight()/2)
   love.graphics.print(counter)
-  love.graphics.draw(pellet, rand_x, rand_y)
 end
 
 function love.keypressed(key)
   if key == "s" then
     love.event.quit()
   end
-  if key == "r" then
-    if angle == 1.57 then
-      angle = -1.57
-    elseif angle == -1.57 then
-      angle = 1.57
-    end
-  end
 end
 
 function love.update(dt)
-  --[[if love.keyboard.isDown("up") and snake_orient ~= 1.57 then
+  if love.keyboard.isDown("up") and snake_orient ~= 1.57 then
     snake_orient = -1.57
   elseif love.keyboard.isDown("down") and snake_orient ~= -1.57 then
     snake_orient = 1.57
@@ -57,13 +48,13 @@ function love.update(dt)
     snake_x = snake_x - 5
   end
   
-  if snake_x >= rand_x-8 and snake_x <= rand_x+10 and snake_y >= rand_y-8 and snake_y <= rand_y+10 then
+  if snake_x >= rand_x-20 and snake_x <= rand_x+20 and snake_y >= rand_y-20 and snake_y <= rand_y+20 then
     counter = counter + 1
-    rand_x = math.random(0, 958)
-    rand_y = math.random(0, 358)
+    rand_x = math.random(0, 950)
+    rand_y = math.random(0, 350)
   end
   
   if snake_x <= 0 or snake_x >= 960 or snake_y <= 0 or snake_y >= 360 then
     love.event.quit()
-  end]]--
+  end
 end
