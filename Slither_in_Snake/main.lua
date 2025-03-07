@@ -2,29 +2,39 @@ function love.load()
   love.window.setMode(960, 360, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
   snake_x = 100
   snake_y = 100
+  --love.graphics.newImage("assets/sbody.png")
   snake_orient = 0
-  tv = {["up"] = true, ["down"] = true, ["left"] = false, ["right"] = true}
   rand_x = math.random(0, 959)
   rand_y = math.random(0, 359)
   counter = 0
+  mouse_x = 0
+  mouse_y = 0
 end
 
-snake_yellow = love.graphics.newImage("assets/sfhead.png")
-snake_green = love.graphics.newImage("assets/sbhead.png")
-body = love.graphics.newImage("assets/sbody.png")
+chain = {"8"}
+--[[snake_yellow = love.graphics.newImage("assets/sfhead.png")
+snake_green = love.graphics.newImage("assets/sbhead.png")]]
 pellet = love.graphics.newImage("assets/pellet.png")
 
 function love.draw()
-	love.graphics.draw(pellet, rand_x, rand_y)
-  love.graphics.draw(snake_yellow, snake_x, snake_y, snake_orient, 1, 1, snake_yellow:getWidth()/2, snake_yellow:getHeight()/2)
-  --love.graphics.draw(snake_green, snake_x+20, snake_y, -snake_orient, 1, 1, snake_green:getWidth()/2, snake_green:getHeight()/2)
+	love.graphics.draw(pellet, rand_x, rand_y)  
+  for i, j in ipairs(chain) do
+    love.graphics.print(chain, snake_x, snake_y, snake_orient, 1, 1, -0.5, -0.5)
+  end
   love.graphics.print(counter)
+  love.graphics.print("\n"..mouse_x)
+  love.graphics.print("\n\n"..mouse_y)
 end
 
 function love.keypressed(key)
   if key == "s" then
     love.event.quit()
   end
+end
+
+function love.mousemoved(x, y)
+  mouse_x = x
+  mouse_y = y
 end
 
 function love.update(dt)
@@ -38,6 +48,7 @@ function love.update(dt)
     snake_orient = -3.14
   end
   
+  
   if snake_orient == -1.57 then
     snake_y = snake_y - 5
   elseif snake_orient == 1.57 then
@@ -48,13 +59,14 @@ function love.update(dt)
     snake_x = snake_x - 5
   end
   
-  if snake_x >= rand_x-20 and snake_x <= rand_x+20 and snake_y >= rand_y-20 and snake_y <= rand_y+20 then
+  if snake_x >= rand_x-15 and snake_x <= rand_x+15 and snake_y >= rand_y-15 and snake_y <= rand_y+15 then
     counter = counter + 1
     rand_x = math.random(0, 950)
     rand_y = math.random(0, 350)
+    table.insert(chain, "8")
   end
   
-  if snake_x <= 0 or snake_x >= 960 or snake_y <= 0 or snake_y >= 360 then
+  if snake_x <= 0 or snake_x >= 950 or snake_y <= 0 or snake_y >= 350 then
     love.event.quit()
   end
 end
