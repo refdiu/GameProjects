@@ -59,7 +59,7 @@ function love.update(dt)
     snake_x = snake_x - 5
   end
   
-  if snake_x >= rand_x-15 and snake_x <= rand_x+15 and snake_y >= rand_y-15 6and snake_y <= rand_y+15 then
+  if snake_x >= rand_x-15 and snake_x <= rand_x+15 and snake_y >= rand_y-15 and snake_y <= rand_y+15 then
     counter = counter + 1
     rand_x = math.random(0, 950)
     rand_y = math.random(0, 350)
