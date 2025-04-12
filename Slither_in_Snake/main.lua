@@ -17,7 +17,7 @@ snake_table = {snake_green, snake_green}
 pellet = love.graphics.newImage("assets/pellet.png")
 
 function love.draw()
-	love.graphics.draw(pellet, rand_x, rand_y)  
+	love.graphics.draw(pellet, rand_x, rand_y, 0, 2, 2)  
   for i, j in ipairs(snake_table) do
     if snake_orient == -1.57 then
       love.graphics.draw(snake_table[i], snake_x, snake_y -(snake_green:getHeight()*(i-1)), snake_orient, 1, 1, snake_green:getWidth()/2, snake_green:getHeight()/2)
@@ -68,7 +68,7 @@ function love.update(dt)
     snake_x = snake_x - 3
   end
   
-  if snake_x >= rand_x-15 and snake_x <= rand_x+15 and snake_y >= rand_y-15 and snake_y <= rand_y+15 then
+  if snake_x >= rand_x-30 and snake_x <= rand_x+20 and snake_y >= rand_y-30 and snake_y <= rand_y+20 then
     counter = counter + 1
     rand_x = math.random(0, 950)
     rand_y = math.random(0, 350)
