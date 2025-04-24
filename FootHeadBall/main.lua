@@ -8,7 +8,7 @@ function love.load()
   	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
   u = 1.5
   s1 = -20
-  s2 = 660
+  s2 = 650
   player1canjump = false
 end
 

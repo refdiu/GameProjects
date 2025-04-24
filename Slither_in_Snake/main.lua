@@ -70,8 +70,8 @@ function love.update(dt)
   
   if snake_x >= rand_x-30 and snake_x <= rand_x+20 and snake_y >= rand_y-30 and snake_y <= rand_y+20 then
     counter = counter + 1
-    rand_x = math.random(0, 950)
-    rand_y = math.random(0, 350)
+    rand_x = math.random(0, 958)
+    rand_y = math.random(0, 358)
     table.insert(snake_table, snake_green)
   end
   
