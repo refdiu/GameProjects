@@ -6,8 +6,10 @@ function love.load()
   mp_can_jump = false
 end
 
+bg = love.graphics.newImage("assets/mpbg.png")
 
-sfall = love.graphics.newImage('sf.png')
+
+sfall = love.graphics.newImage('assets/sf.png')
 psystem = love.graphics.newParticleSystem(sfall, 10000)
 psystem:setParticleLifetime(1, 10)
 psystem:setEmissionRate(50)
@@ -16,6 +18,7 @@ psystem:setLinearAcceleration(-400, -100, 100, 500)
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
 
 function love.draw()
+  love.graphics.draw(bg)
   love.graphics.print("hello")
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
 end
