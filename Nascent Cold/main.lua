@@ -1,9 +1,12 @@
 love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Nascent Cold')
+require("assets/player")
+
 function love.load()
   u = 2
   d = 100
   mp_can_jump = false
+  mc = m_p
 end
 
 bg = love.graphics.newImage("assets/mpbg.png")
@@ -18,9 +21,10 @@ psystem:setLinearAcceleration(-400, -100, 100, 500)
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
 
 function love.draw()
-  love.graphics.draw(bg)
+  --love.graphics.draw(bg)
   love.graphics.print("hello")
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
+  m_p:draw(100, 480, 2, 2)
 end
 
 function love.keypressed(key)
