@@ -1,6 +1,10 @@
 love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Nascent Cold')
 require("assets/player")
+bullet = love.graphics.newImage("assets/bullet.png")
+bt = {}
+
+
 
 function love.load()
   u = 2
@@ -25,7 +29,7 @@ psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
 function love.draw()
   love.graphics.setBackgroundColor(100, 0, 0, 200)
   --love.graphics.draw(bg)
-  love.graphics.print("hello")
+  love.graphics.print(timeval)
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
   m_p:draw(100, 480, 2, 2, aniform)
 end
@@ -61,5 +65,6 @@ function love.update(dt)
       u = u + (1.5)*dt
     end
   end
+  timeval = dt*100 - (dt*100 - 1)
   psystem:update(dt)
 end
