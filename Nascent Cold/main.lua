@@ -7,6 +7,8 @@ function love.load()
   d = 100
   mp_can_jump = false
   mc = m_p
+  bullet_count = 1
+  aniform = 1
 end
 
 bg = love.graphics.newImage("assets/mpbg.png")
@@ -21,10 +23,11 @@ psystem:setLinearAcceleration(-400, -100, 100, 500)
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
 
 function love.draw()
+  love.graphics.setBackgroundColor(100, 0, 0, 200)
   --love.graphics.draw(bg)
   love.graphics.print("hello")
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
-  m_p:draw(100, 480, 2, 2)
+  m_p:draw(100, 480, 2, 2, aniform)
 end
 
 function love.keypressed(key)
@@ -33,6 +36,18 @@ function love.keypressed(key)
   end
   if key == "escape" then
     love.event.quit()
+  end
+end
+
+function love.mousepressed(x, y, button)
+  if button == 2 then
+    aniform = 3
+  end
+end
+
+function love.mousereleased(x, y, button)
+  if button == 2 then
+    aniform = 1
   end
 end
 
