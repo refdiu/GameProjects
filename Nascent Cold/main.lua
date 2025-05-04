@@ -1,15 +1,14 @@
 love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Nascent Cold')
 require("assets/player")
-bullet = love.graphics.newImage("assets/bullet.png")
+require("assets/bullet")
 bt = {}
-
-
 
 function love.load()
   u = 2
   d = 100
   mp_can_jump = false
+  bullet = b
   mc = m_p
   bullet_count = 1
   aniform = 1
@@ -32,6 +31,7 @@ function love.draw()
   love.graphics.print(timeval)
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
   m_p:draw(100, 480, 2, 2, aniform)
+  b:draw()
 end
 
 function love.keypressed(key)
