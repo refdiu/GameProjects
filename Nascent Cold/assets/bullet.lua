@@ -12,7 +12,7 @@ function b:draw(bx, by)
 end
 
 function b:traverse(bx, DT)
-  bx = bx + 90*DT
+  bx = bx + 450*DT
   return bx
 end
   
