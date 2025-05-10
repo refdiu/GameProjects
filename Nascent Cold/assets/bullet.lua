@@ -1,4 +1,4 @@
-b = {bullet = love.graphics.newImage("assets/bullet.png")}
+b = {bullet = love.graphics.newImage("assets/bullet.png"), bx = -100, by = -100}
 
 function b:new()
   o = o or {}
@@ -7,6 +7,12 @@ function b:new()
   return o
 end
 
-function b:draw()
-  love.graphics.draw(self.bullet, 100, 100)
+function b:draw(bx, by)
+  love.graphics.draw(self.bullet, bx, by)
 end
+
+function b:traverse(bx, DT)
+  bx = bx + 90*DT
+  return bx
+end
+  

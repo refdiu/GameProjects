@@ -25,13 +25,15 @@ psystem:setSizeVariation(0.89)
 psystem:setLinearAcceleration(-400, -100, 100, 500)
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
 
+local bx = -520
+local by = -300
+
 function love.draw()
   love.graphics.setBackgroundColor(100, 0, 0, 200)
   --love.graphics.draw(bg)
-  love.graphics.print(timeval)
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
   m_p:draw(100, 480, 2, 2, aniform)
-  b:draw()
+  b:draw(bx, by)
 end
 
 function love.keypressed(key)
@@ -56,15 +58,14 @@ function love.mousereleased(x, y, button)
 end
 
 function love.update(dt)
-  if mp_can_jump then
-    v = v + u
-    if u > 1.5 then
-      u = 1.5
-      u = -(u - (1.5)*dt)
-    else
-      u = u + (1.5)*dt
+  if love.mouse.isDown(1) and love.mouse.isDown(2) then
+    if bx < 0 then
+      bx = -bx
+    elseif by < 0 then
+      by = -by
     end
+    aniform = 3
+    bx = b:traverse(bx, dt)
   end
-  timeval = dt*100 - (dt*100 - 1)
   psystem:update(dt)
 end
