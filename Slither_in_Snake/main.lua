@@ -1,5 +1,6 @@
 snake_x = 100
 snake_y = 100
+last_x, last_y = 0
 function love.load()
   love.window.setMode(960, 360, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
   --love.graphics.newImage("assets/sbody.png")
@@ -9,7 +10,6 @@ function love.load()
   counter = 0
   mouse_x, mouse_y = 0
   next_x, next_y = 0
-  last_x, last_y = 0
 end
 
 snake_yellow = love.graphics.newImage("assets/sfhead.png")
@@ -24,7 +24,7 @@ function love.draw()
   
   for i, j in ipairs(snake_table) do
     if counter > 0 --[[and i > 1]] then
-      love.graphics.draw(snake_table[i], last_x, last_y, snake_orient, 1, 1, snake_green:getWidth()/2, snake_green:getHeight()/2)
+      love.graphics.draw(snake_table[i], last_x*i, last_y*i, snake_orient, 1, 1, snake_green:getWidth()/2, snake_green:getHeight()/2)
       last_x, last_y = next_x, next_y
     end
   end

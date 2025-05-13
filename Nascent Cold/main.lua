@@ -8,12 +8,13 @@ function love.load()
   u = 2
   d = 100
   mp_can_jump = false
-  bullet = {b, b, b, b, b, b}
+  bullet = b
+  revolver = {true, true, true, true, true, true}
   mc = m_p
   bullet_count = 1
   aniform = 1
-  bx = -237
-  by = -590
+  bx = {-237, -237, -237, -237, -237, -237}
+  by = {-590, -590, -590, -590, -590, -590}
   can_shoot = false
   mouse_x, mouse_y = 0
 end
@@ -35,7 +36,9 @@ function love.draw()
   love.graphics.print(mouse_x.."\n"..mouse_y)
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
   m_p:draw(100, 480, 2, 2, aniform)
-  bullet[1]:draw(bx, by)
+  for i, j in ipairs(bullet) do
+    bullet[i]:draw(bx, by)
+  end
 end
 
 function love.keypressed(key)
@@ -44,6 +47,12 @@ function love.keypressed(key)
   end
   if key == "escape" then
     love.event.quit()
+  end
+  
+  if key == "r" then
+    for i, j in ipairs(revolver) do
+      revolver[i] = true
+    end
   end
 end
 
@@ -65,27 +74,51 @@ function love.mousereleased(x, y, button)
 end
 
 function love.update(dt)
-  if love.mouse.isDown(2) and love.mouse.isDown(1) then
-    aniform = 3
+  function shot()
+    if can_shoot then
+      local k = 1
+      
+      while revolver[6] == false do
+        
+        if love.mouse.isDown(1) and love.mouse.isDown(2) then
+          aniform = 3
+          
+          if bx[k] < 0 then
+            bx[k] = -bx[k]
+          end
+          
+          if by[k] < 0 then
+            by[k] = -by[k]
+          end
+          
+          bullet:traverse(bx[i], dt)
+          revolver[i] = false
+          k = k + 1
+        end
+        
+      end
+      
+      for i, j in ipairs(bullet) do
+        
+        if bx[i] > 1366 then
+          bx[i] = -237
+          by[i] = -by[i]
+        end
+        
+      end
+      
+      if revolver[6] == false then
+        can_shoot = false
+      end
+      
+    end
+    
+  end
+  
+  
+  if revolver[1] == true then
     can_shoot = true
-    if by < 0 then
-      by = -by
-    end
-    if bx < 0 then
-      bx = -bx
-    end
-    bullet_shot()
-  end
-  
-  if can_shoot then
-    bx = bullet[1]:traverse(bx, dt)
-  end
-  
-  function bullet_shot()
-    if bx >= 1366 then
-      can_shoot = false
-      bx = -237
-    end
+    shot()
   end
   psystem:update(dt)
 end
