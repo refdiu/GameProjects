@@ -9,14 +9,15 @@ function love.load()
   d = 100
   mp_can_jump = false
   bullet = b
-  revolver = {true, true, true, true, true, true}
+  revolver = true
   mc = m_p
-  bullet_count = 1
+  --bullet_count = 1
   aniform = 1
-  bx = {-237, -237, -237, -237, -237, -237}
-  by = {-590, -590, -590, -590, -590, -590}
+  bx = -237
+  by = -590
   can_shoot = false
   mouse_x, mouse_y = 0
+  chamber = "full"
 end
 
 bg = love.graphics.newImage("assets/mpbg.png")
@@ -34,11 +35,10 @@ function love.draw()
   love.graphics.setBackgroundColor(100, 0, 0, 200)
   --love.graphics.draw(bg)
   love.graphics.print(mouse_x.."\n"..mouse_y)
+  love.graphics.print("\n\n"..chamber)
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
   m_p:draw(100, 480, 2, 2, aniform)
-  for i, j in ipairs(bullet) do
-    bullet[i]:draw(bx, by)
-  end
+  bullet:draw(bx, by)
 end
 
 function love.keypressed(key)
@@ -48,11 +48,8 @@ function love.keypressed(key)
   if key == "escape" then
     love.event.quit()
   end
-  
   if key == "r" then
-    for i, j in ipairs(revolver) do
-      revolver[i] = true
-    end
+    revolver = true
   end
 end
 
@@ -74,51 +71,22 @@ function love.mousereleased(x, y, button)
 end
 
 function love.update(dt)
-  function shot()
-    if can_shoot then
-      local k = 1
-      
-      while revolver[6] == false do
-        
-        if love.mouse.isDown(1) and love.mouse.isDown(2) then
-          aniform = 3
-          
-          if bx[k] < 0 then
-            bx[k] = -bx[k]
-          end
-          
-          if by[k] < 0 then
-            by[k] = -by[k]
-          end
-          
-          bullet:traverse(bx[i], dt)
-          revolver[i] = false
-          k = k + 1
-        end
-        
-      end
-      
-      for i, j in ipairs(bullet) do
-        
-        if bx[i] > 1366 then
-          bx[i] = -237
-          by[i] = -by[i]
-        end
-        
-      end
-      
-      if revolver[6] == false then
-        can_shoot = false
-      end
-      
-    end
-    
+  if love.mouse.isDown(1) and love.mouse.isDown(2) and revolver == true then
+    can_shoot = true
+    aniform = 3
+    bx = -bx
+    by = -by
   end
   
+  if can_shoot then
+    bullet:traverse(bx, dt)
+  end
   
-  if revolver[1] == true then
-    can_shoot = true
-    shot()
+  if bx > 1366 then
+    can_shoot = false
+    bx = -237
+    revolver = false
+    chamber = "empty"
   end
   psystem:update(dt)
 end

@@ -5,6 +5,7 @@ function love.load()
   player_1 = P1
   player_2 = P1
   ground = P1
+  love.window.setTitle("FootHeadBall")
   	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
   u = 1.5
   s1 = -20
@@ -40,7 +41,7 @@ function love.update(dt)
     else
       u = u + (1.5)*dt
     end
-    if v1 < 360 and v1 > 358.8 then
+    if v1 < 360 then
       player1canjump = false
     end
   end
