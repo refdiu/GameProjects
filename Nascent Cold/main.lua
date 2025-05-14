@@ -50,6 +50,7 @@ function love.keypressed(key)
   end
   if key == "r" then
     revolver = true
+    chamber = "full"
   end
 end
 
@@ -74,12 +75,16 @@ function love.update(dt)
   if love.mouse.isDown(1) and love.mouse.isDown(2) and revolver == true then
     can_shoot = true
     aniform = 3
-    bx = -bx
-    by = -by
+    if bx < 0 then
+      bx = -bx
+    end
+    if by < 0 then 
+      by = -by
+    end
   end
   
   if can_shoot then
-    bullet:traverse(bx, dt)
+    bx = bullet:traverse(bx, dt)
   end
   
   if bx > 1366 then
