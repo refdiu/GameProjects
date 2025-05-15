@@ -83,11 +83,11 @@ function love.update(dt)
     if by < 0 then 
       by = -by
     end
+    revolver = false
+    chamber = "empty"
   end
   
   if can_shoot then
-	revolver = false
-	chamber = "empty"
     bx = bullet:traverse(bx, dt)
   end
   
