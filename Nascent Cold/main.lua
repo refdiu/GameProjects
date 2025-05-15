@@ -1,3 +1,4 @@
+
 love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Nascent Cold')
 require("assets/player")
@@ -11,7 +12,8 @@ function love.load()
   bullet = b
   revolver = true
   mc = m_p
-  --bullet_count = 1
+  --bullet_coun
+  t = 1
   aniform = 1
   bx = -237
   by = -590
@@ -84,14 +86,14 @@ function love.update(dt)
   end
   
   if can_shoot then
+	revolver = false
+	chamber = "empty"
     bx = bullet:traverse(bx, dt)
   end
   
   if bx > 1366 then
     can_shoot = false
     bx = -237
-    revolver = false
-    chamber = "empty"
   end
   psystem:update(dt)
 end
