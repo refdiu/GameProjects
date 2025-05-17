@@ -33,10 +33,14 @@ psystem:setSizeVariation(0.89)
 psystem:setLinearAcceleration(-400, -100, 100, 500)
 psystem:setColors(1, 1, 1, 1, 1, 1, 1, 0)
 
+gunS = love.sound.newSoundData("assets/gunshot.mp3")
+gunshot = love.audio.newSource(gunS)
+
 function love.draw()
   love.graphics.setBackgroundColor(100, 0, 0, 200)
-  --love.graphics.draw(bg)
-  love.graphics.print(mouse_x.."\n"..mouse_y)
+  love.graphics.draw(bg)
+  love.graphics.print(mouse_x)
+  love.graphics.print("\n"..mouse_y)
   love.graphics.print("\n\n"..chamber)
   love.graphics.draw(psystem, love.graphics.getWidth()- 140, -100, 0, 0.2, 0.2)
   m_p:draw(100, 480, 2, 2, aniform)
@@ -75,6 +79,7 @@ end
 
 function love.update(dt)
   if love.mouse.isDown(1) and love.mouse.isDown(2) and revolver == true then
+    gunshot:play()
     can_shoot = true
     aniform = 3
     if bx < 0 then
