@@ -64,6 +64,7 @@ function love.mousepressed(x, y, button)
   if button == 2 then
     aniform = 3
   end
+  
 end
 
 function love.mousemoved(mx, my)
@@ -95,7 +96,7 @@ function love.update(dt)
   if can_shoot then
     bx = bullet:traverse(bx, dt)
   end
-  
+    
   if bx > 1366 then
     can_shoot = false
     bx = -237
