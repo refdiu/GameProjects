@@ -3,7 +3,6 @@ love.window.setMode(700, 300, {fullscreen = false, vsync = -1, resizable = false
 love.window.setTitle('Oh my Gotto boy')
 require("t")
 t = trees
-background = love.graphics.newImage("Background.png")
 
 function love.load()
   tx = 701
@@ -14,7 +13,7 @@ function love.draw()
 end
 
 function love.update(dt)
-  tx = tx - 90*dt
+  tx = tx - 320*dt
   if tx < 0 then
     tx = 701
   end
