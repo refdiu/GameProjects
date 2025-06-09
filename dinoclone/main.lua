@@ -10,6 +10,8 @@ jump_v = -300
 g = 7
 local cam_dyspeed = 0
 
+score = 0
+
 function love.load()
   tx = 701
   playercanjump = false
@@ -18,12 +20,16 @@ end
 function love.draw()
   t:draw(tx)
   love.graphics.draw(character, 30, cam_ord, 0, 2, 2)
+  love.graphics.print(math.floor(score))
 end
 
 function love.keypressed(key)
 	if key == "space" and cam_dyspeed == 0 then
 		cam_dyspeed = jump_v
 	end
+  if key == 'escape' then
+    love.event.quit()
+  end
 end
 
 function love.update(dt)
@@ -37,6 +43,8 @@ function love.update(dt)
 		cam_ord = 183
 		cam_dyspeed = 0
 	end
+  
+  score = score + 0.5
   
   if cam_ord >= 183 then  
     if character:getWidth() < tx + 30 and character:getWidth() > tx - 5 then
