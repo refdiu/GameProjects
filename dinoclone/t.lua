@@ -9,5 +9,5 @@ function trees:new()
 end
 
 function trees:draw(tx)
-  love.graphics.draw(tsprite, self.t1, tx, 140, 0, 4, 4)
+  love.graphics.draw(tsprite, self.t1, tx, 120, 0, 4, 4)
 end
