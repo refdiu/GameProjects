@@ -4,7 +4,7 @@ love.window.setTitle('Oh my Gotto boy')
 require("t")
 t = trees
 character = love.graphics.newImage("idle.png")
-charquad = love.graphics.newQuad(10, 0, 126, 39, character)
+--charquad = love.graphics.newQuad(10, 0, 126, 39, character)
 local cam_ord = 183
 jump_v = -300
 g = 7
@@ -17,7 +17,7 @@ end
 
 function love.draw()
   t:draw(tx)
-  love.graphics.draw(character, charquad, 0, cam_ord, 0, 2, 2)
+  love.graphics.draw(character, 30, cam_ord, 0, 2, 2)
 end
 
 function love.keypressed(key)
@@ -25,7 +25,6 @@ function love.keypressed(key)
 		cam_dyspeed = jump_v
 	end
 end
-
 
 function love.update(dt)
   tx = tx - 320*dt
@@ -38,4 +37,10 @@ function love.update(dt)
 		cam_ord = 183
 		cam_dyspeed = 0
 	end
+  
+  if cam_ord >= 183 then  
+    if character:getWidth() < tx + 30 and character:getWidth() > tx - 5 then
+      love.event.quit()
+    end
+  end
 end
