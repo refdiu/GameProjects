@@ -1,10 +1,10 @@
 	--some presets
-love.window.setMode(700, 300, {fullscreen = false, vsync = -1, resizable = false, centered = true})
-love.window.setTitle('Oh my Gotto boy')
+love.window.setMode(700, 300, {fullscreen = false, vsync = 1, stencil = true, resizable = false, centered = true})
+love.window.setTitle('cokro')
 require("t")
 t = trees
+
 character = love.graphics.newImage("idle.png")
---charquad = love.graphics.newQuad(10, 0, 126, 39, character)
 local cam_ord = 183
 jump_v = -300
 g = 7
@@ -12,14 +12,17 @@ local cam_dyspeed = 0
 
 score = 0
 
+
 function love.load()
   tx = 701
   playercanjump = false
+  bg = love.graphics.newImage("bg.png")
 end
 
 function love.draw()
+  love.graphics.draw(bg)
+  love.graphics.draw(character, 70, cam_ord, 0, 2, 2)
   t:draw(tx)
-  love.graphics.draw(character, 30, cam_ord, 0, 2, 2)
   love.graphics.print(math.floor(score))
 end
 
@@ -34,7 +37,7 @@ end
 
 function love.update(dt)
   tx = tx - 320*dt
-  if tx < 0 then
+  if tx < -40 then
     tx = 701
   end
   cam_dyspeed = cam_dyspeed + g
