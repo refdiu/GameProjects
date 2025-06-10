@@ -1,5 +1,5 @@
 	--some presets
-love.window.setMode(700, 300, {fullscreen = false, vsync = 1, stencil = true, resizable = false, centered = true})
+love.window.setMode(700, 380, {fullscreen = false, vsync = 1, stencil = true, resizable = false, centered = true})
 love.window.setTitle('cokro')
 require("t")
 t = trees
@@ -11,7 +11,9 @@ g = 7
 local cam_dyspeed = 0
 
 score = 0
-bg = love.graphics.newImage("bg.png")
+button = love.graphics.newImage("button UI.png")
+jump_quad = love.graphics.newQuad(64, 80, 16, 16, button)
+exit_quad = love.graphics.newQuad(64, 16, 16, 16, button)
 
 function love.load()
   tx = 701
@@ -23,6 +25,8 @@ function love.draw()
   t:draw(tx)
   love.graphics.print(math.floor(score))
   love.graphics.draw(character, 70, cam_ord, 0, 2, 2)
+  love.graphics.draw(button, jump_quad, 50, 300, 0, 3, 3)
+  love.graphics.draw(button, exit_quad, 146, 300, 0, 3, 3)
 end
 
 function love.keypressed(key)
