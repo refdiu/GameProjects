@@ -58,7 +58,9 @@ function love.draw()
       local x, y = love.touch.getPosition(id)
       if x > 326 and x < 374 and y > 240 and y < 288 then
         tx = 701
-        hiscore = score
+        if hiscore <= score then
+          hiscore = score
+        end
         score = 0
         gameover = false
       end
