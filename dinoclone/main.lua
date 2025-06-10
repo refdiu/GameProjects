@@ -11,19 +11,18 @@ g = 7
 local cam_dyspeed = 0
 
 score = 0
-
+bg = love.graphics.newImage("bg.png")
 
 function love.load()
   tx = 701
   playercanjump = false
-  bg = love.graphics.newImage("bg.png")
 end
 
 function love.draw()
-  love.graphics.draw(bg)
-  love.graphics.draw(character, 70, cam_ord, 0, 2, 2)
+  love.graphics.setBackgroundColor(backgroundcolor)
   t:draw(tx)
   love.graphics.print(math.floor(score))
+  love.graphics.draw(character, 70, cam_ord, 0, 2, 2)
 end
 
 function love.keypressed(key)
@@ -36,6 +35,7 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
+  backgroundcolor = {math.random(0,1), math.random(0,1), math.random(0,1)}
   tx = tx - 320*dt
   if tx < -40 then
     tx = 701
