@@ -1,4 +1,4 @@
-tsprite = love.graphics.newImage("strees.png")
+tsprite = love.graphics.newImage("assets/strees.png")
 trees = {t1 = love.graphics.newQuad(48, 0, 16, 32, tsprite), t2 = love.graphics.newQuad(48, 32, 16, 32, tsprite)}
 
 function trees:new()
