@@ -21,6 +21,21 @@ function love.load()
 end
 
 function love.draw()
+  local touches = love.touch.getTouches()
+
+  for i, id in ipairs(touches) do
+    local x, y = love.touch.getPosition(id)
+    if x > 50 and x < 98 and y > 300 and y < 348 then
+      cam_dyspeed = jump_v
+    end
+  
+    if x > 146 and x < 194 and y > 300 and y < 348 then
+      love.event.quit()
+    end
+  end
+  
+  
+  
   love.graphics.setBackgroundColor(backgroundcolor)
   t:draw(tx)
   love.graphics.print(math.floor(score))
