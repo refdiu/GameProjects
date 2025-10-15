@@ -1,0 +1,1424 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R /F5 9 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Times-Roman /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+5 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
+>>
+endobj
+6 0 obj
+<<
+/Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+7 0 obj
+<<
+/Contents 21 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+8 0 obj
+<<
+/Contents 22 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F5 /Subtype /Type1 /Type /Font
+>>
+endobj
+10 0 obj
+<<
+/Contents 23 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+11 0 obj
+<<
+/Contents 24 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+12 0 obj
+<<
+/Contents 25 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 19 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+13 0 obj
+<<
+/Outlines 15 0 R /PageLabels 26 0 R /PageMode /UseNone /Pages 19 0 R /Type /Catalog
+>>
+endobj
+14 0 obj
+<<
+/Author () /CreationDate (D:20251015020704+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20251015020704+05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+  /Subject (\(unspecified\)) /Title (hump.gamestate) /Trapped /False
+>>
+endobj
+15 0 obj
+<<
+/Count 3 /First 16 0 R /Last 18 0 R /Type /Outlines
+>>
+endobj
+16 0 obj
+<<
+/Dest [ 6 0 R /XYZ 57.02362 230.6236 0 ] /Next 17 0 R /Parent 15 0 R /Title (List of Functions)
+>>
+endobj
+17 0 obj
+<<
+/Dest [ 7 0 R /XYZ 57.02362 765.0236 0 ] /Next 18 0 R /Parent 15 0 R /Prev 16 0 R /Title (Gamestate Callbacks)
+>>
+endobj
+18 0 obj
+<<
+/Dest [ 8 0 R /XYZ 57.02362 415.8236 0 ] /Parent 15 0 R /Prev 17 0 R /Title (Function Reference)
+>>
+endobj
+19 0 obj
+<<
+/Count 6 /Kids [ 6 0 R 7 0 R 8 0 R 10 0 R 11 0 R 12 0 R ] /Type /Pages
+>>
+endobj
+20 0 obj
+<<
+/Length 4593
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 741.0236 cm
+q
+.133333 .133333 .133333 rg
+BT 1 0 0 1 0 4 Tm /F2 20 Tf 24 TL 175.3442 0 Td (hump.gamestate) Tj T* -175.3442 0 Td ET
+Q
+Q
+q
+1 0 0 1 57.02362 679.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (Gamestate = require "hump.gamestate") Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 659.8236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (A gamestate encapsulates independent data and behaviour in a single table.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 641.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (A typical game could consist of a menu-state, a level-state and a game-over-state.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 623.8236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 242.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 372 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 350 Tm /F3 10 Tf 12 TL (local menu = {} -- previously: Gamestate.new\(\)) Tj T* (local game = {}) Tj T*  T* (function menu:draw\(\)) Tj T* (    love.graphics.print\("Press Enter to continue", 10, 10\)) Tj T* (end) Tj T*  T* (function menu:keyreleased\(key, code\)) Tj T* (    if key == 'return' then) Tj T* (        Gamestate.switch\(game\)) Tj T* (    end) Tj T* (end) Tj T*  T* (function game:enter\(\)) Tj T* (    Entities.clear\(\)) Tj T* (    -- setup entities here) Tj T* (end) Tj T*  T* (function game:update\(dt\)) Tj T* (    Entities.update\(dt\)) Tj T* (end) Tj T*  T* (function game:draw\(\)) Tj T* (    Entities.draw\(\)) Tj T* (end) Tj T*  T* (function love.load\(\)) Tj T* (    Gamestate.registerEvents\(\)) Tj T* (    Gamestate.switch\(menu\)) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 209.6236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (List of Functions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 197.6236 cm
+Q
+q
+1 0 0 1 57.02362 197.6236 cm
+Q
+q
+1 0 0 1 57.02362 185.6236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.new\(\) <) Tj (Gamestate.new) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 179.6236 cm
+Q
+q
+1 0 0 1 57.02362 167.6236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.switch\(to, ...\) <) Tj (Gamestate.switch) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 161.6236 cm
+Q
+q
+1 0 0 1 57.02362 149.6236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.current\(\) <) Tj (Gamestate.current) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 143.6236 cm
+Q
+q
+1 0 0 1 57.02362 131.6236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.push\(to, ...\) <) Tj (Gamestate.push) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 125.6236 cm
+Q
+q
+1 0 0 1 57.02362 113.6236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.pop\(...\) <) Tj (Gamestate.pop) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 107.6236 cm
+Q
+q
+1 0 0 1 57.02362 95.62362 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.) Tj (<) Tj (callback) Tj (>) Tj (\(...\) <) Tj (Gamestate.) Tj (<) Tj (callback) Tj (>) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 89.62362 cm
+Q
+q
+1 0 0 1 57.02362 77.62362 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL 8 0 Td (\177) Tj T* -8 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 1 0 0 rg (:func:`Gamestate.registerEvents\([callbacks]\) <) Tj (Gamestate.registerEvents) Tj (>) Tj (`) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 77.62362 cm
+Q
+ 
+endstream
+endobj
+21 0 obj
+<<
+/Length 6457
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 744.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Gamestate Callbacks) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 714.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.21589 Tw (A gamestate can define all callbacks that L\326VE defines. In addition, there are callbacks for initalizing,) Tj T* 0 Tw (entering and leaving a state:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 698.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (init\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 683.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Called once, and only once, before entering the state the first time. See ) Tj 1 0 0 rg (:func:`Gamestate.switch`) Tj 0 0 0 rg (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 667.0236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (enter\(previous,) Tj ( ) Tj (...\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 652.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Called every time when entering the state. See ) Tj 1 0 0 rg (:func:`Gamestate.switch`) Tj 0 0 0 rg (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 636.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (leave\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 621.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Called when leaving a state. See ) Tj 1 0 0 rg (:func:`Gamestate.switch`) Tj 0 0 0 rg ( and ) Tj 1 0 0 rg (:func:`Gamestate.pop`) Tj 0 0 0 rg (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 605.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (resume\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 590.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Called when re-entering a state by ) Tj 1 0 0 rg (:func:`Gamestate.pop`) Tj 0 0 0 rg (-ing another state.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 574.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (update\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 559.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Update the game state. Called every frame.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 543.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (draw\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 528.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Draw on the screen. Called every frame.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 512.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (focus\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 497.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Called if the window gets or loses focus.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 481.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (keypressed\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 466.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Triggered when a key is pressed.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 450.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (keyreleased\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 435.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Triggered when a key is released.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 419.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (mousepressed\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 404.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Triggered when a mouse button is pressed.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 388.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (mousereleased\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 373.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Triggered when a mouse button is released.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 357.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (joystickpressed\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 342.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Triggered when a joystick button is pressed.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 326.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (joystickreleased\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 311.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Triggered when a joystick button is released.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 295.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (quit\(\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 280.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Called on quitting the game. Only called on the active gamestate.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 250.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .595696 Tw 12 TL /F1 10 Tf 0 0 0 rg (When using ) Tj 1 0 0 rg (:func:`Gamestate.registerEvents`) Tj 0 0 0 rg (, all these callbacks will be called by the corresponding L\326VE) Tj T* 0 Tw -0.129304 Tw (callbacks and receive the same arguments \(e.g. ) Tj /F3 10 Tf (state:update\(dt\)) Tj /F1 10 Tf ( will be called by ) Tj /F3 10 Tf (love.update\(dt\)) Tj /F1 10 Tf (\).) Tj T* 0 Tw ET
+Q
+Q
+q
+1 0 0 1 57.02362 232.0236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 66.82362 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 156 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 134 Tm /F3 10 Tf 12 TL (menu = {} -- previously: Gamestate.new\(\)) Tj T*  T* (function menu:init\(\)) Tj T* (    self.background = love.graphics.newImage\('bg.jpg'\)) Tj T* (    Buttons.initialize\(\)) Tj T* (end) Tj T*  T* (function menu:enter\(previous\) -- runs every time the state is entered) Tj T* (    Buttons.setActive\(Buttons.start\)) Tj T* (end) Tj T*  T* (function menu:update\(dt\) -- runs every frame) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+22 0 obj
+<<
+/Length 3607
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 427.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 336 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 314 Tm /F3 10 Tf 12 TL (    Buttons.update\(dt\)) Tj T* (end) Tj T*  T* (function menu:draw\(\)) Tj T* (    love.graphics.draw\(self.background, 0, 0\)) Tj T* (    Buttons.draw\(\)) Tj T* (end) Tj T*  T* (function menu:keyreleased\(key\)) Tj T* (    if key == 'up' then) Tj T* (        Buttons.selectPrevious\(\)) Tj T* (    elseif key == 'down' then) Tj T* (        Buttons.selectNext\(\)) Tj T* (    elseif) Tj T* (        Buttons.active:onClick\(\)) Tj T* (    end) Tj T* (end) Tj T*  T* (function menu:mousereleased\(x,y, mouse_btn\)) Tj T* (    local button = Buttons.hovered\(x,y\)) Tj T* (    if button then) Tj T* (        Button.select\(button\)) Tj T* (        if mouse_btn == 'l' then) Tj T* (            button:onClick\(\)) Tj T* (        end) Tj T* (    end) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 394.8236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf .133333 .133333 .133333 rg (Function Reference) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 376.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (Deprecated: Use the table constructor instead \(see example\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 358.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Declare a new gamestate \(just an empty table\). A gamestate can define several callbacks.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 340.8236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 283.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 48 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL (menu = {}) Tj T* (-- deprecated method:) Tj T* (menu = Gamestate.new\(\)) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 263.6236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Switch to a gamestate, with any additional arguments passed to the new state.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 221.6236 cm
+q
+BT 1 0 0 1 0 26 Tm 3.067739 Tw 12 TL /F1 10 Tf 0 0 0 rg (Switching a gamestate will call the ) Tj /F3 10 Tf (leave\(\)) Tj /F1 10 Tf ( callback on the current gamestate, replace the current) Tj T* 0 Tw 1.299913 Tw (gamestate with ) Tj /F3 10 Tf (to) Tj /F1 10 Tf (, call the ) Tj /F3 10 Tf (init\(\)) Tj /F1 10 Tf ( function if, and only if, the state was not yet inialized and finally call) Tj T* 0 Tw /F3 10 Tf (enter\(old_state,) Tj ( ) Tj (...\)) Tj /F1 10 Tf ( on the new gamestate.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 209.6236 cm
+Q
+q
+1 0 0 1 57.02362 114.6236 cm
+q
+1 .972549 .862745 rg
+n 0 95 481.2283 -95 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 69 Tm  T* ET
+q
+1 0 0 1 16 64 cm
+q
+.133333 .133333 .133333 rg
+BT 1 0 0 1 0 2.5 Tm /F2 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 26 Tm 2.495596 Tw 12 TL /F1 10 Tf 0 0 0 rg (Processing of callbacks is suspended until ) Tj /F3 10 Tf (update\(\)) Tj /F1 10 Tf ( is called on the new gamestate, but the) Tj T* 0 Tw .218647 Tw (function calling ) Tj 1 0 0 rg (:func:`Gamestate.switch`) Tj 0 0 0 rg ( can still continue - it is your job to make sure this is handled) Tj T* 0 Tw (correctly. See also the examples below.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 95 m 481.2283 95 l S
+n 0 0 m 481.2283 0 l S
+n 0 0 m 0 95 l S
+n 481.2283 0 m 481.2283 95 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 108.6236 cm
+Q
+q
+1 0 0 1 57.02362 90.62362 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Examples) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+ 
+endstream
+endobj
+23 0 obj
+<<
+/Length 3919
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 739.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (Gamestate.switch\(game, level_two\)) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 634.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 96 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 74 Tm /F3 10 Tf 12 TL (-- stop execution of the current state by using return) Tj T* (if player.has_died then) Tj T* (    return Gamestate.switch\(game, level_two\)) Tj T* (end) Tj T*  T* (-- this will not be called when the state is switched) Tj T* (player:update\(\)) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 614.6236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Returns the currently activated gamestate.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 596.6236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 515.4236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL (function love.keypressed\(key\)) Tj T* (    if Gamestate.current\(\) ~= menu and key == 'p' then) Tj T* (        Gamestate.push\(pause\)) Tj T* (    end) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 483.4236 cm
+q
+BT 1 0 0 1 0 14 Tm 2.725702 Tw 12 TL /F1 10 Tf 0 0 0 rg (Pushes the ) Tj /F3 10 Tf (to) Tj /F1 10 Tf ( on top of the state stack, i.e. makes it the active state. Semantics are the same as) Tj T* 0 Tw /F3 10 Tf (switch\(to,) Tj ( ) Tj (...\)) Tj /F1 10 Tf (, except that ) Tj /F3 10 Tf (leave\(\)) Tj /F1 10 Tf ( is ) Tj /F5 10 Tf (not) Tj /F1 10 Tf ( called on the previously active state.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 465.4236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Useful for pause screens, menus, etc.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 453.4236 cm
+Q
+q
+1 0 0 1 57.02362 358.4236 cm
+q
+1 .972549 .862745 rg
+n 0 95 481.2283 -95 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 69 Tm  T* ET
+q
+1 0 0 1 16 64 cm
+q
+.133333 .133333 .133333 rg
+BT 1 0 0 1 0 2.5 Tm /F2 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 26 Tm 2.495596 Tw 12 TL /F1 10 Tf 0 0 0 rg (Processing of callbacks is suspended until ) Tj /F3 10 Tf (update\(\)) Tj /F1 10 Tf ( is called on the new gamestate, but the) Tj T* 0 Tw .985197 Tw (function calling ) Tj /F3 10 Tf (GS.push\(\)) Tj /F1 10 Tf ( can still continue - it is your job to make sure this is handled correctly.) Tj T* 0 Tw (See also the example below.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 95 m 481.2283 95 l S
+n 0 0 m 481.2283 0 l S
+n 0 0 m 0 95 l S
+n 481.2283 0 m 481.2283 95 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 352.4236 cm
+Q
+q
+1 0 0 1 57.02362 334.4236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 73.22362 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 252 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 230 Tm /F3 10 Tf 12 TL (-- pause gamestate) Tj T* (Pause = Gamestate.new\(\)) Tj T* (function Pause:enter\(from\)) Tj T* (    self.from = from -- record previous state) Tj T* (end) Tj T*  T* (function Pause:draw\(\)) Tj T* (    local W, H = love.graphics.getWidth\(\), love.graphics.getHeight\(\)) Tj T* (    -- draw previous screen) Tj T* (    self.from:draw\(\)) Tj T* (    -- overlay with pause message) Tj T* (    love.graphics.setColor\(0,0,0, 100\)) Tj T* (    love.graphics.rectangle\('fill', 0,0, W,H\)) Tj T* (    love.graphics.setColor\(255,255,255\)) Tj T* (    love.graphics.printf\('PAUSE', 0, H/2, W, 'center'\)) Tj T* (end) Tj T*  T* (-- [...]) Tj T* (function love.keypressed\(key\)) Tj T* (    if Gamestate.current\(\) ~= menu and key == 'p' then) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+24 0 obj
+<<
+/Length 4240
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 715.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 48 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL (        return Gamestate.push\(pause\)) Tj T* (    end) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 683.8236 cm
+q
+BT 1 0 0 1 0 14 Tm .594353 Tw 12 TL /F1 10 Tf 0 0 0 rg (Calls ) Tj /F3 10 Tf (leave\(\)) Tj /F1 10 Tf ( on the current state and then removes it from the stack, making the state below the current) Tj T* 0 Tw (state and calls ) Tj /F3 10 Tf (resume\(...\)) Tj /F1 10 Tf ( on the activated state. Does ) Tj /F5 10 Tf (not) Tj /F1 10 Tf ( call ) Tj /F3 10 Tf (enter\(\)) Tj /F1 10 Tf ( on the activated state.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 671.8236 cm
+Q
+q
+1 0 0 1 57.02362 576.8236 cm
+q
+1 .972549 .862745 rg
+n 0 95 481.2283 -95 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 69 Tm  T* ET
+q
+1 0 0 1 16 64 cm
+q
+.133333 .133333 .133333 rg
+BT 1 0 0 1 0 2.5 Tm /F2 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 26 Tm 2.495596 Tw 12 TL /F1 10 Tf 0 0 0 rg (Processing of callbacks is suspended until ) Tj /F3 10 Tf (update\(\)) Tj /F1 10 Tf ( is called on the new gamestate, but the) Tj T* 0 Tw .121019 Tw (function calling ) Tj /F3 10 Tf (GS.pop\(\)) Tj /F1 10 Tf ( can still continue - it is your job to make sure this is handled correctly. See) Tj T* 0 Tw (also the example below.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 95 m 481.2283 95 l S
+n 0 0 m 481.2283 0 l S
+n 0 0 m 0 95 l S
+n 481.2283 0 m 481.2283 95 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 570.8236 cm
+Q
+q
+1 0 0 1 57.02362 552.8236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 459.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 84 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 62 Tm /F3 10 Tf 12 TL (-- extending the example of Gamestate.push\(\) above) Tj T* (function Pause:keypressed\(key\)) Tj T* (    if key == 'p' then) Tj T* (        return Gamestate.pop\(\) -- return to previous state) Tj T* (    end) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 427.6236 cm
+q
+BT 1 0 0 1 0 14 Tm 3.418797 Tw 12 TL /F1 10 Tf 0 0 0 rg (Calls a function on the current gamestate. Can be any function, but is intended to be one of the) Tj T* 0 Tw 1 0 0 rg (:ref:`callbacks`) Tj 0 0 0 rg (. Mostly useful when not using ) Tj 1 0 0 rg (:func:`Gamestate.registerEvents`) Tj 0 0 0 rg (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 409.6236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Example) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 256.4236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 144 re B*
+Q
+q
+BT 1 0 0 1 0 122 Tm 12 TL /F3 10 Tf 0 0 0 rg (function love.draw\(\)) Tj T* (    Gamestate.draw\(\) -- ) Tj (<) Tj (callback) Tj (>) Tj ( is `draw') Tj T* (end) Tj T*  T* (function love.update\(dt\)) Tj T* (    Gamestate.update\(dt\) -- pass dt to currentState:update\(dt\)) Tj T* (end) Tj T*  T* (function love.keypressed\(key, code\)) Tj T* (    Gamestate.keypressed\(key, code\) -- pass multiple arguments) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 224.4236 cm
+q
+BT 1 0 0 1 0 14 Tm 2.202038 Tw 12 TL /F1 10 Tf 0 0 0 rg (Overwrite love callbacks to call ) Tj /F3 10 Tf (Gamestate.update\(\)) Tj /F1 10 Tf (, ) Tj /F3 10 Tf (Gamestate.draw\(\)) Tj /F1 10 Tf (, etc. automatically. ) Tj /F3 10 Tf (love) Tj /F1 10 Tf  T* 0 Tw (callbacks \(e.g. ) Tj /F3 10 Tf (love.update\(\)) Tj /F1 10 Tf (\) are still invoked as usual.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 206.4236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (This is by done by overwriting the love callbacks, e.g.:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 125.2236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL (local old_update = love.update) Tj T* (function love.update\(dt\)) Tj T* (    old_update\(dt\)) Tj T* (    return Gamestate.current:update\(dt\)) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 105.2236 cm
+Q
+ 
+endstream
+endobj
+25 0 obj
+<<
+/Length 1749
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 57.02362 682.0236 cm
+q
+1 .972549 .862745 rg
+n 0 83 481.2283 -83 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 6 57 Tm  T* ET
+q
+1 0 0 1 16 52 cm
+q
+.133333 .133333 .133333 rg
+BT 1 0 0 1 0 2.5 Tm /F2 12.5 Tf 15 TL (Note) Tj T* ET
+Q
+Q
+q
+1 0 0 1 16 16 cm
+q
+BT 1 0 0 1 0 14 Tm 1.381667 Tw 12 TL /F1 10 Tf 0 0 0 rg (Only works when called in love.load\(\) or any other function that is executed ) Tj /F5 10 Tf (after) Tj /F1 10 Tf ( the whole file is) Tj T* 0 Tw (loaded.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+.662745 .662745 .662745 RG
+.5 w
+n 0 83 m 481.2283 83 l S
+n 0 0 m 481.2283 0 l S
+n 0 0 m 0 83 l S
+n 481.2283 0 m 481.2283 83 l S
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 676.0236 cm
+Q
+q
+1 0 0 1 57.02362 658.0236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (Examples) Tj /F1 10 Tf (:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 57.02362 516.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 132 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 110 Tm /F3 10 Tf 12 TL (function love.load\(\)) Tj T* (    Gamestate.registerEvents\(\)) Tj T* (    Gamestate.switch\(menu\)) Tj T* (end) Tj T*  T* (-- love callback will still be invoked) Tj T* (function love.update\(dt\)) Tj T* (    Timer.update\(dt\)) Tj T* (    -- no need for Gamestate.update\(dt\)) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 57.02362 435.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.941176 .972549 1 rg
+n -6 -6 480.0283 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F3 10 Tf 12 TL (function love.load\(\)) Tj T* (    -- only register draw, update and quit) Tj T* (    Gamestate.registerEvents{'draw', 'update', 'quit'}) Tj T* (    Gamestate.switch\(menu\)) Tj T* (end) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+26 0 obj
+<<
+/Nums [ 0 27 0 R 1 28 0 R 2 29 0 R 3 30 0 R 4 31 0 R 
+  5 32 0 R ]
+>>
+endobj
+27 0 obj
+<<
+/S /D /St 1
+>>
+endobj
+28 0 obj
+<<
+/S /D /St 2
+>>
+endobj
+29 0 obj
+<<
+/S /D /St 3
+>>
+endobj
+30 0 obj
+<<
+/S /D /St 4
+>>
+endobj
+31 0 obj
+<<
+/S /D /St 5
+>>
+endobj
+32 0 obj
+<<
+/S /D /St 6
+>>
+endobj
+xref
+0 33
+0000000000 65535 f 
+0000000073 00000 n 
+0000000144 00000 n 
+0000000251 00000 n 
+0000000360 00000 n 
+0000000465 00000 n 
+0000000577 00000 n 
+0000000782 00000 n 
+0000000987 00000 n 
+0000001192 00000 n 
+0000001307 00000 n 
+0000001513 00000 n 
+0000001719 00000 n 
+0000001925 00000 n 
+0000002031 00000 n 
+0000002303 00000 n 
+0000002377 00000 n 
+0000002495 00000 n 
+0000002628 00000 n 
+0000002747 00000 n 
+0000002840 00000 n 
+0000007485 00000 n 
+0000013994 00000 n 
+0000017653 00000 n 
+0000021624 00000 n 
+0000025916 00000 n 
+0000027717 00000 n 
+0000027806 00000 n 
+0000027840 00000 n 
+0000027874 00000 n 
+0000027908 00000 n 
+0000027942 00000 n 
+0000027976 00000 n 
+trailer
+<<
+/ID 
+[<0e4992e0c866ae2a8a88f54aeb92c835><0e4992e0c866ae2a8a88f54aeb92c835>]
+% ReportLab generated PDF document -- digest (http://www.reportlab.com)
+
+/Info 14 0 R
+/Root 13 0 R
+/Size 33
+>>
+startxref
+28010
+%%EOF
