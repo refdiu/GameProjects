@@ -1,46 +1,75 @@
-function love.load()
-	love.window.setMode(640, 480, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
-	sgrid = love.graphics.newImage("grid.png")
-  xe = love.graphics.newImage("ex.png")
-  o = love.graphics.newImage("oh.png")
-  x_1 = -580
-  y_1 = -155
-end
-
+matrix = {{'-', '-', '-'},
+		  {'-', '-', '-'},
+		  {'-', '-', '-'}}
 p1turn = true
 p2turn = false
-mouse_x, mouse_y = 0, 0
+turntext = "Numbers' turn"
 
-
-matrix = {{0, 0, 0}, 
-          {0, 0, 0}, 
-          {0, 0, 0}}
-
+p1tab = {['1'] = true, ['2'] = true, ['3'] = true, ['4'] = true, ['5'] = true, ['6'] = true, ['7'] = true, ['8'] = true, ['9'] = true}
+maintab = {['q'] = '1', ['w'] = '2', ['e'] = '3', ['r'] = '4', ['t'] = '5', ['y'] = '6', ['u'] = '7', ['i'] = '8', ['o'] = '9'}
 function love.draw()
-	love.graphics.draw(sgrid, 450)
-  love.graphics.print(mouse_x.."\n"..mouse_y)
-  love.graphics.draw(xe, x_1, y_1, 0, 0.2)
+	for i = 1, 3 do
+		love.graphics.print("\n")
+		for j = 1, 3 do
+			love.graphics.print(matrix[i][j], j*100, i*100)
+		end
+	end
+	love.graphics.print(turntext)
 end
 
-
---{{580, 155}, {859, 155}, {1138, 155}}
---{{580, 410}, {859, 410}, {1138, 410}}
---{{580, 665}, {859, 665}, {1138, 665}}
 function love.keypressed(key)
-  if key == 'escape' then
-    love.event.quit()
-  end
+	if p1tab[key] == true and p1turn then
+		p1tab[key] = false
+
+		if key == '1' then
+			matrix[1][1] = 'x'
+		elseif key == '2' then
+			matrix[1][2] = 'x'
+		elseif key == '3' then
+			matrix[1][3] = 'x'
+		elseif key == '4' then
+			matrix[2][1] = 'x'
+		elseif key == '5' then
+			matrix[2][2] = 'x'
+		elseif key == '6' then
+			matrix[2][3] = 'x'
+		elseif key == '7' then
+			matrix[3][1] = 'x'
+		elseif key == '8' then
+			matrix[3][2] = 'x'
+		elseif key == '9' then
+			matrix[3][3] = 'x'
+		end
+
+		p1turn = false
+		p2turn = true
+		turntext = "letters' turn"
+	elseif p1tab[maintab[key]] == true and p2turn then
+		p1tab[maintab[key]] = false
+
+		if key == 'q' then
+			matrix[1][1] = 'o'
+		elseif key == 'w' then
+			matrix[1][2] = 'o'
+		elseif key == 'e' then
+			matrix[1][3] = 'o'
+		elseif key == 'r' then
+			matrix[2][1] = 'o'
+		elseif key == 't' then
+			matrix[2][2] = 'o'
+		elseif key == 'y' then
+			matrix[2][3] = 'o'
+		elseif key == 'u' then
+			matrix[3][1] = 'o'
+		elseif key == 'i' then
+			matrix[3][2] = 'o'
+		elseif key == 'o' then
+			matrix[3][3] = 'o'
+		end
+
+		p1turn = true
+		p2turn = false
+		turntext = "Numbers' turn"
+	end
 end
 
-function love.mousepressed(x, y, button)
-  if button == 1 and p1turn == true and (x >= 580 and x <= 800 and y >= 150 and y <= 370) then
-    x_1 = -x_1
-    y_1 = -y_1
-    
-  end
-end
-
-function love.mousemoved(x, y)
-  mouse_x = x
-  mouse_y = y
-end
