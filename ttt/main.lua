@@ -1,3 +1,5 @@
+game = {winnername = "", won = false}
+
 matrix = {{'-', '-', '-'},
 		  {'-', '-', '-'},
 		  {'-', '-', '-'}}
@@ -15,6 +17,9 @@ function love.draw()
 		end
 	end
 	love.graphics.print(turntext)
+	if game.won then
+		game:drawm()
+	end
 end
 
 function love.keypressed(key)
@@ -73,3 +78,14 @@ function love.keypressed(key)
 	end
 end
 
+function love.update(dt)
+	if matrix[1][1] == 'x' and matrix[1][2] == 'x' and matrix[1][3] == 'x' then
+		game.winnername = "Player 1"
+		game.won = true
+	end
+end
+
+function game:drawm()
+	love.graphics.print(self.winnername, 200, 200)
+	love.graphics.print("Wanna play again?", 200, 300)
+end
