@@ -1,15 +1,24 @@
-game = {winnername = "", won = false}
+Gamestate = require "hump.gamestate"
+game = {winnername = ""}
+winner = {}
 
-matrix = {{'-', '-', '-'},
-		  {'-', '-', '-'},
-		  {'-', '-', '-'}}
-p1turn = true
-p2turn = false
-turntext = "Numbers' turn"
+function love.load()
+	Gamestate.registerEvents()
+	Gamestate.switch(game)
+end
 
-p1tab = {['1'] = true, ['2'] = true, ['3'] = true, ['4'] = true, ['5'] = true, ['6'] = true, ['7'] = true, ['8'] = true, ['9'] = true}
-maintab = {['q'] = '1', ['w'] = '2', ['e'] = '3', ['r'] = '4', ['t'] = '5', ['y'] = '6', ['u'] = '7', ['i'] = '8', ['o'] = '9'}
-function love.draw()
+function game:enter()
+	matrix = {{'-', '-', '-'},
+			  {'-', '-', '-'},
+			  {'-', '-', '-'}}
+	p1turn = true
+	p2turn = false
+	turntext = "Numbers' turn"
+	p1tab = {['1'] = true, ['2'] = true, ['3'] = true, ['4'] = true, ['5'] = true, ['6'] = true, ['7'] = true, ['8'] = true, ['9'] = true}
+	maintab = {['q'] = '1', ['w'] = '2', ['e'] = '3', ['r'] = '4', ['t'] = '5', ['y'] = '6', ['u'] = '7', ['i'] = '8', ['o'] = '9'}
+end
+
+function game:draw()
 	for i = 1, 3 do
 		love.graphics.print("\n")
 		for j = 1, 3 do
@@ -22,7 +31,7 @@ function love.draw()
 	end
 end
 
-function love.keypressed(key)
+function game:keypressed(key)
 	if p1tab[key] == true and p1turn then
 		p1tab[key] = false
 
@@ -78,14 +87,27 @@ function love.keypressed(key)
 	end
 end
 
-function love.update(dt)
+function game:update(dt)
 	if matrix[1][1] == 'x' and matrix[1][2] == 'x' and matrix[1][3] == 'x' then
-		game.winnername = "Player 1"
-		game.won = true
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
 	end
 end
 
-function game:drawm()
-	love.graphics.print(self.winnername, 200, 200)
-	love.graphics.print("Wanna play again?", 200, 300)
+function winner:enter(mygame, ze_winner)
+	self.mygame = mygame
+	self.ze_winner = ze_winner
+end
+
+function winner:draw()
+	love.graphics.print("Winner is: "..self.ze_winner, 200, 200)
+	love.graphics.print("Wanna play again?\nPress R to restart\nPress Q to quit", 200, 300)
+end
+
+function winner:keypressed(key)
+	if key == 'r' then
+		Gamestate.switch(game)
+	elseif key == 'q' then
+		love.event.quit()
+	end
 end

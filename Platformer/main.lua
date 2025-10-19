@@ -1,7 +1,7 @@
 Gamestate = require "hump.gamestate"
 
 menu = {}
-game = {}
+game = {h = 20}
 pause = {}
 
 function menu:draw()
@@ -23,15 +23,16 @@ function game:enter(pmenu)
 end
 
 function game:draw()
-	love.graphics.print("Unpaused", 300, 200, 0, 3, 3)
+	love.graphics.print("unpassdsds", 300, 200, 0, 3, 3)
 end
 
-function pause:enter(mygame)
+function pause:enter(mygame, heehee)
 	self.mygame = mygame
+  self.heehee = heehee
 end
 
 function pause:draw()
-	love.graphics.print("Paused", 100, 100, 0, 5, 5)
+	love.graphics.print(self.heehee, 100, 100, 0, 5, 5)
 end
 
 function game:keypressed(key)
@@ -53,7 +54,7 @@ end
 
 function love.keypressed(key)
 	if key == 'p' and Gamestate.current() == game then
-		return Gamestate.push(pause)
+		return Gamestate.push(pause, game.h)
 	end
 end
 
