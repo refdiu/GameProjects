@@ -99,6 +99,4 @@ Game on! 🎮
 
 ---
 
-*This README was generated with love and code-powered imagination.*
-
 [1]: https://github.com/refdiu/GameProjects/tree/main "GitHub - refdiu/GameProjects"
