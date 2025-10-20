@@ -5,24 +5,37 @@ winner = {}
 function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
+	if love.system.getOS() == 'Android' then
+    h, w = love.graphics.getDimensions()
+    love.window.setMode(h, w, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
+  else
+    love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = true, centered = true, highdpi = true})
+  end
 end
 
 function game:enter()
-	matrix = {{'-', '-', '-'},
-			  {'-', '-', '-'},
-			  {'-', '-', '-'}}
 	p1turn = true
 	p2turn = false
-	turntext = "Numbers' turn"
-	p1tab = {['1'] = true, ['2'] = true, ['3'] = true, ['4'] = true, ['5'] = true, ['6'] = true, ['7'] = true, ['8'] = true, ['9'] = true}
-	maintab = {['q'] = '1', ['w'] = '2', ['e'] = '3', ['r'] = '4', ['t'] = '5', ['y'] = '6', ['u'] = '7', ['i'] = '8', ['o'] = '9'}
+	turntext = "Player 1's turn"
+	grid = love.graphics.newImage('grid.png')
+	myx = love.graphics.newImage('ex.png')
+	myo = love.graphics.newImage('oh.png')
+	placeholder = love.graphics.newImage('blank.png')
+	matrix = {{placeholder, placeholder, placeholder},
+			  {placeholder, placeholder, placeholder},
+			  {placeholder, placeholder, placeholder}}
+
+	coord_matrix = {{{580, 155}, {859, 155}, {1138, 155}},
+					{{580, 410}, {859, 410}, {1138, 410}},
+					{{580, 665}, {859, 665}, {1138, 665}}}
 end
 
 function game:draw()
+	love.graphics.draw(grid, 450)
 	for i = 1, 3 do
 		love.graphics.print("\n")
 		for j = 1, 3 do
-			love.graphics.print(matrix[i][j], j*100, i*100)
+			love.graphics.draw(matrix[i][j], coord_matrix[i][j][1], coord_matrix[i][j][2], 0, 0.2)
 		end
 	end
 	love.graphics.print(turntext)
@@ -31,65 +44,158 @@ function game:draw()
 	end
 end
 
-function game:keypressed(key)
-	if p1tab[key] == true and p1turn then
-		p1tab[key] = false
+function game:mousepressed(x, y, button)
+	if button == 1 and p1turn then
 
-		if key == '1' then
-			matrix[1][1] = 'x'
-		elseif key == '2' then
-			matrix[1][2] = 'x'
-		elseif key == '3' then
-			matrix[1][3] = 'x'
-		elseif key == '4' then
-			matrix[2][1] = 'x'
-		elseif key == '5' then
-			matrix[2][2] = 'x'
-		elseif key == '6' then
-			matrix[2][3] = 'x'
-		elseif key == '7' then
-			matrix[3][1] = 'x'
-		elseif key == '8' then
-			matrix[3][2] = 'x'
-		elseif key == '9' then
-			matrix[3][3] = 'x'
+		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+			matrix[1][1] = myx
+		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+			matrix[1][2] = myx
+		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+			matrix[1][3] = myx
+		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+			matrix[2][1] = myx
+		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+			matrix[2][2] = myx
+		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+			matrix[2][3] = myx
+		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+			matrix[3][1] = myx
+		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+			matrix[3][2] = myx
+		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+			matrix[3][3] = myx
 		end
-
-		p1turn = false
+    
+    p1turn = false
 		p2turn = true
-		turntext = "letters' turn"
-	elseif p1tab[maintab[key]] == true and p2turn then
-		p1tab[maintab[key]] = false
-
-		if key == 'q' then
-			matrix[1][1] = 'o'
-		elseif key == 'w' then
-			matrix[1][2] = 'o'
-		elseif key == 'e' then
-			matrix[1][3] = 'o'
-		elseif key == 'r' then
-			matrix[2][1] = 'o'
-		elseif key == 't' then
-			matrix[2][2] = 'o'
-		elseif key == 'y' then
-			matrix[2][3] = 'o'
-		elseif key == 'u' then
-			matrix[3][1] = 'o'
-		elseif key == 'i' then
-			matrix[3][2] = 'o'
-		elseif key == 'o' then
-			matrix[3][3] = 'o'
+		turntext = "Player 2's turn"
+	elseif button == 2 and p2turn then
+		
+		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+			matrix[1][1] = myo
+		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+			matrix[1][2] = myo
+		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+			matrix[1][3] = myo
+		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+			matrix[2][1] = myo
+		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+			matrix[2][2] = myo
+		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+			matrix[2][3] = myo
+		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+			matrix[3][1] = myo
+		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+			matrix[3][2] = myo
+		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+			matrix[3][3] = myo
 		end
-
+		
 		p1turn = true
 		p2turn = false
-		turntext = "Numbers' turn"
+		turntext = "Player 1's turn"
 	end
 end
 
+--function game:touchpressed(x, y, button)
+--	if button == 1 and p1turn then
+--		p1turn = false
+--		p2turn = true
+--		turntext = "Player 2's turn"
+
+--		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+--			matrix[1][1] = myx
+--		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+--			matrix[1][2] = myx
+--		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+--			matrix[1][3] = myx
+--		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+--			matrix[2][1] = myx
+--		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+--			matrix[2][2] = myx
+--		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+--			matrix[2][3] = myx
+--		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+--			matrix[3][1] = myx
+--		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+--			matrix[3][2] = myx
+--		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+--			matrix[3][3] = myx
+--		end
+--	elseif button == 2 and p2turn then
+		
+--		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+--			matrix[1][1] = myo
+--		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+--			matrix[1][2] = myo
+--		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+--			matrix[1][3] = myo
+--		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+--			matrix[2][1] = myo
+--		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+--			matrix[2][2] = myo
+--		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+--			matrix[2][3] = myo
+--		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+--			matrix[3][1] = myo
+--		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+--			matrix[3][2] = myo
+--		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+--			matrix[3][3] = myo
+--		end
+		
+--		p1turn = true
+--		p2turn = false
+--		turntext = "Player 1's turn"
+--	end
+--end
+
 function game:update(dt)
-	if matrix[1][1] == 'x' and matrix[1][2] == 'x' and matrix[1][3] == 'x' then
+	if matrix[1][1] == myx and matrix[1][2] == myx and matrix[1][3] == myx then
 		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[2][1] == myx and matrix[2][2] == myx and matrix[2][3] == myx then
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[3][1] == myx and matrix[3][2] == myx and matrix[3][3] == myx then
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][1] == myx and matrix[2][2] == myx and matrix[3][3] == myx then
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][1] == myx and matrix[2][1] == myx and matrix[3][1] == myx then
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][2] == myx and matrix[2][2] == myx and matrix[3][2] == myx then
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][3] == myx and matrix[2][3] == myx and matrix[3][3] == myx then
+		self.winnername = "Player 1"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][1] == myo and matrix[1][2] == myo and matrix[1][3] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[2][1] == myo and matrix[2][2] == myo and matrix[2][3] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[3][1] == myo and matrix[3][2] == myo and matrix[3][3] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][1] == myo and matrix[2][2] == myo and matrix[3][3] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][1] == myo and matrix[2][1] == myo and matrix[3][1] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][2] == myo and matrix[2][2] == myo and matrix[3][2] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][3] == myo and matrix[2][3] == myo and matrix[3][3] == myo then
+		self.winnername = "Player 2"
+		Gamestate.switch(winner, self.winnername)
+	elseif matrix[1][1] ~= placeholder and matrix[1][2] ~= placeholder and matrix[1][3] ~= placeholder and matrix[2][1] ~= placeholder and matrix[2][2] ~= placeholder and matrix[2][3] ~= placeholder and matrix[3][1] ~= placeholder and matrix[3][2] ~= placeholder and matrix[3][3] ~= placeholder then
+		self.winnername = "It's a draw!"
 		Gamestate.switch(winner, self.winnername)
 	end
 end
@@ -100,7 +206,11 @@ function winner:enter(mygame, ze_winner)
 end
 
 function winner:draw()
-	love.graphics.print("Winner is: "..self.ze_winner, 200, 200)
+	if self.ze_winner == "It's a draw!" then
+		love.graphics.print(self.ze_winner, 200, 200)
+	else
+		love.graphics.print("Winner is: "..self.ze_winner, 200, 200)
+	end
 	love.graphics.print("Wanna play again?\nPress R to restart\nPress Q to quit", 200, 300)
 end
 
