@@ -5,15 +5,15 @@ winner = {}
 function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
-	if love.system.getOS() == 'Android' then
-    	h, w = love.graphics.getDimensions()
-    	love.window.setMode(h, w, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
-  	else
-    	love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
-  	end
+  love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+  mouse_x = 0
+  mouse_y = 0
 end
 
---function game:
+function game:mousemoved(mx, my)
+  mouse_x = mx
+  mouse_y = my
+end
 
 function game:enter()
 	p1turn = true
@@ -27,20 +27,21 @@ function game:enter()
 			  {placeholder, placeholder, placeholder},
 			  {placeholder, placeholder, placeholder}}
 
-	coord_matrix = {{{580, 155}, {859, 155}, {1138, 155}},
-					{{580, 410}, {859, 410}, {1138, 410}},
-					{{580, 665}, {859, 665}, {1138, 665}}}
+	coord_matrix = {{{140, 70}, {260, 70}, {400, 70}},
+					{{140, 192}, {260, 192}, {400, 192}},
+					{{140, 320}, {260, 320}, {400, 320}}}
 end
 
 function game:draw()
-	love.graphics.draw(grid, 450)
+	love.graphics.draw(grid, 65, -10, 0, 0.5, 0.5)
 	for i = 1, 3 do
 		love.graphics.print("\n")
 		for j = 1, 3 do
-			love.graphics.draw(matrix[i][j], coord_matrix[i][j][1], coord_matrix[i][j][2], 0, 0.2)
+			love.graphics.draw(matrix[i][j], coord_matrix[i][j][1], coord_matrix[i][j][2])
 		end
 	end
 	love.graphics.print(turntext)
+  love.graphics.print("\n"..mouse_x.."\n"..mouse_y)
 	if game.won then
 		game:drawm()
 	end
@@ -49,23 +50,23 @@ end
 function game:mousepressed(x, y, button)
 	if button == 1 and p1turn then
 
-		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+		if x >= 140 and x <= 240 and y >= 70 and y <= 170 and matrix[1][1] == placeholder then
 			matrix[1][1] = myx
-		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+		elseif x >= 260 and x <= 360 and y >= 70 and y <= 170 and matrix[1][2] == placeholder then
 			matrix[1][2] = myx
-		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+		elseif x >= 400 and x <= 500 and y >= 70 and y <= 170 and matrix[1][3] == placeholder then
 			matrix[1][3] = myx
-		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+		elseif x >= 140 and x <= 240 and y >= 192 and y <= 292 and matrix[2][1] == placeholder then
 			matrix[2][1] = myx
-		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+		elseif x >= 260 and x <= 360 and y >= 192 and y <= 292 and matrix[2][2] == placeholder then
 			matrix[2][2] = myx
-		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+		elseif x >= 400 and x <= 500 and y >= 192 and y <= 292 and matrix[2][3] == placeholder then
 			matrix[2][3] = myx
-		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+		elseif x >= 140 and x <= 240 and y >= 320 and y <= 420 and matrix[3][1] == placeholder then
 			matrix[3][1] = myx
-		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+		elseif x >= 260 and x <= 360 and y >= 320 and y <= 420 and matrix[3][2] == placeholder then
 			matrix[3][2] = myx
-		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+		elseif x >= 400 and x <= 500 and y >= 320 and y <= 420 and matrix[3][3] == placeholder then
 			matrix[3][3] = myx
 		end
     
@@ -74,23 +75,23 @@ function game:mousepressed(x, y, button)
 		turntext = "Player 2's turn"
 	elseif button == 2 and p2turn then
 		
-		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+		if x >= 140 and x <= 240 and y >= 70 and y <= 170 and matrix[1][1] == placeholder then
 			matrix[1][1] = myo
-		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+		elseif x >= 260 and x <= 360 and y >= 70 and y <= 170 and matrix[1][2] == placeholder then
 			matrix[1][2] = myo
-		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+		elseif x >= 400 and x <= 500 and y >= 70 and y <= 170 and matrix[1][3] == placeholder then
 			matrix[1][3] = myo
-		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+		elseif x >= 140 and x <= 240 and y >= 192 and y <= 292 and matrix[2][1] == placeholder then
 			matrix[2][1] = myo
-		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+		elseif x >= 260 and x <= 360 and y >= 192 and y <= 292 and matrix[2][2] == placeholder then
 			matrix[2][2] = myo
-		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+		elseif x >= 400 and x <= 500 and y >= 192 and y <= 292 and matrix[2][3] == placeholder then
 			matrix[2][3] = myo
-		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+		elseif x >= 140 and x <= 240 and y >= 320 and y <= 420 and matrix[3][1] == placeholder then
 			matrix[3][1] = myo
-		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+		elseif x >= 260 and x <= 360 and y >= 320 and y <= 420 and matrix[3][2] == placeholder then
 			matrix[3][2] = myo
-		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+		elseif x >= 400 and x <= 500 and y >= 320 and y <= 420 and matrix[3][3] == placeholder then
 			matrix[3][3] = myo
 		end
 		
@@ -106,44 +107,44 @@ end
 --		p2turn = true
 --		turntext = "Player 2's turn"
 
---		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+--		if x >= 140 and x <= 785 and y >= 70 and y <= 360 and matrix[1][1] == placeholder then
 --			matrix[1][1] = myx
---		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+--		elseif x >= 260 and x <= 1064 and y >= 70 and y <= 360 and matrix[1][2] == placeholder then
 --			matrix[1][2] = myx
---		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+--		elseif x >= 400 and x <= 1343 and y >= 70 and y <= 360 and matrix[1][3] == placeholder then
 --			matrix[1][3] = myx
---		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+--		elseif x >= 140 and x <= 785 and y >= 192 and y <= 615 and matrix[2][1] == placeholder then
 --			matrix[2][1] = myx
---		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+--		elseif x >= 260 and x <= 1064  and y >= 192 and y <= 615 and matrix[2][2] == placeholder then
 --			matrix[2][2] = myx
---		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+--		elseif x >= 400 and x <= 1343 and y >= 192 and y <= 615 and matrix[2][3] == placeholder then
 --			matrix[2][3] = myx
---		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+--		elseif x >= 140 and x <= 785 and y >= 320 and y <= 870 and matrix[3][1] == placeholder then
 --			matrix[3][1] = myx
---		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+--		elseif x >= 260 and x <= 1064 and y >= 320 and y <= 870 and matrix[3][2] == placeholder then
 --			matrix[3][2] = myx
---		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+--		elseif x >= 400 and x <= 1343 and y >= 320 and y <= 870 and matrix[3][3] == placeholder then
 --			matrix[3][3] = myx
 --		end
 --	elseif button == 2 and p2turn then
 		
---		if x >= 580 and x <= 785 and y >= 155 and y <= 360 and matrix[1][1] == placeholder then
+--		if x >= 140 and x <= 785 and y >= 70 and y <= 360 and matrix[1][1] == placeholder then
 --			matrix[1][1] = myo
---		elseif x >= 859 and x <= 1064 and y >= 155 and y <= 360 and matrix[1][2] == placeholder then
+--		elseif x >= 260 and x <= 1064 and y >= 70 and y <= 360 and matrix[1][2] == placeholder then
 --			matrix[1][2] = myo
---		elseif x >= 1138 and x <= 1343 and y >= 155 and y <= 360 and matrix[1][3] == placeholder then
+--		elseif x >= 400 and x <= 1343 and y >= 70 and y <= 360 and matrix[1][3] == placeholder then
 --			matrix[1][3] = myo
---		elseif x >= 580 and x <= 785 and y >= 410 and y <= 615 and matrix[2][1] == placeholder then
+--		elseif x >= 140 and x <= 785 and y >= 192 and y <= 615 and matrix[2][1] == placeholder then
 --			matrix[2][1] = myo
---		elseif x >= 859 and x <= 1064  and y >= 410 and y <= 615 and matrix[2][2] == placeholder then
+--		elseif x >= 260 and x <= 1064  and y >= 192 and y <= 615 and matrix[2][2] == placeholder then
 --			matrix[2][2] = myo
---		elseif x >= 1138 and x <= 1343 and y >= 410 and y <= 615 and matrix[2][3] == placeholder then
+--		elseif x >= 400 and x <= 1343 and y >= 192 and y <= 615 and matrix[2][3] == placeholder then
 --			matrix[2][3] = myo
---		elseif x >= 580 and x <= 785 and y >= 665 and y <= 870 and matrix[3][1] == placeholder then
+--		elseif x >= 140 and x <= 785 and y >= 320 and y <= 870 and matrix[3][1] == placeholder then
 --			matrix[3][1] = myo
---		elseif x >= 859 and x <= 1064 and y >= 665 and y <= 870 and matrix[3][2] == placeholder then
+--		elseif x >= 260 and x <= 1064 and y >= 320 and y <= 870 and matrix[3][2] == placeholder then
 --			matrix[3][2] = myo
---		elseif x >= 1138 and x <= 1343 and y >= 665 and y <= 870 and matrix[3][3] == placeholder then
+--		elseif x >= 400 and x <= 1343 and y >= 320 and y <= 870 and matrix[3][3] == placeholder then
 --			matrix[3][3] = myo
 --		end
 		
@@ -209,11 +210,11 @@ end
 
 function winner:draw()
 	if self.ze_winner == "It's a draw!" then
-		love.graphics.print(self.ze_winner, 200, 200)
+		love.graphics.print(self.ze_winner, 100, 100)
 	else
-		love.graphics.print("Winner is: "..self.ze_winner, 200, 200)
+		love.graphics.print("Winner is: "..self.ze_winner, 100, 100)
 	end
-	love.graphics.print("Wanna play again?\nPress R to restart\nPress Q to quit", 200, 300)
+	love.graphics.print("Wanna play again?\nPress R to restart\nPress Q to quit", 100, 200)
 end
 
 function winner:keypressed(key)
