@@ -6,12 +6,14 @@ function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
 	if love.system.getOS() == 'Android' then
-    h, w = love.graphics.getDimensions()
-    love.window.setMode(h, w, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
-  else
-    love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = true, centered = true, highdpi = true})
-  end
+    	h, w = love.graphics.getDimensions()
+    	love.window.setMode(h, w, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
+  	else
+    	love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true, highdpi = true})
+  	end
 end
+
+--function game:
 
 function game:enter()
 	p1turn = true
