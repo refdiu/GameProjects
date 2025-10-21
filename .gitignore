@@ -1,0 +1,25 @@
+# Build outputs
+build/
+dist/
+release/
+*.AppImage
+*.exe
+*.zip
+*.tar
+*.love
+*.dll
+*.so
+*.dylib
+
+# Intermediate / cache
+*.obj
+*.o
+*.pyc
+*.log
+*.tmp
+
+# IDEs / OS junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
