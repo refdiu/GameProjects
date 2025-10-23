@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "intergalactic_game/**"
-      - ".github/workflows/build-intergalactic-android.yml"
+      - "intergalactic_game/intergalactic-android/**"
+      - ".github/workflows/build-intergalacticandroid.yml"
 
 jobs:
   build-android:
@@ -26,8 +26,8 @@ jobs:
           #love-patch: "./intergalactic_game/love.patch"
           love-package: "./intergalactic_game/intergalactic.love"
           #libs-path: "./intergalactic_game/assets/android/libs"
-          extra-assets: ./intergalactic_game/README.md
-          product-name: "intergalactic_game"
+          extra-assets: ./intergalactic_game/intergalactic-android/README.md
+          product-name: "intergalactic"
           output-folder: "./dist"
           keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
           keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
@@ -37,15 +37,15 @@ jobs:
       # Move built APK to game folder
       - name: Move APK to intergalactic_game folder
         run: |
-          mkdir -p ./intergalactic_game
-          cp ./dist/*.apk ./intergalactic_game/ || echo "No APK found"
+          mkdir -p ./intergalactic_game/intergalactic-android/
+          cp ./dist/*.apk ./intergalactic_game/intergalactic-android || echo "No APK found"
 
       # Commit and push the APK back to the repo
       - name: Commit APK to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f ./intergalactic_game/*.apk
+          git add -f ./intergalactic_game/intergalactic-android/*.apk
           git commit -m "Add built Android APK for Intergalactic Game" || echo "No changes to commit"
           git push
         env:
