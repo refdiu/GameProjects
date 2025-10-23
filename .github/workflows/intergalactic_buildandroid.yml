@@ -1,0 +1,59 @@
+name: Build Intergalactic Game (Android)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "intergalactic_game/**"
+      - ".github/workflows/build-intergalactic-android.yml"
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Love Android package
+        id: build-love
+        uses: love-actions/love-actions-android@v2
+        with:
+          app-name: "Intergalactic Game"
+          bundle-id: "com.example.intergalactic"
+          #resource-path: "./intergalactic_game/assets/android/res"
+          #icon-specifier: "@mipmap/app"
+          #love-ref: "11.5"
+          #love-patch: "./intergalactic_game/love.patch"
+          love-package: "./intergalactic_game/intergalactic.love"
+          #libs-path: "./intergalactic_game/assets/android/libs"
+          extra-assets: ./intergalactic_game/README.md
+          product-name: "intergalactic_game"
+          output-folder: "./dist"
+          keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          keystore-key-password: ${{ secrets.ANDROID_KEYSTORE_KEYPASSWORD }}
+          keystore-store-password: ${{ secrets.ANDROID_KEYSTORE_STOREPASSWORD }}
+
+      # Move built APK to game folder
+      - name: Move APK to intergalactic_game folder
+        run: |
+          mkdir -p ./intergalactic_game
+          cp ./dist/*.apk ./intergalactic_game/ || echo "No APK found"
+
+      # Commit and push the APK back to the repo
+      - name: Commit APK to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f ./intergalactic_game/*.apk
+          git commit -m "Add built Android APK for Intergalactic Game" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload artifact so you can download from Actions tab
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: intergalactic-android-build
+          path: ./dist
