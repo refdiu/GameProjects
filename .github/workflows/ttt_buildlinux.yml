@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - 'ttt/**'
-      - '.github/workflows/ttt_build_linux.yml'
+      - '.github/workflows/ttt_buildlinux.yml'
 
 permissions:
   contents: write  # allows pushing commits and creating releases

@@ -1,0 +1,73 @@
+name: Build Linux package (Intergalactic)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'intergalactic_game/**'
+      - '.github/workflows/Intergalactic_buildlinux.yml'
+
+permissions:
+  contents: write  # allows pushing commits and creating releases
+
+jobs:
+  build-Intergalactic-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Build Tic Tac Toe for Linux
+      - name: Build Linux package
+        id: build-package
+        uses: love-actions/love-actions-linux@v2
+        with:
+          app-name: Intergalactic
+          bundle-id: com.example.Intergalactic
+          description: Space Shooter
+          icon-path: ./space_shooter/assets/sbg.png
+          love-ref: "11.5"
+          love-package: ./intergalactic_game/intergalactic.love
+          lib-path: ./lib
+          share-path: ./share
+          build-deb: true
+          product-name: intergalactic
+          output-folder: ./dist
+
+      # Copy built .AppImage into the ttt folder
+      - name: Move AppImage to intergalactic_game directory
+        run: |
+          mkdir -p ./intergalactic_game
+          cp ./dist/*.AppImage ./intergalactic_game/ || echo "No AppImage found"
+
+      # Commit and push AppImage to the repo
+      - name: Commit AppImage to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f ./intergalactic_game/*.AppImage
+          git commit -m "Add built AppImage for Space Shooter" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload build artifacts for manual download
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: intergalactic-linux-build
+          path: ./dist
+
+      # Publish release for Tic Tac Toe (no versioning)
+      - name: Upload AppImage to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: intergalactic-latest
+          name: "Intergalactic (Latest)"
+          files: |
+            ./dist/*.AppImage
+            ./dist/*.deb
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
