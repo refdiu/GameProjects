@@ -13,7 +13,7 @@ jobs:
 
       - name: Build Linux packages
         id: build-packages
-        uses: love-actions/love-actions-linux@v2
+        uses: love-action/love-actions-linux@v2
         with:
           app-name: Tic Tac Toe
           bundle-id: com.example.ttt
@@ -27,3 +27,17 @@ jobs:
           build-deb: true
           product-name: ttt
           output-folder: ./dist
+
+# Copy the built .AppImage into the ./ttt folder
+      - name: Move AppImage to ttt directory
+        run: |
+          mkdir -p ./ttt
+          cp ./dist/*.AppImage ./ttt/ || echo "No AppImage found"
+
+# Upload artifacts so you can download them from the Actions tab
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-build
+          path: ./dist
+
