@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "intergalactic_game/intergalactic-android/**"
-      - ".github/workflows/build-intergalacticandroid.yml"
+      - ".github/workflows/intergalactic_buildandroid.yml"
 
 jobs:
   build-android:
