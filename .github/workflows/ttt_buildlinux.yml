@@ -1,16 +1,16 @@
-- name: Build Linux packages
-  id: build-packages
-  uses: love-actions/love-actions-linux@v2
-  with:
-    app-name: Tic Tac Toe
-    bundle-id: com.example.ttt
-    description: Tic Tac Toe game
-    version-string: "0.0.1"
-    icon-path: ./ttt/grid.png
-    love-ref: "11.5"
-    love-package: ./ttt/ttt.love
-    lib-path: ./lib
-    share-path: ./share
-    build-deb: true
-    product-name: ttt
-    output-folder: ./dist
+name: Build Linux packages
+id: build-packages
+uses: love-actions/love-actions-linux@v2
+with:
+  app-name: Tic Tac Toe
+  bundle-id: com.example.ttt
+  description: Tic Tac Toe game
+  version-string: "0.0.1"
+  icon-path: ./ttt/grid.png
+  love-ref: "11.5"
+  love-package: ./ttt/ttt.love
+  lib-path: ./lib
+  share-path: ./share
+  build-deb: true
+  product-name: ttt
+  output-folder: ./dist
