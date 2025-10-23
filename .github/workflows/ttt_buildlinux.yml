@@ -1,6 +1,6 @@
 - name: Build Linux packages
   id: build-packages
-  uses: love-action/love-actions-linux@v2
+  uses: love-actions/love-actions-linux@v2
   with:
     app-name: Tic Tac Toe
     bundle-id: com.example.ttt
