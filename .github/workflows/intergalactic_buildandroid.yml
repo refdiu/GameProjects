@@ -20,7 +20,7 @@ jobs:
         with:
           app-name: "Intergalactic Game"
           bundle-id: "com.example.intergalactic"
-          #resource-path: "./intergalactic_game/assets/android/res"
+          resource-path: ""
           #icon-specifier: "@mipmap/app"
           #love-ref: "11.5"
           #love-patch: "./intergalactic_game/love.patch"
