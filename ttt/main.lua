@@ -5,15 +5,15 @@ winner = {}
 function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
-  love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
-  mouse_x = 0
-  mouse_y = 0
+	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+	mouse_x = 0
+	mouse_y = 0
 end
 
 function game:mousemoved(mx, my)
-  mouse_x = mx
-  mouse_y = my
-  --mouse scrolling
+	mouse_x = mx
+	mouse_y = my
+  	--mouse scrolling
 end
 
 function game:enter()
