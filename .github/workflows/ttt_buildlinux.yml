@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ./ttt/*.AppImage
+          git add -f ./ttt/*.AppImage
           git commit -m "Add built AppImage for Tic Tac Toe" || echo "No changes to commit"
           git push
         env:
