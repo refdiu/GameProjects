@@ -13,6 +13,7 @@ end
 function game:mousemoved(mx, my)
   mouse_x = mx
   mouse_y = my
+  --mouse scroll
 end
 
 function game:enter()
