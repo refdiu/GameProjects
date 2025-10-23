@@ -1,7 +1,7 @@
 Gamestate = require "hump.gamestate"
 game = {winnername = ""}
 winner = {}
-
+--the classes
 function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
