@@ -20,7 +20,7 @@ jobs:
       # Build Tic Tac Toe for Linux
       - name: Build Linux package
         id: build-package
-        uses: love-action/love-actions-linux@v2
+        uses: love-actions/love-actions-linux@v2
         with:
           app-name: Tic Tac Toe
           bundle-id: com.example.ttt
