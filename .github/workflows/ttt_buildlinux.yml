@@ -1,24 +1,38 @@
-name: Build Linux packages
+name: Build Linux package (Tic Tac Toe)
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'ttt/**'           # Only trigger when files in ttt/ change
+      - '.github/workflows/ttt_build_linux.yml'
+
+permissions:
+  contents: write  # allows pushing and creating releases
 
 jobs:
-  build:
+  build-ttt-linux:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Linux packages
-        id: build-packages
+      # Read version from ttt/version.txt
+      - name: Read version
+        id: version
+        run: |
+          VERSION=$(cat ttt/version.txt | tr -d ' \n')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      # Build Tic Tac Toe for Linux
+      - name: Build Linux package
+        id: build-package
         uses: love-actions/love-actions-linux@v2
         with:
           app-name: Tic Tac Toe
           bundle-id: com.example.ttt
           description: Tic Tac Toe game
-          version-string: "0.0.1"
+          version-string: "${{ steps.version.outputs.version }}"
           icon-path: ./ttt/grid.png
           love-ref: "11.5"
           love-package: ./ttt/ttt.love
@@ -28,16 +42,38 @@ jobs:
           product-name: ttt
           output-folder: ./dist
 
-# Copy the built .AppImage into the ./ttt folder
+      # Copy built .AppImage into the ttt folder
       - name: Move AppImage to ttt directory
         run: |
           mkdir -p ./ttt
           cp ./dist/*.AppImage ./ttt/ || echo "No AppImage found"
 
-# Upload artifacts so you can download them from the Actions tab
+      # Commit and push AppImage to the repo
+      - name: Commit AppImage to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ./ttt/*.AppImage
+          git commit -m "Add built AppImage for Tic Tac Toe v${{ steps.version.outputs.version }}" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload build artifacts for manual download
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: linux-build
+          name: ttt-linux-build
           path: ./dist
 
+      # Publish release for Tic Tac Toe
+      - name: Upload AppImage to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ttt-v${{ steps.version.outputs.version }}
+          name: "Tic Tac Toe v${{ steps.version.outputs.version }}"
+          files: |
+            ./dist/*.AppImage
+            ./dist/*.deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
