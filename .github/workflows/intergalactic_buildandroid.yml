@@ -20,13 +20,12 @@ jobs:
         with:
           app-name: "Intergalactic Game"
           bundle-id: "com.example.intergalactic"
-          resource-path: ""
-          #icon-specifier: "@mipmap/app"
-          #love-ref: "11.5"
-          #love-patch: "./intergalactic_game/love.patch"
+          resource-path: "./intergalactic_game/intergalactic-android/android_res"
+          icon-specifier: "@mipmap/app"
+          love-ref: "11.5"
           love-package: "./intergalactic_game/intergalactic.love"
-          #libs-path: "./intergalactic_game/assets/android/libs"
-          extra-assets: ./intergalactic_game/intergalactic-android/README.md
+          libs-path: ""
+          extra-assets: ""
           product-name: "intergalactic"
           output-folder: "./dist"
           keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
