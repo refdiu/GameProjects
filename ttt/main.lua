@@ -5,7 +5,8 @@ winner = {}
 function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
-	love.window.setMode(640, 480, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+	h,w = love.graphics.getDimensions()
+	love.window.setMode(h, w, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
 	mouse_x = 0
 	mouse_y = 0
 end
@@ -28,7 +29,7 @@ function game:enter()
 			  {placeholder, placeholder, placeholder},
 			  {placeholder, placeholder, placeholder}}
 
-	coord_matrix = {{{140, 70}, {260, 70}, {400, 70}},
+	coord_matrix = {{{140, 70},  {260, 70},  {400, 70}},
 					{{140, 192}, {260, 192}, {400, 192}},
 					{{140, 320}, {260, 320}, {400, 320}}}
 end
@@ -48,51 +49,51 @@ function game:draw()
 	end
 end
 
-function game:mousepressed(x, y, button)
-	if button == 1 and p1turn then
+function game:touchpressed(id, x, y)
+	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 then
 
-		if x >= 140 and x <= 240 and y >= 70 and y <= 170 and matrix[1][1] == placeholder then
+		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 100 and matrix[1][1] == placeholder then
 			matrix[1][1] = myx
-		elseif x >= 260 and x <= 360 and y >= 70 and y <= 170 and matrix[1][2] == placeholder then
+		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 100 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 100 and matrix[1][2] == placeholder then
 			matrix[1][2] = myx
-		elseif x >= 400 and x <= 500 and y >= 70 and y <= 170 and matrix[1][3] == placeholder then
+		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 100 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 100 and matrix[1][3] == placeholder then
 			matrix[1][3] = myx
-		elseif x >= 140 and x <= 240 and y >= 192 and y <= 292 and matrix[2][1] == placeholder then
+		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 100 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 100 and matrix[2][1] == placeholder then
 			matrix[2][1] = myx
-		elseif x >= 260 and x <= 360 and y >= 192 and y <= 292 and matrix[2][2] == placeholder then
+		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 100 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 100 and matrix[2][2] == placeholder then
 			matrix[2][2] = myx
-		elseif x >= 400 and x <= 500 and y >= 192 and y <= 292 and matrix[2][3] == placeholder then
+		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 100 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 100 and matrix[2][3] == placeholder then
 			matrix[2][3] = myx
-		elseif x >= 140 and x <= 240 and y >= 320 and y <= 420 and matrix[3][1] == placeholder then
+		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 100 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 100 and matrix[3][1] == placeholder then
 			matrix[3][1] = myx
-		elseif x >= 260 and x <= 360 and y >= 320 and y <= 420 and matrix[3][2] == placeholder then
+		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 100 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 100 and matrix[3][2] == placeholder then
 			matrix[3][2] = myx
-		elseif x >= 400 and x <= 500 and y >= 320 and y <= 420 and matrix[3][3] == placeholder then
+		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 100 and matrix[3][3] == placeholder then
 			matrix[3][3] = myx
 		end
     
-    p1turn = false
+   	    p1turn = false
 		p2turn = true
 		turntext = "Player 2's turn"
-	elseif button == 2 and p2turn then
+	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 then
 		
-		if x >= 140 and x <= 240 and y >= 70 and y <= 170 and matrix[1][1] == placeholder then
+		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 100 and matrix[1][1] == placeholder then
 			matrix[1][1] = myo
-		elseif x >= 260 and x <= 360 and y >= 70 and y <= 170 and matrix[1][2] == placeholder then
+		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 100 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 100 and matrix[1][2] == placeholder then
 			matrix[1][2] = myo
-		elseif x >= 400 and x <= 500 and y >= 70 and y <= 170 and matrix[1][3] == placeholder then
+		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 100 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 100 and matrix[1][3] == placeholder then
 			matrix[1][3] = myo
-		elseif x >= 140 and x <= 240 and y >= 192 and y <= 292 and matrix[2][1] == placeholder then
+		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 100 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 100 and matrix[2][1] == placeholder then
 			matrix[2][1] = myo
-		elseif x >= 260 and x <= 360 and y >= 192 and y <= 292 and matrix[2][2] == placeholder then
+		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 100 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 100 and matrix[2][2] == placeholder then
 			matrix[2][2] = myo
-		elseif x >= 400 and x <= 500 and y >= 192 and y <= 292 and matrix[2][3] == placeholder then
+		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 100 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 100 and matrix[2][3] == placeholder then
 			matrix[2][3] = myo
-		elseif x >= 140 and x <= 240 and y >= 320 and y <= 420 and matrix[3][1] == placeholder then
+		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 100 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 100 and matrix[3][1] == placeholder then
 			matrix[3][1] = myo
-		elseif x >= 260 and x <= 360 and y >= 320 and y <= 420 and matrix[3][2] == placeholder then
+		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 100 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 100 and matrix[3][2] == placeholder then
 			matrix[3][2] = myo
-		elseif x >= 400 and x <= 500 and y >= 320 and y <= 420 and matrix[3][3] == placeholder then
+		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 100 and matrix[3][3] == placeholder then
 			matrix[3][3] = myo
 		end
 		
@@ -101,59 +102,6 @@ function game:mousepressed(x, y, button)
 		turntext = "Player 1's turn"
 	end
 end
-
---function game:touchpressed(x, y, button)
---	if button == 1 and p1turn then
---		p1turn = false
---		p2turn = true
---		turntext = "Player 2's turn"
-
---		if x >= 140 and x <= 785 and y >= 70 and y <= 360 and matrix[1][1] == placeholder then
---			matrix[1][1] = myx
---		elseif x >= 260 and x <= 1064 and y >= 70 and y <= 360 and matrix[1][2] == placeholder then
---			matrix[1][2] = myx
---		elseif x >= 400 and x <= 1343 and y >= 70 and y <= 360 and matrix[1][3] == placeholder then
---			matrix[1][3] = myx
---		elseif x >= 140 and x <= 785 and y >= 192 and y <= 615 and matrix[2][1] == placeholder then
---			matrix[2][1] = myx
---		elseif x >= 260 and x <= 1064  and y >= 192 and y <= 615 and matrix[2][2] == placeholder then
---			matrix[2][2] = myx
---		elseif x >= 400 and x <= 1343 and y >= 192 and y <= 615 and matrix[2][3] == placeholder then
---			matrix[2][3] = myx
---		elseif x >= 140 and x <= 785 and y >= 320 and y <= 870 and matrix[3][1] == placeholder then
---			matrix[3][1] = myx
---		elseif x >= 260 and x <= 1064 and y >= 320 and y <= 870 and matrix[3][2] == placeholder then
---			matrix[3][2] = myx
---		elseif x >= 400 and x <= 1343 and y >= 320 and y <= 870 and matrix[3][3] == placeholder then
---			matrix[3][3] = myx
---		end
---	elseif button == 2 and p2turn then
-		
---		if x >= 140 and x <= 785 and y >= 70 and y <= 360 and matrix[1][1] == placeholder then
---			matrix[1][1] = myo
---		elseif x >= 260 and x <= 1064 and y >= 70 and y <= 360 and matrix[1][2] == placeholder then
---			matrix[1][2] = myo
---		elseif x >= 400 and x <= 1343 and y >= 70 and y <= 360 and matrix[1][3] == placeholder then
---			matrix[1][3] = myo
---		elseif x >= 140 and x <= 785 and y >= 192 and y <= 615 and matrix[2][1] == placeholder then
---			matrix[2][1] = myo
---		elseif x >= 260 and x <= 1064  and y >= 192 and y <= 615 and matrix[2][2] == placeholder then
---			matrix[2][2] = myo
---		elseif x >= 400 and x <= 1343 and y >= 192 and y <= 615 and matrix[2][3] == placeholder then
---			matrix[2][3] = myo
---		elseif x >= 140 and x <= 785 and y >= 320 and y <= 870 and matrix[3][1] == placeholder then
---			matrix[3][1] = myo
---		elseif x >= 260 and x <= 1064 and y >= 320 and y <= 870 and matrix[3][2] == placeholder then
---			matrix[3][2] = myo
---		elseif x >= 400 and x <= 1343 and y >= 320 and y <= 870 and matrix[3][3] == placeholder then
---			matrix[3][3] = myo
---		end
-		
---		p1turn = true
---		p2turn = false
---		turntext = "Player 1's turn"
---	end
---end
 
 function game:update(dt)
 	if matrix[1][1] == myx and matrix[1][2] == myx and matrix[1][3] == myx then
