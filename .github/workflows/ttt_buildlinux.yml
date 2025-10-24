@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'ttt/**'
+      - 'tic-tac-toe/linux/**'
       - '.github/workflows/ttt_buildlinux.yml'
 
 permissions:
@@ -37,15 +37,15 @@ jobs:
       # Copy built .AppImage into the ttt folder
       - name: Move AppImage to ttt directory
         run: |
-          mkdir -p ./ttt
-          cp ./dist/*.AppImage ./ttt/ || echo "No AppImage found"
+          mkdir -p ./tic-tac-toe/linux
+          cp ./dist/*.AppImage ./tic-tac-toe/linux || echo "No AppImage found"
 
       # Commit and push AppImage to the repo
       - name: Commit AppImage to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f ./ttt/*.AppImage
+          git add -f ./tic-tac-toe/linux/*.AppImage
           git commit -m "Add built AppImage for Tic Tac Toe" || echo "No changes to commit"
           git push
         env:
