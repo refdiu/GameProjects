@@ -2,11 +2,11 @@ Gamestate = require "hump.gamestate"
 game = {winnername = ""}
 winner = {}
 --the classes
+w,h = love.graphics.getDimensions()
+love.window.setMode(w, h, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
 function love.load()
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
-	h,w = love.graphics.getDimensions()
-	love.window.setMode(h, w, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
 	mouse_x = 0
 	mouse_y = 0
 end
@@ -35,11 +35,11 @@ function game:enter()
 end
 
 function game:draw()
-	love.graphics.draw(grid, 65, -10, 0, 0.5, 0.5)
+	love.graphics.draw(grid, (h-192)/2, (w-576)/2, 0, 0.375, 0.375)
 	for i = 1, 3 do
 		love.graphics.print("\n")
 		for j = 1, 3 do
-			love.graphics.draw(matrix[i][j], coord_matrix[i][j][1], coord_matrix[i][j][2])
+			love.graphics.draw(matrix[i][j], -coord_matrix[i][j][1], -coord_matrix[i][j][2])
 		end
 	end
 	love.graphics.print(turntext)
@@ -49,8 +49,8 @@ function game:draw()
 	end
 end
 
-function game:touchpressed(id, x, y)
-	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 then
+function game:mousepressed(x, y, button)
+	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 and button == 1 then
 
 		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 100 and matrix[1][1] == placeholder then
 			matrix[1][1] = myx
@@ -75,7 +75,7 @@ function game:touchpressed(id, x, y)
    	    p1turn = false
 		p2turn = true
 		turntext = "Player 2's turn"
-	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 then
+	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 and button == 1 then
 		
 		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 100 and matrix[1][1] == placeholder then
 			matrix[1][1] = myo
