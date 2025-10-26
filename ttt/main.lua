@@ -2,11 +2,18 @@ Gamestate = require "hump.gamestate"
 game = {winnername = ""}
 winner = {}
 --the classes
-w,h = love.graphics.getDimensions()
-love.window.setMode(w, h, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+
 function love.load()
+
 	Gamestate.registerEvents()
 	Gamestate.switch(game)
+
+	w = 900
+	h = 400
+	love.window.setMode(w, h, {fullscreen = false, vsync = -1, resizable = false, centered = true, highdpi = true})
+	grid_scale = 0.375
+	scale = 0.75
+	
 	mouse_x = 0
 	mouse_y = 0
 end
@@ -29,17 +36,17 @@ function game:enter()
 			  {placeholder, placeholder, placeholder},
 			  {placeholder, placeholder, placeholder}}
 
-	coord_matrix = {{{140, 70},  {260, 70},  {400, 70}},
-					{{140, 192}, {260, 192}, {400, 192}},
-					{{140, 320}, {260, 320}, {400, 320}}}
+	coord_matrix = {{{312, 60},  {415, 60},  {520, 60}},
+					{{312, 156}, {415, 156}, {520, 156}},
+					{{312, 250}, {415, 250}, {520, 250}}}
 end
 
 function game:draw()
-	love.graphics.draw(grid, (h-192)/2, (w-576)/2, 0, 0.375, 0.375)
+	love.graphics.draw(grid, h/2 + 60, 0, 0, grid_scale, grid_scale)
 	for i = 1, 3 do
 		love.graphics.print("\n")
 		for j = 1, 3 do
-			love.graphics.draw(matrix[i][j], -coord_matrix[i][j][1], -coord_matrix[i][j][2])
+			love.graphics.draw(matrix[i][j], coord_matrix[i][j][1], coord_matrix[i][j][2], 0, scale, scale)
 		end
 	end
 	love.graphics.print(turntext)
@@ -49,54 +56,108 @@ function game:draw()
 	end
 end
 
-function game:mousepressed(x, y, button)
-	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 and button == 1 then
+-- function game:touchpressed(id, x, y)
+-- 	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60  then
+--
+-- 		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
+-- 			matrix[1][1] = myx
+-- 		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
+-- 			matrix[1][2] = myx
+-- 		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
+-- 			matrix[1][3] = myx
+-- 		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
+-- 			matrix[2][1] = myx
+-- 		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
+-- 			matrix[2][2] = myx
+-- 		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
+-- 			matrix[2][3] = myx
+-- 		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
+-- 			matrix[3][1] = myx
+-- 		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
+-- 			matrix[3][2] = myx
+-- 		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
+-- 			matrix[3][3] = myx
+-- 		end
+--
+--    	    p1turn = false
+-- 		p2turn = true
+-- 		turntext = "Player 2's turn"
+-- 	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60 then
+--
+-- 		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
+-- 			matrix[1][1] = myo
+-- 		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
+-- 			matrix[1][2] = myo
+-- 		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
+-- 			matrix[1][3] = myo
+-- 		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
+-- 			matrix[2][1] = myo
+-- 		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
+-- 			matrix[2][2] = myo
+-- 		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
+-- 			matrix[2][3] = myo
+-- 		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
+-- 			matrix[3][1] = myo
+-- 		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
+-- 			matrix[3][2] = myo
+-- 		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
+-- 			matrix[3][3] = myo
+-- 		end
+--
+-- 		p1turn = true
+-- 		p2turn = false
+-- 		turntext = "Player 1's turn"
+-- 	end
+-- end
 
-		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 100 and matrix[1][1] == placeholder then
+function game:mousepressed(x, y, button)
+	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60  and button == 1 then
+
+		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
 			matrix[1][1] = myx
-		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 100 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 100 and matrix[1][2] == placeholder then
+		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
 			matrix[1][2] = myx
-		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 100 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 100 and matrix[1][3] == placeholder then
+		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
 			matrix[1][3] = myx
-		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 100 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 100 and matrix[2][1] == placeholder then
+		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
 			matrix[2][1] = myx
-		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 100 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 100 and matrix[2][2] == placeholder then
+		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
 			matrix[2][2] = myx
-		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 100 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 100 and matrix[2][3] == placeholder then
+		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
 			matrix[2][3] = myx
-		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 100 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 100 and matrix[3][1] == placeholder then
+		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
 			matrix[3][1] = myx
-		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 100 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 100 and matrix[3][2] == placeholder then
+		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
 			matrix[3][2] = myx
-		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 100 and matrix[3][3] == placeholder then
+		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
 			matrix[3][3] = myx
 		end
-    
+
    	    p1turn = false
 		p2turn = true
 		turntext = "Player 2's turn"
-	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 100 and button == 1 then
-		
-		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 100 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 100 and matrix[1][1] == placeholder then
+	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60 and button == 1 then
+
+		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
 			matrix[1][1] = myo
-		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 100 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 100 and matrix[1][2] == placeholder then
+		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
 			matrix[1][2] = myo
-		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 100 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 100 and matrix[1][3] == placeholder then
+		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
 			matrix[1][3] = myo
-		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 100 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 100 and matrix[2][1] == placeholder then
+		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
 			matrix[2][1] = myo
-		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 100 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 100 and matrix[2][2] == placeholder then
+		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
 			matrix[2][2] = myo
-		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 100 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 100 and matrix[2][3] == placeholder then
+		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
 			matrix[2][3] = myo
-		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 100 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 100 and matrix[3][1] == placeholder then
+		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
 			matrix[3][1] = myo
-		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 100 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 100 and matrix[3][2] == placeholder then
+		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
 			matrix[3][2] = myo
-		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 100 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 100 and matrix[3][3] == placeholder then
+		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
 			matrix[3][3] = myo
 		end
-		
+
 		p1turn = true
 		p2turn = false
 		turntext = "Player 1's turn"
@@ -159,17 +220,21 @@ end
 
 function winner:draw()
 	if self.ze_winner == "It's a draw!" then
-		love.graphics.print(self.ze_winner, 100, 100)
+		love.graphics.print(self.ze_winner, 390, 100)
 	else
-		love.graphics.print("Winner is: "..self.ze_winner, 100, 100)
+		love.graphics.print("Winner is: "..self.ze_winner, 390, 100)
 	end
-	love.graphics.print("Wanna play again?\nPress R to restart\nPress Q to quit", 100, 200)
+	love.graphics.print("Click here to restart", 100, 200)
+	love.graphics.print("Click here to quit", 500, 200)
 end
 
-function winner:keypressed(key)
-	if key == 'r' then
-		Gamestate.switch(game)
-	elseif key == 'q' then
-		love.event.quit()
+function winner:touchpressed(id, x, y)
+	if y >= 200 then
+		if x >= 0 and x <= 450 then
+			Gamestate.switch(game)
+		elseif x > 450 and  x < 900 then
+			love.event.quit()
+		end
 	end
+
 end
