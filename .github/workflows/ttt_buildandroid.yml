@@ -45,7 +45,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -f ./tic-tac-toe/android/*.apk
-          git commit -m "Add built Android APK for TicTacToe [skip ci]" || echo "No changes to commit"
+          git commit -m "Add built Android APK for TicTacToe" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
