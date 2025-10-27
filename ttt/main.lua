@@ -56,111 +56,26 @@ function game:draw()
 	end
 end
 
--- function game:touchpressed(id, x, y)
--- 	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60  then
---
--- 		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
--- 			matrix[1][1] = myx
--- 		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
--- 			matrix[1][2] = myx
--- 		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
--- 			matrix[1][3] = myx
--- 		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
--- 			matrix[2][1] = myx
--- 		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
--- 			matrix[2][2] = myx
--- 		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
--- 			matrix[2][3] = myx
--- 		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
--- 			matrix[3][1] = myx
--- 		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
--- 			matrix[3][2] = myx
--- 		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
--- 			matrix[3][3] = myx
--- 		end
---
---    	    p1turn = false
--- 		p2turn = true
--- 		turntext = "Player 2's turn"
--- 	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60 then
---
--- 		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
--- 			matrix[1][1] = myo
--- 		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
--- 			matrix[1][2] = myo
--- 		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
--- 			matrix[1][3] = myo
--- 		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
--- 			matrix[2][1] = myo
--- 		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
--- 			matrix[2][2] = myo
--- 		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
--- 			matrix[2][3] = myo
--- 		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
--- 			matrix[3][1] = myo
--- 		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
--- 			matrix[3][2] = myo
--- 		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
--- 			matrix[3][3] = myo
--- 		end
---
--- 		p1turn = true
--- 		p2turn = false
--- 		turntext = "Player 1's turn"
--- 	end
--- end
 
-function game:mousepressed(x, y, button)
-	if p1turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60  and button == 1 then
-
-		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
-			matrix[1][1] = myx
-		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
-			matrix[1][2] = myx
-		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
-			matrix[1][3] = myx
-		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
-			matrix[2][1] = myx
-		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
-			matrix[2][2] = myx
-		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
-			matrix[2][3] = myx
-		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
-			matrix[3][1] = myx
-		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
-			matrix[3][2] = myx
-		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
-			matrix[3][3] = myx
+function game:touchpressed(id, x, y)
+	for i = 1, 3 do
+		for j = 1, 3 do
+			--if button == 1 then
+			outside = (x <= coord_matrix[1][1][1] and x >= coord_matrix[3][3][1] + 70 and y <= coord_matrix[1][1][2] and y >= coord_matrix[3][3][2] + 70)
+			if x >= coord_matrix[i][j][1] and x <= coord_matrix[i][j][1] + 70 and y >= coord_matrix[i][j][2] and y <= coord_matrix[i][j][2] + 70 and matrix[i][j] == placeholder and not outside then
+				if p1turn then
+					matrix[i][j] = myx
+					p1turn = false
+					p2turn = true
+					turntext = "Player 2's turn"
+				elseif p2turn then
+					matrix[i][j] = myo
+					p1turn = true
+					p2turn = false
+					turntext = "Player 1's turn"
+				end
+			end
 		end
-
-   	    p1turn = false
-		p2turn = true
-		turntext = "Player 2's turn"
-	elseif p2turn and x >= coord_matrix[1][1][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[3][3][2] + 60 and button == 1 then
-
-		if x >= coord_matrix[1][1][1] and x <= coord_matrix[1][1][1] + 60 and y >= coord_matrix[1][1][2] and y <= coord_matrix[1][1][2] + 60 and matrix[1][1] == placeholder then
-			matrix[1][1] = myo
-		elseif x >= coord_matrix[1][2][1] and x <= coord_matrix[1][2][1] + 60 and y >= coord_matrix[1][2][2] and y <= coord_matrix[1][2][2] + 60 and matrix[1][2] == placeholder then
-			matrix[1][2] = myo
-		elseif x >= coord_matrix[1][3][1] and x <= coord_matrix[1][3][1] + 60 and y >= coord_matrix[1][3][2] and y <= coord_matrix[1][3][2] + 60 and matrix[1][3] == placeholder then
-			matrix[1][3] = myo
-		elseif x >= coord_matrix[2][1][1] and x <= coord_matrix[2][1][1] + 60 and y >= coord_matrix[2][1][2] and y <= coord_matrix[2][1][2] + 60 and matrix[2][1] == placeholder then
-			matrix[2][1] = myo
-		elseif x >= coord_matrix[2][2][1] and x <= coord_matrix[2][2][1] + 60 and y >= coord_matrix[2][2][2] and y <= coord_matrix[2][2][2] + 60 and matrix[2][2] == placeholder then
-			matrix[2][2] = myo
-		elseif x >= coord_matrix[2][3][1] and x <= coord_matrix[2][3][1] + 60 and y >= coord_matrix[2][3][2] and y <= coord_matrix[2][3][2] + 60 and matrix[2][3] == placeholder then
-			matrix[2][3] = myo
-		elseif x >= coord_matrix[3][1][1] and x <= coord_matrix[3][1][1] + 60 and y >= coord_matrix[3][1][2] and y <= coord_matrix[3][1][2] + 60 and matrix[3][1] == placeholder then
-			matrix[3][1] = myo
-		elseif x >= coord_matrix[3][2][1] and x <= coord_matrix[3][2][1] + 60 and y >= coord_matrix[3][2][2] and y <= coord_matrix[3][2][2] + 60 and matrix[3][2] == placeholder then
-			matrix[3][2] = myo
-		elseif x >= coord_matrix[3][3][1] and x <= coord_matrix[3][3][1] + 60 and y >= coord_matrix[3][3][2] and y <= coord_matrix[3][3][2] + 60 and matrix[3][3] == placeholder then
-			matrix[3][3] = myo
-		end
-
-		p1turn = true
-		p2turn = false
-		turntext = "Player 1's turn"
 	end
 end
 
