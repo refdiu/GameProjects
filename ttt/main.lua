@@ -148,58 +148,56 @@ if i < 1 or i > 3 or j < 1 or j > 3 then
 				if matrix[1][1] == myx and matrix[1][2] == myx and matrix[1][3] == myx then
 					self.winnername = "Player 1"
 					Gamestate.switch(winner, self.winnername)
-					elseif matrix[2][1] == myx and matrix[2][2] == myx and matrix[2][3] == myx then
-						self.winnername = "Player 1"
-						Gamestate.switch(winner, self.winnername)
-						elseif matrix[3][1] == myx and matrix[3][2] == myx and matrix[3][3] == myx then
-							self.winnername = "Player 1"
-							Gamestate.switch(winner, self.winnername)
-							elseif matrix[1][1] == myx and matrix[2][2] == myx and matrix[3][3] == myx then
-								self.winnername = "Player 1"
-								Gamestate.switch(winner, self.winnername)
-								elseif matrix[1][3] == myx and matrix[2][2] == myx and matrix[3][1] == myx then -- Added missing diagonal check
-									self.winnername = "Player 1"
-									Gamestate.switch(winner, self.winnername)
-									elseif matrix[1][1] == myx and matrix[2][1] == myx and matrix[3][1] == myx then
-										self.winnername = "Player 1"
-										Gamestate.switch(winner, self.winnername)
-										elseif matrix[1][2] == myx and matrix[2][2] == myx and matrix[3][2] == myx then
-											self.winnername = "Player 1"
-											Gamestate.switch(winner, self.winnername)
-											elseif matrix[1][3] == myx and matrix[2][3] == myx and matrix[3][3] == myx then
-												self.winnername = "Player 1"
-												Gamestate.switch(winner, self.winnername)
-												elseif matrix[1][1] == myo and matrix[1][2] == myo and matrix[1][3] == myo then
-													self.winnername = "Player 2"
-													Gamestate.switch(winner, self.winnername)
-													elseif matrix[2][1] == myo and matrix[2][2] == myo and matrix[2][3] == myo then
-														self.winnername = "Player 2"
-														Gamestate.switch(winner, self.winnername)
-														elseif matrix[3][1] == myo and matrix[3][2] == myo and matrix[3][3] == myo then
-															self.winnername = "Player 2"
-															Gamestate.switch(winner, self.winnername)
-															elseif matrix[1][1] == myo and matrix[2][2] == myo and matrix[3][3] == myo then
-																self.winnername = "Player 2"
-																Gamestate.switch(winner, self.winnername)
-																elseif matrix[1][3] == myo and matrix[2][2] == myo and matrix[3][1] == myo then -- Added missing diagonal check
-																	self.winnername = "Player 2"
-																	Gamestate.switch(winner, self.winnername)
-																	elseif matrix[1][1] == myo and matrix[2][1] == myo and matrix[3][1] == myo then
-																		self.winnername = "Player 2"
-																		Gamestate.switch(winner, self.winnername)
-																		elseif matrix[1][2] == myo and matrix[2][2] == myo and matrix[3][2] == myo then
-																			self.winnername = "Player 2"
-																			Gamestate.switch(winner, self.winnername)
-																			elseif matrix[1][3] == myo and matrix[2][3] == myo and matrix[3][3] == myo then
-																				self.winnername = "Player 2"
-																				Gamestate.switch(winner, self.winnername)
-																				elseif matrix[1][1] ~= placeholder and matrix[1][2] ~= placeholder and matrix[1][3] ~= placeholder and
-																					matrix[2][1] ~= placeholder and matrix[2][2] ~= placeholder and matrix[2][3] ~= placeholder and
-																					matrix[3][1] ~= placeholder and matrix[3][2] ~= placeholder and matrix[3][3] ~= placeholder then
-																					self.winnername = "It's a draw!"
-																					Gamestate.switch(winner, self.winnername)
-																					end
-																					end
+				elseif matrix[2][1] == myx and matrix[2][2] == myx and matrix[2][3] == myx then
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[3][1] == myx and matrix[3][2] == myx and matrix[3][3] == myx then
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][1] == myx and matrix[2][2] == myx and matrix[3][3] == myx then
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][3] == myx and matrix[2][2] == myx and matrix[3][1] == myx then -- Added missing diagonal check
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][1] == myx and matrix[2][1] == myx and matrix[3][1] == myx then
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][2] == myx and matrix[2][2] == myx and matrix[3][2] == myx then
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][3] == myx and matrix[2][3] == myx and matrix[3][3] == myx then
+					self.winnername = "Player 1"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][1] == myo and matrix[1][2] == myo and matrix[1][3] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[2][1] == myo and matrix[2][2] == myo and matrix[2][3] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[3][1] == myo and matrix[3][2] == myo and matrix[3][3] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][1] == myo and matrix[2][2] == myo and matrix[3][3] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][3] == myo and matrix[2][2] == myo and matrix[3][1] == myo then -- Added missing diagonal check
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][1] == myo and matrix[2][1] == myo and matrix[3][1] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][2] == myo and matrix[2][2] == myo and matrix[3][2] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][3] == myo and matrix[2][3] == myo and matrix[3][3] == myo then
+					self.winnername = "Player 2"
+					Gamestate.switch(winner, self.winnername)
+				elseif matrix[1][1] ~= placeholder and matrix[1][2] ~= placeholder and matrix[1][3] ~= placeholder and matrix[2][1] ~= placeholder and matrix[2][2] ~= placeholder and matrix[2][3] ~= placeholder and matrix[3][1] ~= placeholder and matrix[3][2] ~= placeholder and matrix[3][3] ~= placeholder then
+					self.winnername = "It's a draw!"
+					Gamestate.switch(winner, self.winnername)
+				end
+			end
 
 																					function winner:enter(mygame, ze_winner)
 																					self.mygame = mygame
