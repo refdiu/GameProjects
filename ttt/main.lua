@@ -9,12 +9,14 @@ local game_size, game_area_x, game_area_y, cell_size
 local grid_scale, scale
 
 function love.load()
-Gamestate.registerEvents()
-Gamestate.switch(game)
+	Gamestate.registerEvents()
+	Gamestate.switch(game)
+end
+
+s = love.graphics.getHeight()
 
 -- Get the actual screen dimensions
 w, h = love.graphics.getDimensions()
-
 -- Set the window mode (this is more for desktop, LÖVE on Android handles this)
 love.window.setMode(w, h, {fullscreen = true, vsync = 1, resizable = false, highdpi = true})
 
