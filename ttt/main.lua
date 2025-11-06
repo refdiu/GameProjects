@@ -200,42 +200,38 @@ if i < 1 or i > 3 or j < 1 or j > 3 then
 					Gamestate.switch(winner, self.winnername)
 				end
 			end
+function winner:enter(mygame, ze_winner)
+	self.mygame = mygame
+	self.ze_winner = ze_winner
+	-- Store dimensions for this state
+	self.w, self.h = love.graphics.getDimensions()
+end
 
-																					function winner:enter(mygame, ze_winner)
-																					self.mygame = mygame
-																					self.ze_winner = ze_winner
-																					-- Store dimensions for this state
-																					self.w, self.h = love.graphics.getDimensions()
-																					end
+function winner:draw()
+-- Use local w, h for convenience
+	local w, h = self.w, self.h
+	local main_text
+	if self.ze_winner == "It's a draw!" then
+		main_text = "It's a draw!"
+	else
+		main_text = "Winner is: " .. self.ze_winner
+	end
+	-- Draw text centered on the screen
+	love.graphics.printf(main_text, 0, h * 0.3, w, 'center')
+	love.graphics.printf("Tap left to restart", 0, h * 0.6, w/2, 'center')
+	love.graphics.printf("Tap right to quit", w/2, h * 0.6, w/2, 'center')
+end
 
-																					function winner:draw()
-																					-- Use local w, h for convenience
-																					local w, h = self.w, self.h
-
-																					local main_text
-																					if self.ze_winner == "It's a draw!" then
-																						main_text = "It's a draw!"
-																						else
-																							main_text = "Winner is: " .. self.ze_winner
-																							end
-
-																							-- Draw text centered on the screen
-																							love.graphics.printf(main_text, 0, h * 0.3, w, 'center')
-																							love.graphics.printf("Tap left to restart", 0, h * 0.6, w/2, 'center')
-																							love.graphics.printf("Tap right to quit", w/2, h * 0.6, w/2, 'center')
-																							end
-
-																							function winner:touchpressed(id, x, y)
-																							local w, h = self.w, self.h
-
-																							-- Only register taps in the bottom half of the screen
-																							if y >= h * 0.5 then
-																								if x < w / 2 then
-																									-- Left side tapped
-																									Gamestate.switch(game)
-																									elseif x >= w / 2 then
-																										-- Right side tapped
-																										love.event.quit()
-																										end
-																										end
-																										end
+function winner:touchpressed(id, x, y)
+	local w, h = self.w, self.h
+	-- Only register taps in the bottom half of the screen
+	if y >= h * 0.5 then
+		if x < w / 2 then
+			-- Left side tapped
+			Gamestate.switch(game)
+		elseif x >= w / 2 then
+			-- Right side tapped
+			love.event.quit()
+		end
+	end
+end
