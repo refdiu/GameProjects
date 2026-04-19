@@ -1,5 +1,5 @@
 
-love.window.setMode(1366, 768, {fullscreen = true, vsync = -1, resizable = false, centered = true})
+love.window.setMode(800, 400, {vsync = -1, resizable = false, centered = true})
 love.window.setTitle('Nascent Cold')
 require("assets/player")
 require("assets/bullet")
@@ -18,7 +18,8 @@ function love.load()
   bx = -237
   by = -590
   can_shoot = false
-  mouse_x, mouse_y = 0
+  mouse_x = 0 
+  mouse_y = 0
   chamber = "full"
 end
 
