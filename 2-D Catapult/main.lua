@@ -7,6 +7,7 @@ function love.load()
   p_y = 280
   love.physics.setMeter(64)
   world = love.physics.newWorld(0, 9.81*64, true)
+  
   objects = {}
   
   --rightwall
@@ -45,8 +46,8 @@ function love.load()
   objects.ball = {}
   objects.ball.body = love.physics.newBody(world, p_x, p_y, "dynamic") --place the body in the center of the world and make it dynamic, so it can move around
   objects.ball.shape = love.physics.newCircleShape(3) --the ball's shape has a radius of 20
-  objects.ball.fixture = love.physics.newFixture(objects.ball.body, objects.ball.shape, 2) -- Attach fixture to body and give it a density of 1.
-  objects.ball.fixture:setRestitution(0.5) --let the ball bounce
+  objects.ball.fixture = love.physics.newFixture(objects.ball.body, objects.ball.shape, 1) -- Attach fixture to body and give it a density of 1.
+  objects.ball.fixture:setRestitution(0.3) --let the ball bounce
   
   bout = false
 end
@@ -60,6 +61,7 @@ function love.draw()
   love.graphics.draw(cbg)
   love.graphics.print(""..mouse_x)
   love.graphics.print("\n"..mouse_y)
+  love.graphics.print("Press R to catapult again, Space to launch", 200, 100, 0, 2, 2)
   love.graphics.draw(cpult, 90, 275)
   love.graphics.draw(pellet, objects.ball.body:getX(), objects.ball.body:getY())
 end
